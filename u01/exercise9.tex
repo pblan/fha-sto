@@ -1,0 +1,21 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Fuer die Klaerung einer Sachfrage will ein Ausschuss aus seinen 14 Mitgliedern einen \gqq{Fuenferrat} bilden. 
+    Dieser ist jedoch arbeitsunfaehig, wenn ihm 2 bestimmte Ausschussmitglieder gleichzeitig angehoeren, da diese beiden sich nicht moegen.
+    Wie viele Moeglichkeiten gibt es fuer die Bildung des \gqq{Fuenferrats}?
+    \begin{solution}
+        Wir koennen uns ohne Probleme Fuenferteams aus den 12 unproblematischen Mitgliedern bilden. 
+        Um dann die beiden Streithaehne auch unterzubringen, berechnen wir die Anzahl an Viererteams aus den selben 12 Mitgliedern, verdoppeln diese Zahl und haben so die gesamte Anzahl an Moeglichkeiten.
+
+        Es gilt: (Kombinationen ohne Wiederholung)
+        \[ 
+            n = C(12;5) + 2 \cdot C(12;4) = \binom{12}{5} + 2 \cdot \binom{12}{4} = \ldots = \num{1782}
+        \] 
+        \qed
+    \end{solution}
+\end{questions}
+\end{document}

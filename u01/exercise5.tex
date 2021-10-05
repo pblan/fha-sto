@@ -1,0 +1,18 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Ein Zweig des Telefonnetzes wird ueber sechsstellige Nummern angewaehlt. 
+    Die erste Ziffer der Telefonnummer darf keine Null sein. 
+    Fuer wieviele Anschluesse reichen die moeglichen Kombinationen aus?
+    \begin{solution}
+        Es gilt: (Variation mit Wiederholung fuer 1. Ziffer bzw. 2.-6. Ziffer)
+        \[ 
+            V_w(9;1) \cdot V_w(10;5) = 9^1 \cdot 10^5 = \num{900000}
+        \] 
+        \qed
+    \end{solution}
+\end{questions}
+\end{document}

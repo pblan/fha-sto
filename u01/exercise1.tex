@@ -1,0 +1,21 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Wie viele verschiedene Moeglichkeiten gibt es, 7 Studierende auf 7 Plaetzen anzuordnen, wenn diese eine Sitzreihe im Hoersaal bilden?
+    Was aendert sich, wenn die Platzierung auf 7 Stuehlen um einen runden Tisch geschehen soll?
+    \begin{solution}
+        Fuer die Sitzreihe gilt trivialerweise: (Permutation)
+        \[
+            P(7) = 7! = \num{5040}  
+        \]
+
+        Fuer den runden Tisch gilt dann, da die Wahl der \glqq ersten Position\grqq egal ist: (Permutation)
+        \[
+            \frac{P(7)}{7} = P(6) = 720
+        \]\qed
+    \end{solution}
+\end{questions}
+\end{document}

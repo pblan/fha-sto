@@ -1,0 +1,32 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Zu einer Feier wollen die Gaeste Weisswein trinken. 
+    Von 3 Sorten stehen jeweils 12 nicht unterscheidbare Flaschen im Keller. 
+    \begin{parts}
+        \part 
+        Der Kuehlschrank im Keller fasst 6 Flaschen.
+        Wie viele Moeglichkeiten gibt es aus den 3 Sorten den Kuehlschrank zu bestuecken?
+        \begin{solution}
+            Es gilt: (Kombination mit Wiederholung)
+            \[
+                C_w(3;6) = \binom{3 + 6 - 1}{6} = \binom{8}{6} = \frac{8!}{6! \cdot 2!} = 28 
+            \]
+            \qed
+        \end{solution}
+
+        \part 
+        Wie viele Anordnungen der Flaschen im Regal gibt es, wenn die Flaschen einer Sorte nicht unterscheidbar sind? 
+        \begin{solution}
+            Es gilt: (Permutation mit nicht unterscheidbaren Flaschen) 
+            \[ 
+                P(36;12;12;12) = \frac{36!}{12! \cdot 12! \cdot 12!} \approx 3.38 \cdot 10^{15}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

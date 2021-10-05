@@ -1,0 +1,62 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Eine Lieferung von 30 Geraeten, die durch ihre Fabrikationsnummern unterscheidbar sind, enthaelt 6 fehlerhafte Geraete.
+    \begin{parts}
+        \part 
+        Wie viele verschiedene Stichproben des Umfangs 5 sind moeglich?
+        \begin{solution}
+            Es gilt: (Kombination ohne Wiederholung)
+            \[ 
+                C(30;5) = \binom{30}{5} = \frac{30!}{5! \cdot 25!} = \num{142506}
+            \]
+            \qed
+        \end{solution}
+
+        \part 
+        Wie viele Stichproben des Umfangs 5 mit genau 2 fehlerhaften Geraeten sind moeglich?
+        \begin{solution}
+            Es gilt: (Kombination ohne Wiederholung pro Geraetetyp)
+            \[ 
+                C(24;3) \cdot C(6;2) = \binom{24}{3} \cdot \binom{6}{2} = \ldots = \num{30360}
+            \] 
+            \qed
+        \end{solution}
+
+        \part 
+        Wie viele Stichproben des Umfangs 5 mit hoechstens einem fehlerhaften Geraet sind moeglich?
+        \begin{solution}
+            1. Situation: 
+            \begin{itemize}
+                \item Alle 5 Geraete kommen aus den 24 funktionstuechtigen Geraeten.
+                \item Keine Geraete kommen aus den 6 defekten Geraeten.
+            \end{itemize}
+
+            2. Situation: 
+            \begin{itemize}
+                \item 4 Geraete kommen aus den 24 funktionstuechtigen Geraeten.
+                \item 1 Geraet kommt aus den 6 defekten Geraeten.
+            \end{itemize}
+
+            Es gilt: (Kombination ohne Wiederholung pro Geraetetyp)
+            \[ 
+                n_1 = C(24;5) \cdot C(6;0) = \binom{24}{5} \cdot \binom{6}{0} = \ldots = \num{42504}
+            \] 
+            \[ 
+                n_2 = C(24;4) \cdot C(6;1) = \binom{24}{4} \cdot \binom{6}{1} = \ldots = \num{63756}
+            \] 
+
+            Insgesamt gilt damit:
+            \[ 
+                n = n_1 + n_2 = \num{106260}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+
+    Dabei wird, wie in der Praxis ueblich, eine gepruefte Einheit nach der Pruefung nicht in das Lieferlos zurueckgelegt.
+\end{questions}
+\end{document}
