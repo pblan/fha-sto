@@ -4,16 +4,16 @@
 
 \begin{questions}
     \question
-    Berechnen Sie, wie lange ein Skatspieler leben muesste, wenn er 
+    Berechnen Sie, wie lange ein Skatspieler leben müsste, wenn er 
     \begin{parts}
         \part 
-        alle moeglichen Blaetter aus 10 Karten auf die Hand (ein Skatspielbesteht aus 32 Karten) bekommt.
+        alle möglichen Blätter aus 10 Karten auf die Hand (ein Skatspielbesteht aus 32 Karten) bekommt.
         \begin{solution}
             Es gilt: (Kombination ohne Wiederholung)
             \[ 
                 n = C(32;10) = \binom{32}{10} = \frac{32!}{10! \cdot 22!} = \num{64512240}
             \] 
-            Da der Skatspieler 5min pro Spiel braucht, benoetigt er: 
+            Da der Skatspieler 5min pro Spiel braucht, benötigt er: 
             \[ 
                 n \cdot 5\si{\min} = \num{64512240} \cdot 5\si{\min} = \num{322561200}\si{\min} \approx \num{224000}\si{\day}
             \] 
@@ -21,7 +21,7 @@
         \end{solution}
 
         \part 
-        alle moeglichen Spiele, also auch alle moeglichen Blaetter seiner zwei Mitspieler und der zwei Skatkarten beruecksichtigt werden. 
+        alle möglichen Spiele, also auch alle möglichen Blätter seiner zwei Mitspieler und der zwei Skatkarten berücksichtigt werden. 
         \begin{solution}
             Es gilt: (Kombinationen ohne Wiederholung)
             \[ 
@@ -33,7 +33,7 @@
                 \end{aligned}
             \] 
 
-            Analog wuerde er hierfuer ca. \num{9560050029530} Tage benoetigen.
+            Analog würde er hierfür ca. \num{9560050029530} Tage benoetigen.
             \qed
         \end{solution}
     \end{parts}
