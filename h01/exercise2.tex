@@ -1,0 +1,55 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Im Portemonnaie befinden sich fünf 50 Cent Stücke und sieben 5 Cent Stücke. 
+    Drei Münzen werden zufällig und ohne Zurücklegen entnommen. 
+    Wie viel Geld hat man
+    \begin{parts}
+        \part 
+        mindestens auf der Hand?
+        \begin{solution}
+             \[ 
+                3 \cdot 5 \ \text{Cent} = 15 \ \text{Cent}
+             \] 
+             \qed
+        \end{solution}
+        
+        \part 
+        höchstens auf der Hand?
+        \begin{solution}
+            \[ 
+                3 \cdot 50 \ \text{Cent} = 150 \ \text{Cent}
+             \] 
+            \qed
+        \end{solution}
+        
+        \part 
+        Wie viele Kombinationen von Münzen (nicht Werten) können auftreten?
+        \begin{solution}
+            Durch die Bemerkung gehen wir davon aus, dass die Münzen an sich auch bei gleichem Wert unterscheidbar bleiben.
+
+             Dann gilt: (Kombinationen ohne Wiederholung)
+             \[ 
+                C(12;3) = \binom{12}{3} = 220
+             \] 
+            \qed
+        \end{solution}
+        
+        \part 
+        Wie oft kommt dabei der Betrag von $0.6$ Euro zustande?
+        \begin{solution}
+            Wir wählen uns eine beliebige 50 Cent Münze und zwei beliebige 5 Cent Münzen. 
+
+            Dann gilt: (jeweils Kombinationen ohne Wiederholung)
+            \[ 
+                n = C(5;1) \cdot C(7;2) = 5 \cdot 21 = 105
+            \] 
+            \qed
+        \end{solution}
+        
+    \end{parts}
+\end{questions}
+\end{document}

@@ -1,0 +1,42 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    In der Formel 1 gehen je nach Saison 10 Teams mit jeweils 2 Formel 1-Fahrern an den Start.
+    \begin{parts}
+        \part 
+        Wie viele Möglichkeiten gibt es, die Formel 1-Wagen an der Startlinie aufzustellen?
+        \begin{solution}
+            Insgesamt fahren nach Aufgabenstellung (ich habe nämlich keine Ahnung von Formel 1) 20 Wagen pro Rennen mit. 
+
+            Damit gilt: (Permutation)
+            \[ 
+                P(20) = 20! = \num{2432902008176640000}
+            \] 
+            \qed
+
+            Alternativ könnte man annehmen, dass die zwei Wagen der jeweiligen Hersteller nicht unterscheidbar sind, da sie - nach Wikipedia - baugleich sind. 
+
+            Dann gilt: (Permutation mit 10x 2 identischen Wagen)
+            \[ 
+            P(20;2;2;2;2;2;2;2;2;2;2) = \frac{20!}{\left(2!\right)^{10}} = \num{2375880867360000}
+            \] 
+            \qed
+        \end{solution}
+        
+        \part 
+        Mit Ihren Formel 1-FreundInnen schauen Sie sich jedes Rennen gemeinsam an. 
+        Im Vorfeld überlegen Sie, welche Formel 1-Fahrer die ersten drei Plätze belegen. 
+        Wie viele Möglichkeiten hierfür gibt es? 
+        \begin{solution}
+            Damit gilt: (Permutationen)
+            \[ 
+            n = \frac{20!}{17!} = 20 \cdot 19 \cdot 18 = \num{6840}
+            \] 
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

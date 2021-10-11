@@ -1,0 +1,45 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Ein Fußballmannschaft besteht bekanntlich aus 11 Spielern.
+    \begin{parts}
+        \part 
+        Die 11 Spieler verlassen vor Spielbeginn der Reihe nach die Mannschaftskabine. 
+        Wie viele verschiedene Reihenfolgen sind dabei möglich?
+        \begin{solution}
+            Es gilt: (Permutation) 
+            \[ 
+                P(11) = 11! = \num{39916800}
+            \] 
+            \qed
+        \end{solution}
+        
+        \part 
+        Der Trainer will für ein Elfmeterschießen 5 Spieler aus seiner Mannschaft auswählen. 
+        Wie viele Möglichkeiten hierfür gibt es?
+        \begin{solution}
+            Es gilt: (Kombination ohne Wiederholung)
+            \[ 
+                C(11;5) = \binom{11}{5} = 462
+            \] 
+            \qed
+        \end{solution}
+
+        \part 
+        Der Trainer entscheidet sich dafür, 5 Spieler der Mannschaft für das Elfmeterschießen auszuwählen und gleichzeitig die Reihenfolge festzulegen, in welcher die 5 Spieler zum Elfmeter antreten sollen. 
+        Wie viele Möglichkeiten gibt es für dieses Auswahlverfahren?
+        \begin{solution}
+            Nach Aufgabenteil (b) haben wir 462 Möglichkeiten um die 5 Spieler auszuwählen. 
+
+            Dann gilt: (Multipliziert mit Permutationsanzahl)
+            \[ 
+                n = C(11;5) \cdot P(5) = 462 \cdot 120 = \num{55400}
+            \] 
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

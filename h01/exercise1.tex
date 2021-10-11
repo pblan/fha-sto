@@ -1,0 +1,55 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Ein Tannenbaum soll zu Weihnachten bunte Lämpchen bekommen. 
+    Dazu soll eine Lichterkette mit 5 gelben, 3 roten und 2 grünen Lämpchen zusammengestellt werden. 
+    \begin{parts}
+        \part 
+        Wie viele Möglichkeiten gibt es, wenn es keine Einschränkungen gibt?
+        \begin{solution}
+            Dann gilt: (Permutation mit teilweise nicht unterscheidbaren Lampen)
+            \[ 
+                P(14;5;3;4;2) = \frac{14!}{5! \cdot 3! \cdot 4! \cdot 2!} = \num{2522520}
+            \] 
+            \qed
+        \end{solution}
+
+        \part 
+        Die 3 roten Lämpchen sollen nebeneinander angeordnet werden. 
+        Wie viele Möglichkeiten gibt es? 
+        \begin{solution}
+            Dann gilt: (analog zu Aufgabenteil (a), wobei wir die roten Lampen als \gqq{eine Lampe} sehen)
+            \[ 
+                P(12;5;4;2) = \frac{12!}{5! \cdot 4! \cdot 2!} = \num{83160}
+            \] 
+            \qed
+        \end{solution}
+
+        \part 
+        Opa Hoppenstedt hat schon zwei gelbe Lampen an den Anfang der ette geschraubt und zwei gelbe Lampen an das Ende der Kette;
+        er besteht darauf, diese nicht mehr zu verändern. 
+        Wie viele Möglichkeiten der Anordnung ergeben sich für die restlichen Lampen? 
+        \begin{solution}
+            Dann gilt: (analog zu Aufgabenteil (a), jedoch mit nur noch einer gelben Lampe)
+            \[ 
+                P(10;3;4;2) = \frac{10!}{3! \cdot 4! \cdot 2!} = \num{12600}
+            \] 
+            \qed
+        \end{solution}
+
+        \part 
+        Jede Farbe wird als feste Kette geliefert, auf der die Lampen nicht mehr gewechselt werden können. 
+        Wie viele Möglichkeiten gibt es, die 4 Ketten hintereinander zu schalten?
+        \begin{solution}
+            Dann gilt: (Permutation)
+            \[ 
+                P(4) = 4! = 24
+            \] 
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}
