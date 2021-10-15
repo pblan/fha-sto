@@ -1,0 +1,68 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Für die Ereignisse $A$, $B$ und $C$ aus einem Ereignissystem gilt
+    \[
+        \begin{aligned}
+            P(A) = 0.5 \qquad P(B) = 0.2 \qquad P(C) = 0.3 \qquad P(A \cap B \cap C) = 0.02 \\
+            P(A \cup B) = 0.6 \qquad P(A \cup C) = 0.6 \qquad P(B \cap C) = 0.1
+        \end{aligned}
+    \]
+    Berechnen Sie die Wahrscheinlichkeiten für:
+    \begin{parts}
+        \part
+        $P(B \cup C)$
+        \begin{solution}
+            Es gilt:
+            \[
+                P(B \cup C) = P(B) + P(C) - P(B \cap C) = 0.2 + 0.3 - 0.1 = 0.4
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $P(A \cap C)$
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                    P(A \cup C)                & = P(A) + P(C) - P(A \cap C) \\
+                    \equiv \quad P(A \cap C)   & = P(A) + P(C) - P(A \cup C) \\
+                    \implies \quad P(A \cap C) & = 0.5 + 0.3 - 0.6 = 0.2
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $P(A \cap B)$
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                    P(A \cup B)                & = P(A) + P(B) - P(A \cap B) \\
+                    \equiv \quad P(A \cap B)   & = P(A) + P(B) - P(A \cup B) \\
+                    \implies \quad P(A \cap B) & = 0.5 + 0.2 - 0.6 = 0.1
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $P(A \cup B \cup C)$
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                    P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C) \\
+                                       & = 0.5 + 0.2 + 0.3 - 0.1 - 0.2 - 0.1 + 0.02 = 0.62
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

@@ -1,0 +1,68 @@
+
+\documentclass{abgabe}
+
+\usepackage{textcomp}  % Required for encoding \textbigcircle
+\usepackage{scalerel}  % Required for emoji \scalerel
+
+\def\☀{\scalerel*{\includegraphics{figures/1f506.eps}}{\textrm{\textbigcircle}}}
+\def\🦵{\scalerel*{\includegraphics{figures/1f9b5.eps}}{\textrm{\textbigcircle}}}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Von 20 Teilnehmern einer Bergwanderung geben 8 Personen an Knieschmerzen zu haben.
+    6 Teilnehmer leiden unter Sonnenbrand.
+    8 Teilnehmer bleiben unversehrt.
+
+    \begin{center}
+        \begin{venndiagram2sets}[labelA={\🦵},labelB={\☀},labelOnlyA={8?},labelOnlyB={6?},labelNotAB={8}]
+            %\fillNotA
+        \end{venndiagram2sets}
+    \end{center}
+
+    Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewählter Teilnehmer
+    \begin{parts}
+        \part
+        Sonnenbrand oder Knieschmerzen hat?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(\☀ \cup \🦵) = 1 - P(\conj{\☀ \cup \🦵}) = 1 - \frac{8}{20} = \frac{12}{20} = 0.6
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        Knieschmerzen und Sonnenbrand aufweist?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(\☀ \cap \🦵) = P(\☀) + P(\🦵) - P(\☀ \cup \🦵) = \frac{6}{20} + \frac{8}{20} - \frac{12}{20} = \frac{2}{20} = 0.1
+            \]
+
+            \qed
+        \end{solution}
+
+        \part
+        der Knieschmerzen hat, keinen Sonnenbrand hat?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(\conj{\☀} \cap \🦵) = P(\🦵) - P(\☀ \cap \🦵) = \frac{8}{20} - \frac{2}{20} = \frac{6}{20} = 0.3
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        Sonnenbrand, aber keine Knieschmerzen hat?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(\☀ \cap \conj{\🦵}) = P(\☀) - P(\☀ \cap \🦵) = \frac{6}{20} - \frac{2}{20} = \frac{4}{20} = 0.2
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

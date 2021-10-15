@@ -1,0 +1,54 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Beweisen Sie durch das Anweden der Gesetze der Mengenalgebra:
+    \begin{parts}
+        \part
+        $A \cap (A \cup B) = A$
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                                 & A \cap (A \cup B)                            & = A \\
+                    \equiv \quad & (A \cap A) \cup (A \cap B)                   & = A \\
+                    \equiv \quad & A \cup (\underbrace{A \cap B}_{\subseteq A}) & = A \\
+                    \equiv \quad & A = A
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $(A \cap B) \cup (A \cap \conj{B}) = A$
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                                 & (A \cap B) \cup (A \cap \conj{B}) = A \\
+                    \equiv \quad & A \cap (B \cup\conj{B})  = A          \\
+                    \equiv \quad & A \cap \Omega  = A                    \\
+                    \equiv \quad & A = A
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $\conj{A} \cup (A \cap \emptyset) = A$
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                                 & \conj{A} \cup (A \cap \emptyset) = A                 \\
+                    \equiv \quad & (\conj{A} \cup A) \cap (\conj{A} \cup \emptyset) = A \\
+                    \equiv \quad & (\conj{A} \cup A) \cap \conj{A} = A                  \\
+                    \equiv \quad & \conj{A} = A \quad \lightning
+                \end{aligned}
+            \]
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

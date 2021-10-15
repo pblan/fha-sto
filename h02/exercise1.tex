@@ -1,0 +1,167 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Eine homogene Münze wird \emph{dreimal} geworfen (\gqq{Zahl}: $Z$, \gqq{Wappen}: $W$).
+    \begin{parts}
+        \part
+        Bestimmen Sie die dabei möglichen Ergebnisse (Elementarereignisse), sowie die Ergebnismenge $\Omega$ dieses Zufallsexperiments.
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                    \Omega =
+                    \{
+                     & (Z,Z,Z), (Z,Z,W), (Z,W,Z), (Z,W,W), \\
+                     & (W,Z,Z), (W,Z,W), (W,W,Z), (W,W,W)
+                    \}
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        Durch welche Teilmengen von $\Omega$ lassen sich die folgenden Ereignisse beschreiben?
+        \begin{subparts}
+            \subpart $A := \{ \text{Bei drei Würfen zweimal \gqq{Zahl}} \}$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        A =
+                        \{
+                         & (Z,Z,W), (Z,W,Z), (W,Z,Z)
+                        \}
+                    \end{aligned}
+                \]
+                \qed
+            \end{solution}
+
+            \subpart $B := \{ \text{Bei drei Würfen zweimal \gqq{Wappen}} \}$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        B =
+                        \{
+                         & (Z, W, W), (W,Z,W), (W,W,Z)
+                        \}
+                    \end{aligned}
+                \]
+                \qed
+            \end{solution}
+
+            \newpage
+            \subpart $D := \{ \text{Bei drei Würfen dreimal \gqq{Zahl}} \}$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        C =
+                        \{
+                         & (Z,Z,Z)
+                        \}
+                    \end{aligned}
+                \]
+                \qed
+            \end{solution}
+
+            \subpart $E := \{ \text{Bei drei Würfen dreimal \gqq{Wappen}} \}$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        D =
+                        \{
+                         & (W,W,W)
+                        \}
+                    \end{aligned}
+                \]
+                \qed
+            \end{solution}
+        \end{subparts}
+
+        \part
+        Bilden Sie aus den unter (b) genannten Ereignissen die folgenden zusammengesetzten Ereignisse und deuten Sie diese:
+        \begin{subparts}
+            \subpart
+            $A \cup B$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        A \cup B =
+                        \{
+                         & (Z,Z,W), (Z,W,Z), (Z,W,W), \\
+                         & (W,Z,Z), (W,Z,W), (W,W,Z)
+                        \}
+                    \end{aligned}
+                \]
+                Interpretation:
+                \[
+                    A \cup B = \{ \text{Bei drei Würfen werden Kopf und Wappen geworfen} \}
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            $B \cup E$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        B \cup E =
+                        \{
+                         & (Z, W, W), (W,Z,W), (W,W,Z), (W,W,W)
+                        \}
+                    \end{aligned}
+                \]
+                Interpretation:
+                \[
+                    B \cup E = \{ \text{Bei drei Würfen wird höchstens einmal Zahl geworfen} \}
+                \]
+                \qed
+            \end{solution}
+
+            \newpage
+            \subpart
+            $D \cup E$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        D \cup E =
+                        \{
+                         & (Z,Z,Z), (W,W,W)
+                        \}
+                    \end{aligned}
+                \]
+                Interpretation:
+                \[
+                    D \cup E = \{ \text{Bei drei Würfen wird dreimal das gleiche geworfen} \}
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            $A \cap B$
+            \begin{solution}
+                Es gilt:
+                \[
+                    \begin{aligned}
+                        A \cap B =
+                        \emptyset
+                    \end{aligned}
+                \]
+                Interpretation:
+                \[
+                    A \cap B = \{ \text{Bei drei Würfen wird viermal Kopf geworfen} \}
+                \]
+                \qed
+            \end{solution}
+        \end{subparts}
+    \end{parts}
+\end{questions}
+\end{document}
