@@ -1,0 +1,38 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Bei der Produktion von Federn treten folgende Fehler auf ($\si{ppm} \ \widehat{=} \ 10^{-6}$)
+    
+    \[ 
+        \begin{aligned}
+             & F = \{ \text{Federkonstante zu klein} \}              &  & \qquad \text{Anteil} \  0.8\%      \\
+             & D = \{ \text{Durchmesser falsch} \}                   &  & \qquad \text{Anteil} \  0.5\%      \\
+             & \text{Federkonstante zu klein und Durchmesser falsch} &  & \qquad \text{Anteil} \  40\si{ppm} \\
+        \end{aligned}
+    \]
+    \begin{parts}
+        \part 
+        Wie groß ist der Anteil fehlerhafter Federn an der Gesamtproduktion, wenn die Fehler unabhängig voneinander auftreten, sich aber gegenseitig nicht ausschließen? 
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(F \cup D) = P(F) + P(D) - P(F \cap D) = 0.8\% + 0.5\% - 0.004\% = 1.296\%
+            \]
+            \qed
+        \end{solution}
+        
+        \part 
+        Wie groß ist der Anteil fehlerhafter Federn, die nur einen falschen Durchmesser haben?
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(D \cap \conj{F}) = P(D) - P(F \cap D) = 0.5\% - 0.004\% = 0.496\% 
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

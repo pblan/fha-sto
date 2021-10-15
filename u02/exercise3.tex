@@ -1,0 +1,112 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Für die Ereignisse $A$, $B$ gelte $P(A) = 0.4$, $P(B) = 0.3$ und $P(A \cap B) = 0.2$. 
+    
+    Berechnen Sie die Wahrscheinlichkeiten der folgenden Ereignisse und interpretieren Sie diese Ereignisse anschaulich.
+    \begin{parts}
+        \part 
+        $\conj{A}$
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(\conj{A}) = 1 - P(A) = 1 - 0.4 = 0.6 
+            \]
+            
+            \begin{center}
+                \begin{venndiagram2sets}[labelA={A},labelB={B}]
+                    \fillNotA
+                \end{venndiagram2sets}
+            \end{center}
+            \qed
+        \end{solution}
+        
+        \part 
+        $\conj{B}$
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(\conj{B}) = 1 - P(B) = 1 - 0.3 = 0.7 
+            \]
+            
+            \begin{center}
+                \begin{venndiagram2sets}[labelA={A},labelB={B}]
+                    \fillNotB
+                \end{venndiagram2sets}
+            \end{center}
+            \qed
+        \end{solution}
+        
+        \newpage 
+        \part 
+        $A \cup B$
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.4 + 0.3 - 0.2 = 0.5 
+            \]
+            
+            \begin{center}
+                \begin{venndiagram2sets}[labelA={A},labelB={B}]
+                    \fillA
+                    \fillB
+                \end{venndiagram2sets}
+            \end{center}
+            \qed
+        \end{solution}
+        \part 
+        $\conj{A} \cap B$
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(\conj{A} \cap B) = P(B) - P(A \cap B) = 0.3 - 0.2 = 0.1
+            \]
+            
+            \begin{center}
+                \begin{venndiagram2sets}[labelA={A},labelB={B}]
+                    \fillBNotA
+                \end{venndiagram2sets}
+            \end{center}
+            \qed
+        \end{solution}
+        
+        \newpage 
+        \part 
+        $A \cap \conj{B}$
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(A \cap \conj{B}) = P(A) - P(A \cap B) = 0.4 - 0.2 = 0.2
+            \]
+            
+            \begin{center}
+                \begin{venndiagram2sets}[labelA={A},labelB={B}]
+                    \fillANotB
+                \end{venndiagram2sets}
+            \end{center}
+            \qed
+        \end{solution}
+        
+        \part 
+        $\conj{A} \cup \conj{B}$
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                P(\conj{A} \cup \conj{B}) = P(\conj{A \cap B}) = 1 - P(A \cap B) = 1 - 0.2 = 0.8
+            \]
+            
+            \begin{center}
+                \begin{venndiagram2sets}[labelA={A},labelB={B}]
+                    \fillANotB
+                    \fillBNotA
+                    \fillNotAorB
+                \end{venndiagram2sets}
+            \end{center}
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

@@ -1,0 +1,54 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Eine technische Anlage besteht aus drei Baugruppen, die zufällig und unabhängig voneinander arbeitsfähig oder defekt sein können. 
+    Wir registrieren die Zustände der drei Baugruppen und wählen als einfache Darstellung eine \gqq{1} für eine arbeitsfähige Baugruppe und eine \gqq{0} für eine defekte. 
+    Geben Sie für die folgenden Aufbauten die Teilmenge von $\Omega$ an, die das Ergebnis $A = \{ \text{Die Anlage ist arbeitsfähig} \}$ darstellt. 
+    
+    Formulieren Sie die Ereignisse zunächst als Mengenverknüpfung;
+    
+    $B_i = \{ i\text{-te Baugruppe ist arbeitsfähig} \}, i = 1,2,3$
+    \begin{parts}
+        \part 
+        Die Anlage sei genau dann arbeitsfähig, wenn alle drei Baugruppen arbeitsfähig sind. 
+        
+        (In der Zuverlässigkeitstheorie stellt man einen solchen Aufbau schematisch als Reihenschaltung der drei Baugruppen dar.)
+        \begin{solution}
+            Es gilt:
+            \[ 
+                A = B_1 \cap B_2 \cap B_3
+            \]
+            \qed
+        \end{solution}
+        
+        \part 
+        Die Anlage genau dann arbeitsfähig ist, wenn die 1. und 2. Baugruppe oder die 1. und 3. Baugruppe oder alle drei Baugruppen arbeitsfähig sind. 
+        
+        (In der Zuverlässigkeitstheorie entspricht dieser Aufbau einer Parallelschaltung von von $B_2$ und $B_3$, zu der $B_1$ in Reihe gelegt wurde.)
+        \begin{solution}
+            Es gilt:
+            \[ 
+                A = (B_1 \cap B_2) \cup (B_1 \cap B_3) = B_1 \cap (B_2 \cup B_3)
+            \]
+            
+            \qed
+        \end{solution}
+        
+        \part 
+        Die Anlage genau dann arbeitsfähig ist, wenn mindestens ein Bauteil arbeitsfähig ist. 
+        
+        (In der Zuverlässigkeitstheorie entspricht dieser Aufbau einer Parallelschaltung von $B_1$, $B_2$ und $B_3$.)
+        \begin{solution}
+            Es gilt:
+            \[ 
+                A = B_1 \cup B_2 \cup B_3
+            \]
+            
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

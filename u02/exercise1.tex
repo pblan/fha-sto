@@ -1,0 +1,65 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+
+\begin{questions}
+    \question
+    Geben Sie für die folgenden Vorgänge die Ergebnismenge und deren Mächtigkeit an:
+    \begin{parts}
+        \part
+        Eine Münze mit unterscheidbaren Seiten und ein Würfel werden gleichzeitig geworfen; 
+        beobachtet wird, welche Seite der Münze oben liegt und welche Augenzahl der Würfel zeigt.
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                \begin{aligned}
+                    \Omega = 
+                    \{ 
+                     & (K, 1), (K, 2), (K, 3), (K, 4), (K, 5), (K, 6),     \\    
+                     & (Z, 1), (Z, 2), (Z, 3), (Z, 4), (Z, 5), (Z, 6)     
+                    \}
+                \end{aligned}
+            \]
+            \[ 
+                \abs{\Omega} = 12
+            \]
+        \end{solution}
+        
+        \part 
+        Zwei nicht unterscheidbare Würfel werden gleichzeitig geworfen; 
+        beobachtet werden die Augenzahlen der beiden Würfel.
+        \begin{solution}
+            Es gilt: 
+            \[ 
+                \begin{aligned}
+                    \Omega = 
+                    \{ 
+                     & (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), \\
+                     & (2, 2), (2, 3), (2, 4), (2, 5), (2, 6),         \\
+                     & (3, 3), (3, 4), (3, 5), (3, 6),                 \\
+                     & (4, 4), (4, 5), (4, 6),                         \\
+                     & (5, 5), (5, 6),                                 \\
+                     & (6, 6)
+                    \}
+                \end{aligned}
+            \]
+            \[ 
+                \abs{\Omega} = 21
+            \]
+        \end{solution}
+        
+        \part 
+        Lebensdauer eines technischen Gerätes
+        \begin{solution}
+            Es gilt (in Sekunden): 
+            \[ 
+                \Omega = \{ n \ \si{\second} \mid n \in \N_0 \}
+            \]
+            \[
+                \abs{\Omega} = \infty    
+            \]
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}
