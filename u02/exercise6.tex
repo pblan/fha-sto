@@ -1,6 +1,21 @@
 
 \documentclass{abgabe}
+\usepackage[linguistics]{forest}
+\usepackage{nicefrac}
+
 \begin{document}
+
+\forestset{
+    left prob/.style={
+            edge label={node[midway, above left] {\tiny$\nicefrac{1}{2}$}}
+        },
+    right prob/.style={
+            edge label={node[midway, above right] {\tiny$\nicefrac{1}{2}$}}
+        },
+    marked/.style={
+            edge=red, text=red
+        }
+}
 
 \begin{questions}
     \question
@@ -10,14 +25,183 @@
         \part 
         es erscheint dreimal \gqq{Zahl}?
         \begin{solution}
+            $Z_n$ bzw. $W_n$ entspricht Zahl bzw. Wappen im $n$-ten Wurf.
+            
+            \begin{center}
 
+                \forestset{
+                    left prob/.style={
+                            edge label={node[midway, above left] {\tiny$\nicefrac{1}{2}$}}
+                        },
+                    right prob/.style={
+                            edge label={node[midway, above right] {\tiny$\nicefrac{1}{2}$}}
+                        }
+                }
+                
+                \begin{forest}
+                    [
+                        [
+                                $Z_1$, left prob={$\nicefrac{1}{2}$}, marked
+                                    [
+                                        $Z_2$, left prob={$\nicefrac{1}{2}$}, marked
+                                            [
+                                                $Z_3$, left prob={$\nicefrac{1}{2}$}, marked
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}, marked
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob={$\nicefrac{1}{2}$}
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                    ]
+                                    [
+                                        $W_2$, right prob={$\nicefrac{1}{2}$}
+                                            [
+                                                $Z_3$, left prob={$\nicefrac{1}{2}$}
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob={$\nicefrac{1}{2}$}
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                    ]
+                            ]
+                            [
+                                $W_1$, right prob={$\nicefrac{1}{2}$}
+                                    [
+                                        $Z_2$, left prob={$\nicefrac{1}{2}$}
+                                            [
+                                                $Z_3$, left prob={$\nicefrac{1}{2}$}
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob={$\nicefrac{1}{2}$}
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                    ]
+                                    [
+                                        $W_2$, right prob={$\nicefrac{1}{2}$}
+                                            [
+                                                $Z_3$, left prob={$\nicefrac{1}{2}$}
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob={$\nicefrac{1}{2}$}
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                    ]
+                            ]
+                    ]
+                \end{forest}
+            \end{center}
+            
+            Wir wissen, dass Münzwürfe stochastisch voneinander unabhängig sind.
+            
+            Damit gilt:
+            \[ 
+                P(Z_1 \cap Z_2 \cap Z_3) = P(Z_1) \cdot P(Z_2) \cdot P(Z_3) = \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}
+            \]
             \qed
         \end{solution}
         
         \part 
         es erscheint einmal \gqq{Zahl} und zweimal \gqq{Wappen}?
         \begin{solution}
+            Sei $A = \{ \text{Es erscheint einmal \gqq{Zahl} und zweimal \gqq{Wappen}} \}$.
+            
+            \begin{center}
 
+                \begin{forest}
+                    [
+                        [
+                                $Z_1$, left prob, marked
+                                    [
+                                        $Z_2$, left prob
+                                            [
+                                                $Z_3$, left prob
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                    ]
+                                    [
+                                        $W_2$, right prob, marked
+                                            [
+                                                $Z_3$, left prob
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob, marked
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}, marked
+                                                    ]
+                                            ]
+                                    ]
+                            ]
+                            [
+                                $W_1$, right prob, marked
+                                    [
+                                        $Z_2$, left prob, marked
+                                            [
+                                                $Z_3$, left prob
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob, marked
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}, marked
+                                                    ]
+                                            ]
+                                    ]
+                                    [
+                                        $W_2$, right prob, marked
+                                            [
+                                                $Z_3$, left prob, marked
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}, marked
+                                                    ]
+                                            ]
+                                            [
+                                                $W_3$, right prob
+                                                    [
+                                                        $\nicefrac{1}{8}$, edge={->}
+                                                    ]
+                                            ]
+                                    ]
+                            ]
+                    ]
+                \end{forest}
+            \end{center}
+            
+            Damit gilt:
+            \[ 
+                P(A) = \underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2}}_{P(Z_1 \cap W_2 \cap W_3)} + \underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2}}_{P(W_1 \cap Z_2 \cap W_3)} + \underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2}}_{P(W_1 \cap W_2 \cap Z_3)} = \frac{3}{8}
+            \]
             \qed
         \end{solution}
     \end{parts}

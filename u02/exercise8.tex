@@ -2,14 +2,24 @@
 \documentclass{abgabe}
 \begin{document}
 
+\newcommand{\Aalt}{A_{\text{alt}}}
+\newcommand{\Aneu}{A_{\text{neu}}}
+
 \begin{questions}
     \question
     Zwei Abwasserpumpen arbeiten völlig unabhängig voneinander (Redundanz). 
-    NAch Auswertung der Wartungshefte zeigt sich, dass die neue Pupe eine Ausfallwahrscheinlichkeit von 5\%, die ältere von 10\% hat. 
+    Nach Auswertung der Wartungshefte zeigt sich, dass die neue Pumpe eine Ausfallwahrscheinlichkeit von 5\%, die ältere von 10\% hat. 
     Die Wahrscheinlichkeit für den gleichzeitigen Ausfall beider Pumpen beträgt 0.5\%.
     Da ein Notbetrieb mit einer Pumpe nur kurzzeitig möglich ist, ist die Wahrscheinlichkeit für das Eintreten dieses Notbetriebes gesucht.
     \begin{solution}
-
+        Es gilt:  
+        \[ 
+            P(\Aalt \cup \Aneu) = P(\Aalt) + P(\Aneu) - P(\Aalt \cap \Aneu) = 10\% + 5\% - 0.5\% = 14.5\%
+        \]
+        und damit:
+        \[ 
+            P((\Aalt \cup \Aneu) \cap \conj{(\Aalt \cap \Aneu)}) = P(\Aalt \cup \Aneu) - P(\conj{\Aalt \cap \Aneu}) = 14.5\% - 0.5\% = 14\%
+        \]
         \qed
     \end{solution}
 \end{questions}

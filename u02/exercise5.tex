@@ -12,7 +12,20 @@
     
     \emph{Tipp:} Berechnen Sie zunächst die Mächtigkeit der Ergebnismenge (Zahl möglicher Stichproben)
     \begin{solution}
-
+        Sei $A = \{ \text{Es wird bei der Stichprobe höchstens eine fehlerhafte Einheit entnommen} \}$.
+        
+        Es gelten: (Kombinationen ohne Wiederholung)
+        \[ 
+            \abs{\Omega} = \binom{10}{5} = 252 \qquad \left( = C(8;5) + C(8;4) \cdot C(2;1) + C(8;3) \cdot C(2;2) \right)
+        \]
+        \[ 
+            \abs{A} = C(8;5) + C(8;4) \cdot C(2;1) = \binom{8}{5} + \binom{8}{4} \cdot \binom{2}{1} = 56 + 70 \cdot 2 = 196
+        \]
+        
+        Damit gilt dann: 
+        \[ 
+            P(A) = \frac{\abs{A}}{\abs{\Omega}} = \frac{196}{252} \approx 0.762
+        \]
         \qed
     \end{solution}
 \end{questions}
