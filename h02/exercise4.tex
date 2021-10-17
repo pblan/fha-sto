@@ -15,11 +15,11 @@
     6 Teilnehmer leiden unter Sonnenbrand.
     8 Teilnehmer bleiben unversehrt.
 
-    \begin{center}
-        \begin{venndiagram2sets}[labelA={\🦵},labelB={\☀},labelOnlyA={8?},labelOnlyB={6?},labelNotAB={8}]
-            %\fillNotA
-        \end{venndiagram2sets}
-    \end{center}
+    %\begin{center}
+    %    \begin{venndiagram2sets}[labelA={\🦵},labelB={\☀},labelOnlyA={8?},labelOnlyB={6?},labelNotAB={8}]
+    %        %\fillNotA
+    %    \end{venndiagram2sets}
+    %\end{center}
 
     Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewählter Teilnehmer
     \begin{parts}
@@ -47,9 +47,15 @@
         \part
         der Knieschmerzen hat, keinen Sonnenbrand hat?
         \begin{solution}
-            Es gilt:
+            Wählen wir aus allen Teilnehmern, dann gilt:
             \[
                 P(\conj{\☀} \cap \🦵) = P(\🦵) - P(\☀ \cap \🦵) = \frac{8}{20} - \frac{2}{20} = \frac{6}{20} = 0.3
+            \]
+            \qed
+
+            Wählen wir einen Teilnehmer von denen mit Knieschmerzen, dann gilt:
+            \[
+                P(\conj{\☀} \cap \🦵) = \frac{8}{8} - \frac{2}{8} = 0.75
             \]
             \qed
         \end{solution}
