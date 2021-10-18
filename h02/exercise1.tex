@@ -27,12 +27,13 @@
         \begin{subparts}
             \subpart $A := \{ \text{Bei drei Würfen zweimal \gqq{Zahl}} \}$
             \begin{solution}
+                Wir gehen davon aus, dass \gqq{mindestens zweimal} gemeint ist.
                 Es gilt:
                 \[
                     \begin{aligned}
                         A =
                         \{
-                         & (Z,Z,W), (Z,W,Z), (W,Z,Z)
+                         & (Z,Z,Z), (Z,Z,W), (Z,W,Z), (W,Z,Z)
                         \}
                     \end{aligned}
                 \]
@@ -41,12 +42,13 @@
 
             \subpart $B := \{ \text{Bei drei Würfen zweimal \gqq{Wappen}} \}$
             \begin{solution}
+                Wir gehen davon aus, dass \gqq{mindestens zweimal} gemeint ist.
                 Es gilt:
                 \[
                     \begin{aligned}
                         B =
                         \{
-                         & (Z, W, W), (W,Z,W), (W,W,Z)
+                         & (Z, W, W), (W,Z,W), (W,W,Z), (W, W, W)
                         \}
                     \end{aligned}
                 \]
@@ -94,14 +96,14 @@
                     \begin{aligned}
                         A \cup B =
                         \{
-                         & (Z,Z,W), (Z,W,Z), (Z,W,W), \\
-                         & (W,Z,Z), (W,Z,W), (W,W,Z)
+                         & (Z,Z,Z), (Z,Z,W), (Z,W,Z), (Z,W,W), \\
+                         & (W,Z,Z), (W,Z,W), (W,W,Z), (W,W,W)
                         \}
                     \end{aligned}
                 \]
                 Interpretation:
                 \[
-                    A \cup B = \{ \text{Bei drei Würfen werden Kopf und Wappen geworfen} \}
+                    A \cup B = \{ \text{Eine homogene Münze wird dreimal geworfen} \}
                 \]
                 \qed
             \end{solution}
@@ -157,7 +159,7 @@
                 \]
                 Interpretation:
                 \[
-                    A \cap B = \{ \text{Bei drei Würfen wird viermal Kopf geworfen} \}
+                    A \cap B = \{ \text{Bei drei Würfen wird zweimal Kopf und zweimal Wappen geworfen} \}
                 \]
                 \qed
             \end{solution}
