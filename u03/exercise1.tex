@@ -4,7 +4,7 @@
 
 \begin{questions}
     \question
-    Bei der Fertigung eines Produktes sei bekannt, dass 96\%der produzierten Einheiten die geforderten Spezifikationen einhalten. 
+    Bei der Fertigung eines Produktes sei bekannt, dass 96\% der produzierten Einheiten die geforderten Spezifikationen einhalten. 
     Die bislang unvermeidbaren 4\% fehlerhaften Einheiten müssen durch eine Prüfung erkannt und vor der Auslieferung aussortiert werden.
     Da das bisher verwendete Prüfverfahren sehr teuer ist, soll eine preiswerte Alternative getestet werden. 
     Dieses billigere Verfahren erkennt allerdings nur 98\% der brauchbaren Einheiten als brauchbar und stuft 5\% der defekten Stücke als brauchbar ein. 
@@ -13,19 +13,60 @@
         \part
         Anteil der insgesamt als defekt eingestuften Einheiten
         \begin{solution}
-
+            Seien $O := \{ \text{Produkt ist fehlerfrei} \}$ und $V := \{ \text{Verfahren stuft Produkt als brauchbar ein} \}$.
+            Wir wissen: 
+            \[ 
+                P(O) = 0.96 \qquad P(V \mid O) = 0.98 \qquad P(V \mid \conj{O}) = 0.05
+            \]
+            
+            Das ergibt folgenden Baum:
+            \begin{center}
+                \begin{forest}
+                    [, wide
+                            [ $O$, left prob={\small $96\%$}, wide
+                                    [$V$, left prob={\small $98\%$}, wide]
+                                    [$\conj{V}$, right prob={\small $2\%$}, wide]
+                            ]
+                            [ $\conj{O}$, right prob={\small $4\%$}, wide
+                                    [$V$, left prob={\small $5\%$}, wide
+                                    ]
+                                    [$\conj{V}$, right prob={\small $95\%$}, wide
+                                    ]
+                            ]
+                    ]
+                \end{forest}
+            \end{center}
+            
+            Insgesamt gilt für die insgesamt als defekt eingestuften Einheiten also: 
+            \[ 
+                P(\conj{V}) = P(\conj{V} \cap O) + P(\conj{V} \cap \conj{O}) = 0.96 \cdot 0.02 + 0.04 \cdot 0.95 = 0.0572
+            \]
+            \qed
         \end{solution}
         
         \part 
         Anteil der fehlerfreien unter den als fehlerfrei eingestuften Einheiten
         \begin{solution}
-
+            Es gilt: 
+            \[  
+                P(O \mid V) = \frac{P(O \cap V)}{P(V)} = \frac{P(O \cap V)}{P(O \cap V) + P(\conj{O} \cap V)} = \frac{0.96 \cdot 0.98}{0.96 \cdot 0.98 + 0.04 \cdot 0.05} \approx 0.9979
+            \]
+            
+            Alternativ: 
+            \[ 
+                P(O \mid V) = \frac{P(O \cap V)}{P(V)} = \frac{P(O \cap V)}{1 - P(\conj{V})} \approx 0.9979
+            \]
+            \qed 
         \end{solution}
         
         \part 
         Anteil der fehlerfreien unter den als defekt eingestuften Einheiten
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(O \mid \conj{V}) = \frac{P(O \cap \conj{V})}{P(\conj{V})} = \frac{0.96 \cdot 0.02}{0.0572} \approx 0.3357 
+            \]
+            \qed 
         \end{solution}
     \end{parts}
 \end{questions}

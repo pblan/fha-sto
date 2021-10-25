@@ -14,19 +14,53 @@
         \part
         Zeichnen Sie für dieses zweistufige Zufallsexperiment einen Wahrscheinlichkeitsbaum und vergeben Sie für die gesuchte, unbekannte Wahrscheinlichkeit, dass ein Ladendiebstahl begangen wurde, einen Variablennamen (z.B. $x$).
         \begin{solution}
-
+            Sei $L = \{ \text{Es wurde ein Ladendiebstahl begangen} \}$.
+            
+            Es gilt:
+            \begin{center}
+                \begin{forest}
+                    [, wide
+                            [
+                                $L$, above left prob={$x$}, wide
+                                    [
+                                        Ja, above left prob={$\nicefrac{5}{6}$}
+                                    ]
+                                    [
+                                        Nein, above right prob={$\nicefrac{1}{6}$}
+                                    ]
+                            ]
+                            [
+                                $\conj{L}$, above right prob={$1-x$}, wide
+                                    [
+                                        Ja, , above left prob={$\nicefrac{1}{3}$}
+                                    ]
+                                    [
+                                        Nein, , above right prob={$\nicefrac{2}{3}$}
+                                    ]
+                            ]
+                    ]
+                \end{forest}
+            \end{center}
         \end{solution}
         
         \part 
         Berechnen Sie die totale Wahrscheinlichkeit für die Antwort \gqq{Ja} (das Ergebnis ist keine Zahl, da $x$ aus (a) noch unbekannt ist).
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(\text{Ja}) = P(L \cap \text{Ja}) + P(\conj{L} \cap \text{Ja}) = x \cdot \frac{5}{6} + (1-x) \cdot \frac{1}{3} = \frac{x}{2} + \frac{1}{3}
+            \]
+            \qed
         \end{solution}
         
         \part 
         Schätzen Sie die unbekannte Wahrscheinlichkeit für einen Ladendiebstahl, indem Sie das Ergebnis der Umfrage verwenden.
         \begin{solution}
-
+            Wir wissen aus der Aufgabe:
+            \[ 
+                P(\text{Ja}) = \frac{384}{1033} = \frac{x}{2} + \frac{1}{3} \implies x \approx 0.0768
+            \]
+            \qed
         \end{solution}
     \end{parts}
 \end{questions}

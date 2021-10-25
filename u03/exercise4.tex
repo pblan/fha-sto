@@ -6,18 +6,62 @@
     \question
     Zur Leiterplattenbestückung werden insgesamt \num{10000} elektrische Widerstände eines bestimmten Wertes benötigt.
     \num{5000} Widerstände stammen vom Hersteller $H_1$, \num{3000} Stück vom Hersteller $H_2$ und \num{2000} Stück vom Hersteller $H_3$. 
-    Ferner sei bekannt, dass bei $H_1$ im Mittel 1\%, bei $H_2$ im Mittel 2\% und bei $H_3$ im Mittel 5\% der Widerstände außerhalbder Spezifikation liegen.
+    Ferner sei bekannt, dass bei $H_1$ im Mittel 1\%, bei $H_2$ im Mittel 2\% und bei $H_3$ im Mittel 5\% der Widerstände außerhalb der Spezifikation liegen.
     \begin{parts}
         \part
         Berechnen Sie die Wahrscheinlichkeit, dass ein beliebig herausgegriffener Widerstand außerhalb der Spezifikation ist.
         \begin{solution}
-
+            Sei $O := \{ \text{Ein Produkt liegt innerhalb der Spezifikation} \}$.
+            Es gilt: 
+            \begin{center}
+                \begin{forest}
+                    [,wide 
+                    [
+                    $H_1$, above left prob={$\nicefrac{1}{2}$},wide 
+                    [
+                    $O$, above left prob={$99\%$},wide 
+                    ]
+                    [
+                    $\conj{O}$, above right prob={$1\%$},wide 
+                    ]
+                    ]
+                    [
+                    $H_2$, left prob={$\nicefrac{3}{10}$},wide 
+                    [
+                    $O$, above left prob={$98\%$},wide 
+                    ]
+                    [
+                    $\conj{O}$, above right prob={$2\%$},wide 
+                    ]
+                    ]
+                    [
+                    $H_3$, above right prob={$\nicefrac{1}{5}$},wide 
+                    [
+                    $O$, above left prob={$95\%$},wide 
+                    ]
+                    [
+                    $\conj{O}$, above right prob={$5\%$},wide 
+                    ]
+                    ]
+                    ]
+                \end{forest}
+            \end{center}
+            
+            Und damit gilt:
+            \[ 
+                P(\conj{O}) = P(H_1 \cap \conj{O}) + P(H_2 \cap \conj{O}) + P(H_3 \cap \conj{O}) = \frac{1}{2} \cdot 0.01 + \frac{3}{10} \cdot 0.02 + \frac{1}{5} \cdot 0.05 = 0.021
+            \]
+            \qed
         \end{solution}
         
         \part 
         Berechnen Sie die Wahrscheinlichkeit, dass ein herausgegriffener Widerstand, der außerhalb der Spezifikation liegt, vom Hersteller $H_3$ stammt.
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(H_3 \mid \conj{O}) = \frac{P(H_3 \cap \conj{O})}{P(\conj{O})} = \frac{\frac{1}{5} \cdot 0.05}{0.021} \approx{0.4762}
+            \]
+            \qed 
         \end{solution}
     \end{parts}
 \end{questions}

@@ -1,0 +1,64 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Ein Land hat 14 Millionen Einwohner.
+    Davon sind
+
+    \begin{center}
+        \num{700000} Einwohner arbeitslos \\
+        \num{400000} Einwohner Akademiker \\
+        \num{100000} Einwohner arbeitslose Akademiker
+    \end{center}
+
+    Bestimmen Sie die Wahrscheinlichkeit, dass
+    \begin{parts}
+        \part
+        ein beliebiger Einwohner arbeitslos ist.
+        \begin{solution}
+            Seien $A := \{ \text{Ein Einwohner ist arbeitslos} \}$ und $B := \{ \text{Ein Einwohner ist Akademiker} \}$.
+
+            Wir wissen:
+            \[
+                P(A) = \frac{\num{700000}}{\num{14000000}} = \frac{1}{20}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        ein beliebiger Einwohner ein Akademiker ist.
+        \begin{solution}
+            Wir wissen:
+            \[
+                P(B) = \frac{\num{400000}}{\num{14000000}} = \frac{1}{35}
+            \]
+            \qed
+            %P(A \cap B) & = \frac{\num{100000}}{\num{14000000}} = \frac{1}{140}
+        \end{solution}
+
+        \part
+        ein Einwohner arbeitslos ist, wenn man weiß, dass er ein Akademiker ist.
+        \begin{solution}
+            Es gilt:
+            \[
+                P(A \mid B) = \frac{P(A \cap B)}{P(B)} = \frac{\frac{\num{100000}}{\num{14000000}}}{\frac{1}{35}} = \frac{35}{140} = \frac{1}{4}
+            \]
+            \qed
+        \end{solution}
+
+        \newpage
+        \part
+        ein Einwohner Akademiker ist, wenn man weiß, dass er ein Arbeitsloser ist?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(B \mid A) = \frac{P(A \cap B)}{P(A)} = \frac{20}{140} = \frac{1}{7}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

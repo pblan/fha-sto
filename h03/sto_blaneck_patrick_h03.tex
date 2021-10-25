@@ -1,0 +1,34 @@
+\documentclass{abgabe}
+\usepackage{standalone}
+
+\usepackage{textcomp}  % Required for encoding \textbigcircle
+\usepackage{scalerel}  % Required for emoji \scalerel
+
+% https://unicode.org/emoji/charts/emoji-list.html
+% https://cloudconvert.com/svg-to-eps
+\def\job{\scalerel*{\includegraphics{figures/1f4b8.eps}}{\textrm{\textbigcircle}}}
+\def\uni{\scalerel*{\includegraphics{figures/1f393.eps}}{\textrm{\textbigcircle}}}
+
+\setauthor{Patrick Gustav Blaneck} % Autor hier
+\setmodule{Stochastik} % Modulname hier
+%\setsheettype{Übungsblatt} % Blatttyp hier
+\setsheetnum{3} % Blattnummer hier
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+    \begingroup
+    \renewenvironment{questions}{}{}
+    %\setcounter{question}{5}
+    \input{exercise1}
+    \newpage
+    \input{exercise2}
+    \newpage
+    \input{exercise3}
+    \newpage
+    \input{exercise4}
+    \endgroup
+\end{questions}
+
+\end{document}

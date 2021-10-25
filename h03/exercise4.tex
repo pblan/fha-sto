@@ -1,0 +1,131 @@
+
+\documentclass{abgabe}
+
+\usepackage{textcomp}  % Required for encoding \textbigcircle
+\usepackage{scalerel}  % Required for emoji \scalerel
+
+% https://unicode.org/emoji/charts/emoji-list.html
+% https://cloudconvert.com/svg-to-eps
+\def\job{\scalerel*{\includegraphics{figures/1f4b8.eps}}{\textrm{\textbigcircle}}}
+\def\uni{\scalerel*{\includegraphics{figures/1f393.eps}}{\textrm{\textbigcircle}}}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Aufgrund des Praxisbezugs des Informatik Studiums, wurden Projektarbeiten eingeführt, welche in Teams zu je vier Studenten bearbeitet werden sollen.
+    Die Teams sind für die Arbeitsaufteilung innerhalb der Gruppe selbst verantwortlich.
+    Bei dem hier betrachteten Team 2 \gqq{jeder macht das was er am besten kann} ergab sich folgende Tabelle:
+
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Mitglied & Codeanteil (in \%) & Fehler (in \%) \\
+            \hline
+            1        & 20                 & 1.25           \\
+            2        & 20                 & 2.5            \\
+            3        & 20                 & 5              \\
+            4        & 40                 & 1.875          \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Dem fertigen Code ist nicht mehr anzusehen, von welchem Teammitglied er programmiert worden ist.
+    Aus der Masse an Code wird rein zufällig eine Zeile herausgegriffen und auf Fehler überprüft.
+    Folgende Ereignisse werden formuliert:
+
+    \[
+        \begin{aligned}
+            A_i & = \{ \text{Der Code wurde von Teammitglied $i$ programmiert} \} \quad i = 1,2,3,4 \\
+            B   & = \{ \text{Der Code ist fehlerhaft} \}
+        \end{aligned}
+    \]
+
+    \begin{parts}
+        \part
+        Formulieren Sie die Fehlerwahrscheinlichkeiten als bedingte Wahrscheinlichkeiten und zeichnen Sie den Wahrscheinlichkeitsbaum.
+        \begin{solution}
+            \vspace{-2em}
+            \begin{center}
+                \begin{forest}
+                    [,wide
+                    [
+                    $A_1$, above left prob={$20\%$}, wide, s sep+=30pt
+                    [
+                    $B$, above left prob={$1.25\%$}
+                    ]
+                    [
+                    $\conj{B}$, above right prob={$98.75\%$}
+                    ]
+                    ]
+                    [
+                    $A_2$, below right prob={$20\%$}, wide, s sep+=30pt
+                    [
+                    $B$, above left prob={$2.5\%$}
+                    ]
+                    [
+                    $\conj{B}$, above right prob={$97.5\%$}
+                    ]
+                    ]
+                    [
+                    $A_3$, below left prob={$20\%$}, wide, s sep+=30pt
+                    [
+                    $B$, above left prob={$5\%$}
+                    ]
+                    [
+                    $\conj{B}$, above right prob={$95\%$}
+                    ]
+                    ]
+                    [
+                    $A_4$, above right prob={$40\%$}, wide, s sep+=30pt
+                    [
+                    $B$, above left prob={$1.875\%$}
+                    ]
+                    [
+                    $\conj{B}$, above right prob={$98.125\%$}
+                    ]
+                    ]
+                    ]
+                \end{forest}
+            \end{center}
+
+            Es gilt:
+            \[
+                \begin{aligned}
+                    P(B \mid A_1) & = 1.25\%  \\
+                    P(B \mid A_2) & = 2.5\%   \\
+                    P(B \mid A_3) & = 5\%     \\
+                    P(B \mid A_4) & = 1.875\%
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        Berechnen Sie die Wahrscheinlichkeit, dass die zufällig herausgegriffene Codezeile fehlerhaft ist.
+        \begin{solution}
+            Es gilt:
+            \[
+                P(B) = \sum_{i = 1}^4 P(A_i \cap B) = 0.2 \cdot 0.0125 + 0.2 \cdot 0.025 + 0.2 \cdot 0.05 + 0.4 \cdot 0.01875 = 0.025
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        Wie groß ist die Wahrscheinlichkeit, dass ein fehlerhafter Code von Teammitglied $i$ programmiert worden ist?
+        \begin{solution}
+            Es gilt:
+            \[
+                \begin{aligned}
+                                   & P(A_i \mid B) &  & = \frac{P(A_i \cap B)}{P(B)}                                              \\
+                    \implies \quad & P(A_1 \mid B) &  & = \frac{P(A_1 \cap B)}{P(B)} = \frac{0.2 \cdot 0.0125}{0.025}  &  & = 0.1 \\
+                    \land    \quad & P(A_2 \mid B) &  & = \frac{P(A_2 \cap B)}{P(B)} = \frac{0.2 \cdot 0.025}{0.025}   &  & = 0.2 \\
+                    \land    \quad & P(A_3 \mid B) &  & = \frac{P(A_3 \cap B)}{P(B)} = \frac{0.2 \cdot 0.05}{0.025}    &  & = 0.4 \\
+                    \land    \quad & P(A_4 \mid B) &  & = \frac{P(A_4 \cap B)}{P(B)} = \frac{0.4 \cdot 0.01875}{0.025} &  & = 0.3
+                \end{aligned}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

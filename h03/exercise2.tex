@@ -1,0 +1,89 @@
+
+\documentclass{abgabe}
+
+\usepackage{textcomp}  % Required for encoding \textbigcircle
+\usepackage{scalerel}  % Required for emoji \scalerel
+
+% https://unicode.org/emoji/charts/emoji-list.html
+% https://cloudconvert.com/svg-to-eps
+\def\job{\scalerel*{\includegraphics{figures/1f4b8.eps}}{\textrm{\textbigcircle}}}
+\def\uni{\scalerel*{\includegraphics{figures/1f393.eps}}{\textrm{\textbigcircle}}}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Ein Student rechnet sich Chancen auf eine spätere, gut dotierte Berufsposition aus.
+    Am Anfang seines Studiums glaubt der Student, dass er dieses mit der Wahrscheinlichkeit von $0.7$ erfolgreich beenden kann.
+    Mit erfolgreich abgeschlossenem Studium beträgt die Wahrscheinlichkeit, die gewünschte Position zu erhalten $0.8$, ohne Studienabschluss nur $0.1$.
+    Wie groß ist die Wahrscheinlichkeit, dass der Student
+
+    \begin{parts}
+        \part
+        die Position erhalten wird?
+        \begin{solution}
+            \vspace{-2em}
+            \begin{center}
+                \begin{forest}
+                    [,wide
+                    [
+                    $\uni$, above left prob={$0.7$}, wide
+                        [
+                            $\job$, above left prob={$0.8$}, wide
+                        ]
+                        [
+                            $\conj{\job}$, above right prob={$0.2$}, wide
+                        ]
+                    ]
+                    [
+                    $\conj{\uni}$, above right prob={$0.3$}, wide
+                        [
+                            $\job$, above left prob={$0.1$}, wide
+                        ]
+                        [
+                            $\conj{\job}$, above right prob={$0.9$}, wide
+                        ]
+                    ]
+                    ]
+                \end{forest}
+            \end{center}
+
+            Es gilt:
+            \[
+                P(\job) = P(\uni \cap \job) + P(\conj{\uni} \cap \job) = 0.7 \cdot 0.8 + 0.3 \cdot 0.1 = 0.59
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        keinen Studienabschluss haben wird, wenn er tatsächlich die Position erhalten wird?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(\conj{\uni} \mid \job) = \frac{P(\conj{\uni} \cap \job)}{P(\job)} = \frac{0.3 \cdot 0.1}{0.59} = \frac{3}{59} = 0.05085
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        weder einen Studienabschluss erzielen noch die Position erhalten wird?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(\conj{\uni} \cap \conj{\job}) = 0.3 \cdot 0.9 = 0.27
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        nur den Studienabschluss aber nicht die Position erhalten wird?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(\uni \cap \conj{\job}) = 0.7 \cdot 0.2 = 0.14
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

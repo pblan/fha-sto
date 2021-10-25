@@ -6,196 +6,196 @@
 \begin{document}
 
 \forestset{
-    left prob/.style={
-            edge label={node[midway, above left] {\tiny #1}}
-        },
-    right prob/.style={
-            edge label={node[midway, above right] {\tiny #1}}
-        },
-    marked/.style={
-            edge=red, text=red
-        }
+  left prob/.style={
+      edge label={node[midway, above left] {\tiny #1}}
+    },
+  right prob/.style={
+      edge label={node[midway, above right] {\tiny #1}}
+    },
+  marked/.style={
+      edge=red, text=red
+    }
 }
 
 \begin{questions}
-    \question
-    Bei der Fertigung eines Loses Elektronenröhren in der Probefertigung treten drei Fehlerarten auf:
-    \[ 
-        \begin{aligned}
-             & F_1 = \{ \text{zu niedrige Kathodenemission} \} &  & \qquad \text{Anteil} \  15\% \\
-             & F_2 = \{ \text{Schluss} \}                      &  & \qquad \text{Anteil} \  5\%  \\
-             & F_3 = \{ \text{Isolationsfehler} \}             &  & \qquad \text{Anteil} \  10\% \\
-        \end{aligned}
-    \]
-    Die Entstehung der verschiedenen Fehlerarten ist völlig unabhängig voneinander, die Fehler schließen sich aber gegenseitig nicht aus.
-    \begin{parts}
-        \part 
-        Wie groß ist der Anteil fehlerhafter Röhren?
-        \begin{solution}
-            \begin{center}
+  \question
+  Bei der Fertigung eines Loses Elektronenröhren in der Probefertigung treten drei Fehlerarten auf:
+  \[ 
+    \begin{aligned}
+       & F_1 = \{ \text{zu niedrige Kathodenemission} \} &  & \qquad \text{Anteil} \  15\% \\
+       & F_2 = \{ \text{Schluss} \}                      &  & \qquad \text{Anteil} \  5\%  \\
+       & F_3 = \{ \text{Isolationsfehler} \}             &  & \qquad \text{Anteil} \  10\% \\
+    \end{aligned}
+  \]
+  Die Entstehung der verschiedenen Fehlerarten ist völlig unabhängig voneinander, die Fehler schließen sich aber gegenseitig nicht aus.
+  \begin{parts}
+    \part 
+    Wie groß ist der Anteil fehlerhafter Röhren?
+    \begin{solution}
+      \begin{center}
 
-                \begin{forest}
-                    [
-                        [
-                                $F_1$, left prob={$15\%$}, marked
-                                    [
-                                        $F_2$, left prob={$5\%$}, marked
-                                            [
-                                                $F_3$, left prob={$10\%$}, marked
-                                                    [
-                                                        $0.075\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}, marked
-                                                    [
-                                                        $0.675\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                    ]
-                                    [
-                                        $\conj{F_2}$, right prob={$95\%$}, marked
-                                            [
-                                                $F_3$, left prob={$10\%$}, marked
-                                                    [
-                                                        $1.425\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}, marked
-                                                    [
-                                                        $12.825\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                    ]
-                            ]
-                            [
-                                $\conj{F_1}$, right prob={$85\%$}, marked
-                                    [
-                                        $F_2$, left prob={$5\%$}, marked
-                                            [
-                                                $F_3$, left prob={$10\%$}, marked
-                                                    [
-                                                        $0.425\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}, marked
-                                                    [
-                                                        $3.825\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                    ]
-                                    [
-                                        $\conj{F_2}$, right prob={$95\%$}, marked
-                                            [
-                                                $F_3$, left prob={$10\%$}, marked
-                                                    [
-                                                        $8.075\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}
-                                                    [
-                                                        $72.675\%$, edge={->}
-                                                    ]
-                                            ]
-                                    ]
-                            ]
-                    ]
-                \end{forest}
-            \end{center}
-            
-            Wir wissen, dass für $A = \{ \text{Fehlerhafte Röhre} \}$ gilt: 
-            \[ 
-                P(A) = 1 - P(\conj{F_1} \cap \conj{F_2} \cap \conj{F_3}) = 1 - 72.675\% = 27.325\%
-            \]
-            \qed
-        \end{solution}
-        
-        \part 
-        Wie groß ist der Anteil der Röhren, die alle drei Fehlerarten aufweisen?
-        \begin{solution}
-            \begin{center}
+        \begin{forest}
+          [
+            [
+                $F_1$, left prob={$15\%$}, marked
+                  [
+                    $F_2$, left prob={$5\%$}, marked
+                      [
+                        $F_3$, left prob={$10\%$}, marked
+                          [
+                            $0.075\%$, edge={->}, marked
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}, marked
+                          [
+                            $0.675\%$, edge={->}, marked
+                          ]
+                      ]
+                  ]
+                  [
+                    $\conj{F_2}$, right prob={$95\%$}, marked
+                      [
+                        $F_3$, left prob={$10\%$}, marked
+                          [
+                            $1.425\%$, edge={->}, marked
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}, marked
+                          [
+                            $12.825\%$, edge={->}, marked
+                          ]
+                      ]
+                  ]
+              ]
+              [
+                $\conj{F_1}$, right prob={$85\%$}, marked
+                  [
+                    $F_2$, left prob={$5\%$}, marked
+                      [
+                        $F_3$, left prob={$10\%$}, marked
+                          [
+                            $0.425\%$, edge={->}, marked
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}, marked
+                          [
+                            $3.825\%$, edge={->}, marked
+                          ]
+                      ]
+                  ]
+                  [
+                    $\conj{F_2}$, right prob={$95\%$}, marked
+                      [
+                        $F_3$, left prob={$10\%$}, marked
+                          [
+                            $8.075\%$, edge={->}, marked
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}
+                          [
+                            $72.675\%$, edge={->}
+                          ]
+                      ]
+                  ]
+              ]
+          ]
+        \end{forest}
+      \end{center}
+      
+      Wir wissen, dass für $A = \{ \text{Fehlerhafte Röhre} \}$ gilt: 
+      \[ 
+        P(A) = 1 - P(\conj{F_1} \cap \conj{F_2} \cap \conj{F_3}) = 1 - 72.675\% = 27.325\%
+      \]
+      \qed
+    \end{solution}
+    
+    \part 
+    Wie groß ist der Anteil der Röhren, die alle drei Fehlerarten aufweisen?
+    \begin{solution}
+      \begin{center}
 
-                \begin{forest}
-                    [
-                        [
-                                $F_1$, left prob={$15\%$}, marked
-                                    [
-                                        $F_2$, left prob={$5\%$}, marked
-                                            [
-                                                $F_3$, left prob={$10\%$}, marked
-                                                    [
-                                                        $0.075\%$, edge={->}, marked
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}
-                                                    [
-                                                        $0.675\%$, edge={->}
-                                                    ]
-                                            ]
-                                    ]
-                                    [
-                                        $\conj{F_2}$, right prob={$95\%$}
-                                            [
-                                                $F_3$, left prob={$10\%$}
-                                                    [
-                                                        $1.425\%$, edge={->}
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}
-                                                    [
-                                                        $12.825\%$, edge={->}
-                                                    ]
-                                            ]
-                                    ]
-                            ]
-                            [
-                                $\conj{F_1}$, right prob={$85\%$}
-                                    [
-                                        $F_2$, left prob={$5\%$}
-                                            [
-                                                $F_3$, left prob={$10\%$}
-                                                    [
-                                                        $0.425\%$, edge={->}
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}
-                                                    [
-                                                        $3.825\%$, edge={->}
-                                                    ]
-                                            ]
-                                    ]
-                                    [
-                                        $\conj{F_2}$, right prob={$95\%$}
-                                            [
-                                                $F_3$, left prob={$10\%$}
-                                                    [
-                                                        $8.075\%$, edge={->}
-                                                    ]
-                                            ]
-                                            [
-                                                $\conj{F_3}$, right prob={$90\%$}
-                                                    [
-                                                        $72.675\%$, edge={->}
-                                                    ]
-                                            ]
-                                    ]
-                            ]
-                    ]
-                \end{forest}
-            \end{center}
-            
-            Es gilt: 
-            \[ 
-                P(F_1 \cap F_2 \cap F_3) = 0.075\% 
-            \]
-            \qed
-        \end{solution}
-    \end{parts}
+        \begin{forest}
+          [
+            [
+                $F_1$, left prob={$15\%$}, marked
+                  [
+                    $F_2$, left prob={$5\%$}, marked
+                      [
+                        $F_3$, left prob={$10\%$}, marked
+                          [
+                            $0.075\%$, edge={->}, marked
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}
+                          [
+                            $0.675\%$, edge={->}
+                          ]
+                      ]
+                  ]
+                  [
+                    $\conj{F_2}$, right prob={$95\%$}
+                      [
+                        $F_3$, left prob={$10\%$}
+                          [
+                            $1.425\%$, edge={->}
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}
+                          [
+                            $12.825\%$, edge={->}
+                          ]
+                      ]
+                  ]
+              ]
+              [
+                $\conj{F_1}$, right prob={$85\%$}
+                  [
+                    $F_2$, left prob={$5\%$}
+                      [
+                        $F_3$, left prob={$10\%$}
+                          [
+                            $0.425\%$, edge={->}
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}
+                          [
+                            $3.825\%$, edge={->}
+                          ]
+                      ]
+                  ]
+                  [
+                    $\conj{F_2}$, right prob={$95\%$}
+                      [
+                        $F_3$, left prob={$10\%$}
+                          [
+                            $8.075\%$, edge={->}
+                          ]
+                      ]
+                      [
+                        $\conj{F_3}$, right prob={$90\%$}
+                          [
+                            $72.675\%$, edge={->}
+                          ]
+                      ]
+                  ]
+              ]
+          ]
+        \end{forest}
+      \end{center}
+      
+      Es gilt: 
+      \[ 
+        P(F_1 \cap F_2 \cap F_3) = 0.075\% 
+      \]
+      \qed
+    \end{solution}
+  \end{parts}
 \end{questions}
 \end{document}

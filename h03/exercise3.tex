@@ -1,0 +1,71 @@
+
+\documentclass{abgabe}
+
+\usepackage{textcomp}  % Required for encoding \textbigcircle
+\usepackage{scalerel}  % Required for emoji \scalerel
+
+% https://unicode.org/emoji/charts/emoji-list.html
+% https://cloudconvert.com/svg-to-eps
+\def\job{\scalerel*{\includegraphics{figures/1f4b8.eps}}{\textrm{\textbigcircle}}}
+\def\uni{\scalerel*{\includegraphics{figures/1f393.eps}}{\textrm{\textbigcircle}}}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Wenn ein MATSE sich krank meldet, dann hat er mit $50\%$ Wahrscheinlichkeit eine Erkältungskrankheit ($E$), mit $30\%$ Wahrscheinlichkeit ein Magen-Darm-Problem ($M$), sonst irgendetwas anderes ($R$).
+    Hat er eine Erkältungskrankheit, so leidet er mit $70\%$ Wahrscheinlichkeit unter Kopfschmerzen ($K$), in den anderen beiden Fällen nur mit $10\%$ ($M$) bzw. mit $30\%$ ($R$).
+    \begin{parts}
+        \part
+        Stellen Sie einen passenden Ereignisbaum auf.
+        \begin{solution}
+            \vspace{-2em}
+            \begin{center}
+                \begin{forest}
+                    [,wide, s sep+=30pt
+                    [
+                    $E$, above left prob={$50\%$}, wide
+                        [
+                            $K$, left prob={$70\%$}, wide
+                        ]
+                    ]
+                    [
+                    $M$, below left prob={$30\%$}, wide
+                        [
+                            $K$, left prob={$10\%$}, wide
+                        ]
+                    ]
+                    [
+                    $R$, above right prob={$20\%$}, wide
+                        [
+                            $K$, left prob={$30\%$}, wide
+                        ]
+                    ]
+                    ]
+                \end{forest}
+            \end{center}
+            \qed
+        \end{solution}
+
+        \part
+        Mit welcher Wahrscheinlichkeit hat ein kranker MATSE Kopfschmerzen?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(K) = P(E \cap K) + P(M \cap K) + P(R \cap K) = 0.5 \cdot 0.7 + 0.3 \cdot 0.1 + 0.2 \cdot 0.3 = 0.44
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        Mit welcher Wahrscheinlichkeit leidet ein kranker MATSE an Erkältung, obwohl er keine Kopfschmerzen hat?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(E \mid \conj{K}) = \frac{P(\conj{K} \cap E)}{P(\conj{K})} = \frac{0.5 \cdot 0.3}{1 - 0.44} = \frac{0.15}{0.56} \approx 0.2679
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

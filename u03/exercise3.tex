@@ -12,14 +12,78 @@
         \part
         Berechnen Sie die Wahrscheinlichkeit, dass Karl die Klausur besteht.
         \begin{solution}
-
+            Es gilt: 
+            \begin{center}
+                \begin{forest}
+                    [, wide
+                            [
+                                $A_0$, above left prob={$\nicefrac{1}{50}$}
+                                    [
+                                        $B$, left prob={$\nicefrac{0}{50}$}
+                                    ]
+                            ]
+                            [
+                                $A_1$
+                                [
+                                        $B$, left prob={$\nicefrac{1}{50}$}
+                                    ]
+                            ]
+                            [
+                                $A_2$
+                                [
+                                        $B$, left prob={$\nicefrac{2}{50}$}
+                                    ]
+                            ]
+                            [
+                                $A_3$
+                                [
+                                        $B$, left prob={$\nicefrac{3}{50}$}
+                                    ]
+                            ]
+                            [
+                                $A_4$
+                                [
+                                        $B$, left prob={$\nicefrac{4}{50}$}
+                                    ]
+                            ]
+                            [
+                                $A_5$
+                                [
+                                        $B$, left prob={$\nicefrac{5}{50}$}
+                                    ]
+                            ]
+                            [
+                                $\ldots$
+                                [
+                                        $\ldots$
+                                    ]
+                            ]
+                            [
+                                $A_{49}$, above right prob={$\nicefrac{1}{50}$}
+                                    [
+                                        $B$, left prob={$\nicefrac{49}{50}$}
+                                    ]
+                            ]
+                    ]
+                \end{forest}
+            \end{center}
+            
+            Und damit
+            \[ 
+                P(B) = \sum_{i = 0}^{49} P(A_i \cap B) = \frac{1}{50^2} \cdot \sum_{i = 0}^{49} i = \frac{1}{2500} \cdot \frac{49 \cdot 50}{2} = 0.49
+            \]
+            \qed
         \end{solution}
         
         \part 
         Karl hat die Klausur bestanden. 
         Wie groß ist die Wahrscheinlichkeit, dass er vor der Klausur nicht mehr als 5 Aufgaben selbstständig bearbeitet hat?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(A_{\leq 5} \mid B) = \sum_{i=0}^5 \frac{P(A_i \cap B)}{P(B)} = \frac{1}{P(B)} \sum_{i=0}^5 P(A_i \cap B) = \frac{1}{P(B)} \cdot \frac{1}{50^2} \sum_{i=0}^5 i = \frac{5.5}{0.49 \cdot 2500} \approx 0.00449 
+            \]
+            \qed
         \end{solution}
     \end{parts}
 \end{questions}
