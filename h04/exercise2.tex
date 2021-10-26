@@ -1,0 +1,60 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Gegeben seien die folgenden, jeweils auf $\R$ definierten Funktionen:
+    \begin{parts}
+        \part
+        $F_1(x) =
+            \begin{cases}
+                0   & \text{für} \ x < 2        \\
+                x-2 & \text{für} \ 2 \leq x < 4 \\
+                1   & \text{für} \ x \geq 4
+            \end{cases}
+        $
+        \begin{solution}
+            Für $x_1 = \nicefrac{7}{2}$ und $x_2 = 2$ gilt:
+            \[
+                F_1(x_1) = \frac{3}{2} > 1 = F_2(x_2) \quad \land \quad x_1 < x_2 \quad \lightning
+            \]
+
+            Also ist $F_1(x)$ nicht monoton steigend und damit insgesamt keine Verteilungsfunktion.
+            \qed
+        \end{solution}
+
+        \part
+        $F_2(x) =
+            \begin{cases}
+                0      & \text{für} \ x < 0    \\
+                e^{-x} & \text{für} \ x \geq 0
+            \end{cases}
+        $
+        \begin{solution}
+            Offensichtlich ist $F_2(x)$ (streng) monoton fallend für $x \geq 0$ und damit insgesamt keine Verteilungsfunktion.
+            \qed
+        \end{solution}
+
+        \part
+        $F_3(x) = e^{-e^{-x}}$ für $x \in \R$
+        \begin{solution}
+            Offensichtlich ist $F_3(x)$ monoton steigend und rechtsseitig stetig.
+
+            Es gilt:
+            \[
+                \lim_{x \to \infty} F_3(x) = \lim_{x \to \infty} e^{-e^{-x}} = e^{- \lim_{x \to \infty} e^{-x}} = e^{0} = 1
+            \]
+            \[
+                \lim_{x \to -\infty} F_3(x) = \lim_{x \to -\infty} e^{-e^{-x}} = e^{- \lim_{x \to -\infty} e^{-x}} = e^{-\infty} = 0
+            \]
+
+            Also ist $F_3(x)$ damit insgesamt eine Verteilungsfunktion.
+            \qed
+        \end{solution}
+    \end{parts}
+    Welche dieser Funktionen können nicht Verteilungsfunktionen einer Zufallsvariablen sein?
+    Begründen Sie Ihre Antwort.
+\end{questions}
+\end{document}

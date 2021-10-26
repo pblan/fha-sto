@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\begin{axis}[%
+        xlabel=$x$,
+        ylabel=$F(x)$,
+        grid=both,
+        axis x line = bottom,
+        axis y line = left,
+        %ytick={0.25,0.5,...,1},
+        ymin=0,ymax=1.1,
+        %ymax=1.2, % or enlarge y limits=upper,
+        jump mark left,
+        discontinuous,
+    ]
+    \addplot table [y=cumulative distribution]{exercise1.dat};
+\end{axis}
+\end{tikzpicture}

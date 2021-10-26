@@ -17,7 +17,28 @@
         \part
         Bestimmen Sie die Konstanten $c_1$ und $c_2$.
         \begin{solution}
-
+            Die Verteilungsfunktion muss normiert sein. 
+            Es gilt: 
+            \begin{alignat*}{2}
+                             & \lim_{x\to \infty} F(x)                                &  & = 1                       \\  
+                \equiv \quad & \lim_{x\to \infty} \left( c_1 + c_2 (1-e^{-x}) \right) &  & = 1                       \\  
+                \equiv \quad & \lim_{x\to \infty} c_2 (1-e^{-x})                      &  & = 1 - c_1                 \\  
+                \equiv \quad & \lim_{x\to \infty} (1-e^{-x})                          &  & = \frac{1 - c_1}{c_2}     \\  
+                \equiv \quad & \lim_{x\to \infty} -e^{-x}                             &  & = \frac{1 - c_1}{c_2} - 1 \\  
+                \equiv \quad & \lim_{x\to \infty} e^{-x}                              &  & = \frac{c_1 - 1}{c_2} + 1 \\  
+                \equiv \quad & 0                                                      &  & = \frac{c_1 - 1}{c_2} + 1 \\  
+                \equiv \quad & c_2                                                    &  & = 1 - c_1                 \\  
+            \end{alignat*}
+            
+            Weiterhin muss die Verteilungsfunktion rechtsstetig sein.
+            Es gilt damit: 
+            \begin{alignat*}{2}
+                               & \lim_{x\downarrow 0} F(x)                 &  & = F(0)        \\ 
+                \equiv \quad   & \lim_{x\downarrow 0} c_1 + c_2 (1-e^{-x}) &  & = \frac{1}{4} \\ 
+                \equiv \quad   & c_1 + (1 - c_1) (1-1)                     &  & = \frac{1}{4} \\ 
+                \equiv \quad   & c_1                                       &  & = \frac{1}{4} \\ 
+                \implies \quad & c_2                                       &  & = \frac{3}{4}
+            \end{alignat*}
             \qed
         \end{solution}
         

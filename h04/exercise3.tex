@@ -1,0 +1,54 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Gegeben sei die diskrete Zufallsvariable $X$.
+    Betrachten Sie folgende zugehörige Wahrscheinlichkeitsfunktion:
+    \[
+        f(x) =
+        \begin{cases}
+            \frac{x(5-x)}{20} & \text{für} \ x = \{ 1,2,3,4 \} \\
+            0                 & \text{sonst}
+        \end{cases}
+    \]
+    \begin{parts}
+        \part
+        Zeichnen Sie die Wahrscheinlichkeitsfunktion $f(x)$.
+        \begin{solution}
+            \begin{center}
+                \includegraphics[width=.7\linewidth]{exercise3_bar_chart}
+            \end{center}
+        \end{solution}
+
+        \part
+        Berechnen Sie die Verteilungsfunktion $F(x)$.
+        \begin{solution}
+            Die Wahrscheinlichkeitsverteilung der \emph{diskreten} Zufallsvariablen $X$ lässt sich durch die \emph{Verteilungsfunktion}
+            \[
+                P(X \leq x) = F(x) =
+                \begin{cases}
+                    0               & \text{für} \ x < 1        \\
+                    \nicefrac{1}{5} & \text{für} \ 1 \leq x < 2 \\
+                    \nicefrac{1}{2} & \text{für} \ 2 \leq x < 3 \\
+                    \nicefrac{4}{5} & \text{für} \ 3 \leq x < 4 \\
+                    1               & \text{für} \ x \geq 4
+                \end{cases}
+            \]
+            beschreiben.
+            \qed
+        \end{solution}
+
+        \newpage
+        \part
+        Stellen Sie diese Verteilungsfunktion grafisch dar.
+        \begin{solution}
+            \begin{center}
+                \includegraphics[width=.7\linewidth]{exercise3_cfd}
+            \end{center}
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

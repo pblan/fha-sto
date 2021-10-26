@@ -16,31 +16,66 @@
         \part
         Bestimmen Sie den Parameter $a$.
         \begin{solution}
-
+            Eine Wahrscheinlichkeitsfunktion $f(x)$ muss \emph{normiert} sein, das heißt: 
+            \[ 
+                \int^\infty_{-\infty} f(t) \diff t = 1 \qquad \left(\impliedby \lim_{x \to \infty} F(x) = 1\right)
+            \]
+            
+            Es gilt: 
+            \begin{alignat*}{2}
+                             & \int_0^3 f(t) \diff t                                                 &  & = 1            \\ 
+                \equiv \quad & \int_0^3 at^2(3-t) \diff t                                            &  & = 1            \\ 
+                \equiv \quad & a\left( 3\int_0^3 t^2 \diff t - \int_0^3 t^3 \diff t\right)           &  & = 1            \\ 
+                \equiv \quad & 3\int_0^3 t^2 \diff t - \int_0^3 t^3 \diff t                          &  & = \frac{1}{a}  \\ 
+                \equiv \quad & 3 \left[ \frac{t^3}{3} \right]_0^3 - \left[ \frac{t^4}{4} \right]_0^3 &  & = \frac{1}{a}  \\ 
+                \equiv \quad & 27 - \frac{81}{4}                                                     &  & = \frac{1}{a}  \\ 
+                \equiv \quad & \frac{27}{4}                                                          &  & = \frac{1}{a}  \\ 
+                \equiv \quad & a                                                                     &  & = \frac{4}{27}
+            \end{alignat*}
             \qed
         \end{solution}
         
         \part 
         Wie lautet die zugehörige Verteilungsfunktion?
         \begin{solution}
-
+            Es gilt:
+            \[ 
+                P(X \leq x) = \int_{-\infty}^{\infty} f(t) \diff t = \int_{0}^{3} f(t) \diff t = \int_{0}^{3} \frac{4}{27} \cdot t^2(3-t) \diff t = \frac{4}{27} \left( t^3 - \frac{t^4}{4} \right)
+            \]
+            
+            Und damit:
+            \[ 
+                P(X \leq x) = F(x) = 
+                \begin{cases}
+                    0                                                       & \text{für} \ x < 0           \\
+                    \nicefrac{4}{27} \left( x^3 - \nicefrac{x^4}{4} \right) & \text{für} \ 0 \leq x \leq 3 \\
+                    1                                                       & \text{für} \ x > 3 
+                \end{cases}
+            \]
             \qed
         \end{solution}
         
+        \newpage
         \part 
         Berechnen Sie die Wahrscheinlichkeit, dass die Zufallsvariable $X$ einen Wert kleiner oder gleich 2 annimmt
         \begin{subparts}
             \subpart 
             über die Dichtefunktion
             \begin{solution}
-
+                Es gilt: 
+                \[ 
+                    P(X \leq 2) = F(2) = \frac{4}{27}\left( 2^3 - \frac{2^4}{4} \right) = \frac{16}{27}
+                \]
                 \qed
             \end{solution}
             
             \subpart 
             über die Verteilungsfunktion
             \begin{solution}
-
+                Es gilt: 
+                \[ 
+                    P(X \leq 2) = \int_{-\infty}^2 f(t) \diff t = \int_{0}^2 f(t) \diff t = \left[ \frac{4}{27} \left( x^3 - \frac{x^4}{4} \right) \right]_{0}^2 = \frac{16}{27}
+                \]
                 \qed
             \end{solution}
         \end{subparts}

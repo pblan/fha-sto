@@ -9,20 +9,39 @@
         \part
         Bestimmen Sie die Ereignismenge der möglichen 2er Tupel (zwei Würfel), die eine gerade Augensumme bilden.
         \begin{solution}
-
+            Sei $E := \{ \text{Mit zwei Würfeln wird eine gerade Augensumme geworfen} \}$. 
+            
+            Es gilt: 
+            \[ 
+                \begin{aligned}
+                    E = 
+                    \{ 
+                     & (1,1), (1,3), (1,5), (2,2), (2,4), (2,6), \\
+                     & (3,1), (3,3), (3,5), (4,2), (4,4), (4,6), \\
+                     & (5,1), (5,3), (5,5), (6,2), (6,4), (6,6) 
+                    \}
+                \end{aligned}
+            \]
             \qed
         \end{solution}
         
         \part 
         Berechnen Sie die Wahrscheinlichkeit eine gerade bzw. ungerade Augensumme zu würfeln
         \begin{solution}
-
+            Sei $O := \{ \text{Mit zwei Würfeln wird eine ungerade Augensumme geworfen} \}$. 
+            
+            Es gilt: 
+            \[ 
+                O = \conj{E} \quad \land \quad \abs{E} = \abs{O} \quad \land \quad  E \cup O = \Omega \quad \implies P(E) = P(O) = \frac{1}{2}
+            \]
             \qed 
         \end{solution}
     \end{parts}
     
+    \newpage
+    
     Im Anschluss wird mit den zwei Würfeln dreimal ein \gqq{Doppelwurf} ausgeführt. 
-    Die Zufallsvariable $X$ bezeichne die Anzahl der insgesamt geraden Augensumme.
+    Die Zufallsvariable $X$ bezeichne die Anzahl der insgesamt geraden Augensummen.
     
     \begin{parts}
         \setcounter{partno}{2}
@@ -32,22 +51,48 @@
             \subpart 
             die Wahrscheinlichkeitsfunktion
             \begin{solution}
-
+                Die Wahrscheinlichkeitsverteilung der \emph{diskreten} Zufallsvariablen $X$ lässt sich durch die \emph{Wahrscheinlichkeitsfunktion}
+                \[ 
+                    P(X = x) = f(x) = 
+                    \begin{cases}
+                        \nicefrac{1}{8} & \text{für} \ x = 0 \\
+                        \nicefrac{3}{8} & \text{für} \ x = 1 \\
+                        \nicefrac{3}{8} & \text{für} \ x = 2 \\
+                        \nicefrac{1}{8} & \text{für} \ x = 3 \\
+                        0               & \text{sonst}
+                    \end{cases}
+                \]
+                beschreiben.
                 \qed
             \end{solution}
             
             \subpart 
             die Verteilungsfunktion
             \begin{solution}
-
+                Die Wahrscheinlichkeitsverteilung der \emph{diskreten} Zufallsvariablen $X$ lässt sich durch die \emph{Verteilungsfunktion}
+                \[ 
+                    P(X \leq x) = F(x) = 
+                    \begin{cases}
+                        0               & \text{für} \ x < 0        \\
+                        \nicefrac{1}{8} & \text{für} \ 0 \leq x < 1 \\
+                        \nicefrac{1}{2} & \text{für} \ 1 \leq x < 2 \\
+                        \nicefrac{7}{8} & \text{für} \ 2 \leq x < 3 \\
+                        1               & \text{für} \ x \geq 3 
+                    \end{cases}
+                \]
+                beschreiben.
                 \qed
             \end{solution}
         \end{subparts}
         
+        \newpage
         \part 
         Stellen Sie die Funktionen grafisch dar (Stabdiagramm und Verteilungsfunktion).
         \begin{solution}
-
+            \begin{center}
+                \includegraphics[width=.6\linewidth]{exercise1_bar_chart}
+                \includegraphics[width=.6\linewidth]{exercise1_cfd}
+            \end{center}
             \qed
         \end{solution}
     \end{parts}

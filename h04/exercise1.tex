@@ -1,0 +1,48 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Handelt es sich bei den folgenden Funktionen um Dichtefunktionen?
+    Begründen Sie Ihre Antwort.
+    \begin{parts}
+        \part
+        $f_1(x) =
+            \begin{cases}
+                \sin(x) & \text{für} \ -\nicefrac{\pi}{2} \leq x \leq \nicefrac{\pi}{2} \\
+                0       & \text{sonst}
+            \end{cases}
+        $
+        \begin{solution}
+            Offensichtlich ist $f_1(x) = \sin(x) \leq 0$ für alle $x \leq 0$.
+
+            Damit kann $f_1(x)$ keine Dichtefunktion sein.
+            \qed
+        \end{solution}
+
+        \part
+        $f_2(x) =
+            \begin{cases}
+                e^{-x} & \text{für} \ x \geq 0 \\
+                0      & \text{sonst}
+            \end{cases}
+        $
+        \begin{solution}
+            Es muss gelten:
+            \begin{itemize}
+                \item $f_2$ ist nichtnegativ \quad $\checkmark$ (offensichtlich)
+                \item $f_2$ ist integrierbar \quad $\checkmark$ (offensichtlich)
+                \item $f_2$ ist normiert:
+                      \[
+                          \int^{\infty}_{-\infty} f_2(t) \diff t = \int^{\infty}_{0} e^{-t} \diff t = \left[-e^{-t}\right]^{\infty}_{0} = 0 + 1 = 1 \quad \checkmark
+                      \]
+            \end{itemize}
+
+            Damit ist $f_2(x)$ eine Dichtefunktion.
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

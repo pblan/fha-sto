@@ -10,7 +10,25 @@
     \]
     Welchen Wert muss $m$ haben? 
     \begin{solution}
-
+        Eine Wahrscheinlichkeitsfunktion $f(x) = P(N = k)$ muss \emph{normiert} sein, das heißt: 
+        \[ 
+            \sum^{\infty}_{k = 1} f(k) = 1
+        \]
+        
+        Es gilt: 
+        
+        \begin{alignat*}{2}
+                         & \sum^{m}_{k = 1} f(k)                                                                            &  & = 1  \\ 
+            \equiv \quad & \sum^{m}_{k = 1} P(N = k)                                                                        &  & = 1  \\ 
+            \equiv \quad & \sum^{m}_{k = 1} \log_{10}\left( \frac{k+1}{k} \right)                                           &  & = 1  \\ 
+            \equiv \quad & \sum^{m}_{k = 1} \left(\log_{10}(k+1) - \log_{10}k\right)                                        &  & = 1  \\ 
+            \equiv \quad & \sum^{m}_{k = 1} \log_{10}(k+1) - \sum^{m}_{k = 1} \log_{10}k                                    &  & = 1  \\ 
+            \equiv \quad & \sum^{m}_{k = 1} \log_{10}(k+1) - \left( \sum^{m}_{k = 1} \log_{10}(k+1) - \log_{10}(m+1)\right) &  & = 1  \\ 
+            \equiv \quad & \log_{10}(m+1)                                                                                   &  & = 1  \\ 
+            \equiv \quad & m+1                                                                                              &  & = 10 \\ 
+            \equiv \quad & m                                                                                                &  & = 9 
+        \end{alignat*}
+        
         \qed
     \end{solution}
 \end{questions}
