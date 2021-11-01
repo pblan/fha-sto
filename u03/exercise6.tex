@@ -11,19 +11,62 @@
         \part
         eine untersuchte Person dieser Bevölkerung als krank eingestuft wird?
         \begin{solution}
-
+            Seien:
+            \begin{itemize}
+                \item $K := \{ \text{Eine Person ist krank} \}$
+                \item $E := \{ \text{Eine Person wurde als gesund eingestuft} \}$
+            \end{itemize}
+            
+            \begin{center}
+                \begin{forest}
+                    [, wide
+                            [
+                                $K$, above left prob={$0.1\%$}, wide 
+                                    [
+                                        $E$, above left prob={$10\%$}, wide
+                                    ]
+                                    [
+                                        $\conj{E}$, above right prob={$90\%$}, wide
+                                    ]
+                            ]
+                            [
+                                $\conj{K}$, above right prob={$99.9\%$}, wide 
+                                    [
+                                        $E$, above left prob={$99\%$}, wide
+                                    ]
+                                    [
+                                        $\conj{E}$, above right prob={$1\%$}, wide
+                                    ]
+                            ]
+                    ]
+                \end{forest}
+            \end{center}
+            
+            Dann gilt: 
+            \[ 
+                P(\conj{E}) = P(E \mid K) + P(E \mid \conj{K}) = \frac{P(E \cap K)}{P(K)} + \frac{P(E \cap \conj{K})}{P(\conj{K})} = \ldots = 1.089\%
+            \]
+            \qed 
         \end{solution}
         
         \part 
         eine als krank eingestufte Person auch tatsächlich krank ist?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(K \mid \conj{E}) = \frac{P(K \cap \conj{E})}{P(\conj{E})} = \frac{0.1\% \cdot 90\%}{1.089\%} = 8.26\%
+            \]
+            \qed
         \end{solution}
         
         \part 
         eine als gesund eingestufte Person krank ist?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(K \mid E) = \frac{P(K \cap E)}{P(E)} = P(K \mid E) = \frac{P(K \cap E)}{1 - P(\conj{E})} = \frac{0.1\% \cdot 99\%}{1 - 1.089\%} \approx 0.01\% 
+            \]
+            \qed 
         \end{solution}
     \end{parts}
 \end{questions}

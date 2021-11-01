@@ -10,7 +10,70 @@
     Bei  der Entnahme eines Apfel aus einem beliebigen Beutel wird ein frischer Apfel gezogen. 
     Wie groß  ist  die  Wahrscheinlichkeit,  dass  der  nächste,  aus  demselben  Beutel  genommene Apfel, auch frisch ist?
     \begin{solution}
-
+        Seien: 
+        \begin{itemize}
+            \item $B_1 := \{ \text{Es wird aus dem erstem Beutel gezogen} \}$
+            \item $B_2 := \{ \text{Es wird aus dem zweiten Beutel gezogen} \}$
+            \item $f_1 := \{ \text{Der erste gezogene Apfel ist frisch} \}$
+            \item $f_2 := \{ \text{Der zweite gezogene Apfel ist frisch} \}$
+        \end{itemize}
+        
+        \begin{center}            
+            \begin{forest}
+                [,wide 
+                [
+                $B_1$, above left prob={$75\%$}, wide
+                    [
+                        $f_1$, above left prob={$\nicefrac{9}{10}$}, wide
+                            [
+                                $f_2$, above left prob={$\nicefrac{8}{9}$}, wide
+                            ]
+                            [
+                                $\conj{f_2}$, above right prob={$\nicefrac{1}{9}$}, wide
+                            ]
+                    ]
+                    [
+                        $\conj{f_1}$, above right prob={$\nicefrac{1}{10}$}, wide
+                            [
+                                $f_2$, left prob={$1$}, wide
+                            ]
+                        %[
+                        %    $\conj{f_2}$, above right prob={$0$}, wide
+                        %]
+                    ]
+                ]
+                [
+                $B_2$, above right prob={$25\%$}, wide
+                    [
+                        $f_1$, above left prob={$\nicefrac{4}{5}$}, wide
+                            [
+                                $f_2$, above left prob={$\nicefrac{7}{9}$}, wide
+                            ]
+                            [
+                                $\conj{f_2}$, above right prob={$\nicefrac{2}{9}$}, wide
+                            ]
+                    ]
+                    [
+                        $\conj{f_1}$, above right prob={$\nicefrac{1}{5}$}, wide
+                            [
+                                $f_2$, above left prob={$\nicefrac{8}{9}$}, wide
+                            ]
+                            [
+                                $\conj{f_2}$, above right prob={$\nicefrac{1}{9}$}, wide
+                            ]
+                    ]
+                ]
+                ]
+            \end{forest}
+        \end{center}
+        
+        Dann gilt: 
+        \[ 
+            P(f_2 \mid f_1) = \frac{P(f_2 \cap f_1)}{{P(f_1)}} = \frac{P(B_1) \cdot P(f_2 \cap f_1 \mid B_1) + P(B_2) \cdot P(f_2 \cap f_1 \mid B_2)}{P(B_1) \cdot P(f_1 \mid B_1) + P(B_2) \cdot P(f_1 \mid B_2)} = \ldots \approx 86.35\%
+        \]
+        
+        Damit ist zu $86.35\%$ sicher, dass ein zweiter frischer Apfel gezogen wird.
+        \qed
     \end{solution}
 \end{questions}
 \end{document}
