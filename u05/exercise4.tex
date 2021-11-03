@@ -6,7 +6,7 @@
     \question
     Gegeben ist die Dichtefunktion der Zufallsvariablen $X$ als 
     \[ 
-        f_x(x) = 
+        f_X(x) = 
         \begin{cases}
             \frac{a}{1+x^2} & \text{für} \ \abs{x} \leq 1   \\    
             0               & \text{für} \ \abs{x} > 1     
@@ -16,21 +16,53 @@
         \part
         Wie groß ist $a$?
         \begin{solution}
-
+            Es gilt: 
+            \begin{alignat*}{2}
+                             & \int^{\infty}_{-\infty} f_X(x) \diff x                        &  & = 1             \\ 
+                \equiv \quad & \int^{-1}_{1} \frac{a}{1+x^2} \diff x                         &  & = 1             \\ 
+                \equiv \quad & a \int^{-1}_{1} \frac{1}{1+x^2} \diff x                       &  & = 1             \\ 
+                \equiv \quad & a \left[ \arctan(x) \right]^{-1}_{1}                          &  & = 1             \\ 
+                \equiv \quad & a \left( \frac{\pi}{4} - \left( \frac{\pi}{4} \right) \right) &  & = 1             \\ 
+                \equiv \quad & \frac{a\pi}{2}                                                &  & = 1             \\ 
+                \equiv \quad & a                                                             &  & = \frac{2}{\pi}
+            \end{alignat*}
             \qed
         \end{solution}
         
         \part 
         Wie groß ist der Erwartungswert $E(X)$ der Zufallsvariablen $X$?
         \begin{solution}
-
+            Es gilt: 
+            \begin{alignat*}{1}
+                \Mean(X) & = \int^{\infty}_{-\infty} x f(x) \diff x                          \\  
+                         & = \frac{\pi}{2} \int^{1}_{-1} \frac{x}{1 + x^2} \diff x           \\ 
+                         & = \footnotemark \frac{\pi}{4} \int^{1}_{x=-1} \frac{1}{u} \diff u \\ 
+                         & = \frac{\pi}{4} \left[ \ln(u) \right]^{1}_{x=-1}                  \\ 
+                         & = \frac{\pi}{4} \left[ \ln(1+x^2) \right]^{1}_{-1}                \\ 
+                         & = \frac{\pi}{4} \left( \ln(2) - \ln(2) \right)                    \\ 
+                         & = 0 
+            \end{alignat*}
+            
             \qed 
         \end{solution}
+        \footnotetext{$u := 1+x^2 \implies \frac{\diff u}{\diff x} = 2x \iff \diff x = \frac{\diff u}{2x}$}
         
+        
+        \newpage
         \part 
         Berechnen Sie die Varianz $\Var(X)$ der Zufallsvariablen $X$.
         \begin{solution}
-
+            Es gilt: 
+            \begin{alignat*}{1}
+                \Var(X) & = \int^{\infty}_{-\infty} (x - \mu)^2 f_X(x) \diff x                                 \\  
+                        & = \frac{\pi}{2} \int^{1}_{-1} (x - 0)^2 \frac{1}{1 + x^2} \diff x                    \\ 
+                        & = \frac{\pi}{2} \int^{1}_{-1} \frac{x^2}{1 + x^2} \diff x                            \\ 
+                        & = \frac{\pi}{2} \int^{1}_{-1} \frac{1 + x^2 - 1}{1 + x^2} \diff x                    \\ 
+                        & = \frac{\pi}{2} \int^{1}_{-1} 1 - \frac{1}{1 + x^2} \diff x                          \\ 
+                        & = \frac{\pi}{2} \left[ x - \arctan(x) \right]^{1}_{-1}                               \\ 
+                        & = \frac{\pi}{2} \left( 1 - \frac{\pi}{4} - \left( -1 + \frac{\pi}{4} \right) \right) \\ 
+                        & = 2 - \frac{\pi}{2}
+            \end{alignat*}
             \qed 
         \end{solution}
     \end{parts}

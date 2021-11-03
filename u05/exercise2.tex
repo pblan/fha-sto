@@ -9,7 +9,15 @@
     
     Bestimmen Sie den Erwartungswert $\mu_Y$ sowie die Varianz $\sigma^2_Y$ des Ausgangssignals.
     \begin{solution}
-
+        Es handelt sich hier im eine \emph{lineare} Transformation. 
+        
+        Damit gilt: 
+        \[ 
+            \Mean(Y) = \Mean(2X + 1.5\si{\V}) = 2\Mean(X) + 1.5\si{\V} = 2\mu_X + 1.5\si{\V} = 2 \cdot 1\si{\V} + 1.5\si{\V} = 3.5\si{\V}
+        \]
+        \[
+            \Var(Y) = \Var(2X + 1.5\si{\V}) = 2^2 \Var(X) = 4 \sigma_X^2 = 4 \cdot 0.25\si{\volt^2} = 1\si{\V^2}
+        \]
         \qed
     \end{solution}
 \end{questions}

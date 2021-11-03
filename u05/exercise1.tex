@@ -9,10 +9,47 @@
         \part
         $g(X) = aX + b \quad a, b \in \R \quad a \neq 0$
         \begin{solution}
-
+            Wir wissen: 
+            \begin{alignat*}{1}
+                F_Y(y) & = P(Y \leq y)      \\ 
+                       & = P(g(X) \leq y)   \\ 
+                       & = P(aX + b \leq y) \\ 
+                       & = P(aX \leq y-b)   \\ 
+                       & = 
+                \begin{cases}
+                    P(X \leq \frac{y - b}{a}) & \text{für} \ a > 0 \\
+                    P(X \geq \frac{y - b}{a}) & \text{für} \ a < 0
+                \end{cases}   \\ 
+                       & = 
+                \begin{cases}
+                    P(X \leq \frac{y - b}{a})  & \text{für} \ a > 0 \\
+                    1 - P(X < \frac{y - b}{a}) & \text{für} \ a < 0
+                \end{cases}   \\ 
+                       & = 
+                \begin{cases}
+                    F_X(\frac{y - b}{a})     & \text{für} \ a > 0 \\
+                    1 - F_X(\frac{y - b}{a}) & \text{für} \ a < 0
+                \end{cases}
+            \end{alignat*}
+            
+            Und damit: 
+            \begin{alignat*}{1}
+                f_Y(y) & = 
+                \begin{cases}
+                    \frac{\diff}{\diff y} F_X(\frac{y - b}{a})                    & \text{für} \ a > 0 \\
+                    \frac{\diff}{\diff y} \left( 1 - F_X(\frac{y - b}{a}) \right) & \text{für} \ a < 0
+                \end{cases}                                        \\
+                       & = 
+                \begin{cases}
+                    f_X(\frac{y - b}{a}) \cdot \frac{1}{a}   & \text{für} \ a > 0 \\
+                    - f_X(\frac{y - b}{a}) \cdot \frac{1}{a} & \text{für} \ a < 0
+                \end{cases}                                        \\ 
+                       & = f_X\left(\frac{y-b}{a}\right) \cdot \frac{1}{\abs{a}}
+            \end{alignat*}
             \qed
         \end{solution}
         
+        \newpage
         \part 
         $g(X) = 3X - 1 \quad \text{mit} \ f_X(x) =
             \begin{cases}
@@ -20,9 +57,28 @@
                 0                            & \text{sonst}
             \end{cases}$
         \begin{solution}
-
+            Es gilt: 
+            \[
+                f_Y(y) = f_X\left(\frac{y+1}{3}\right) \cdot \frac{1}{\abs{3}} = 
+                \begin{cases}
+                    \frac{1}{3} \cdot \frac{4}{27} \left( 3\left( \frac{y+1}{3} \right)^2 - \left( \frac{y+1}{3} \right)^3 \right) & \text{für}\footnotemark[1] \ -1 \leq y \leq 8 \\ 
+                    0                                                                                                              & \text{sonst}
+                \end{cases}
+            \]
+            
+            Und damit: 
+            \[ 
+                F_Y(y) = F_X\left( \frac{y+1}{3} \right) = 
+                \begin{cases}
+                    0                                                                                    & \text{für} \ y < -1           \\    
+                    \frac{4}{27} \left(\frac{y+1}{3}\right)^3 - \frac{1}{27}\left(\frac{y+1}{3}\right)^4 & \text{für} \ -1 \leq y \leq 8 \\    
+                    1                                                                                    & \text{für} \ y > 8     
+                \end{cases}
+            \]
             \qed 
         \end{solution}
+        
+        \footnotetext[1]{$0 \leq x \leq 3 \quad \land \quad y = g(x) = 3x - 1 \quad \implies \quad -1 \leq y \leq 8$}
     \end{parts}
 \end{questions}
 \end{document}
