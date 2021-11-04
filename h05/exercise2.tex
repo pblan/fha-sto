@@ -1,0 +1,68 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Die Zufallsvariable $X$ besitze den Mittelwert $\Mean(X) = \mu_X = 2$ und die Varianz $\Var(X) = \sigma_X^2 = 0.5$.
+    Berechnen Sie die entsprechenden Kennwerte (Erwartungswert, Varianz) der folgenden linearen Funktionen von $X$:
+    \begin{parts}
+        \part
+        $Z = 2X - 3$
+        \begin{solution}
+            Da es sich um lineare Transformationen handelt, gilt:
+            \[
+                \Mean(Z) = \Mean(2X-3) = 2\Mean(X) - 3 = 2\mu_X -3 = 2 \cdot 2 - 3 = 1
+            \]
+            und
+            \[
+                \Var(Z) = \Var(2X-3) = 2^2\Var(X) = 4 \cdot \sigma_X^2 = 4 \cdot 0.5 = 2
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $Z = -0.5X + 2$
+        \begin{solution}
+            Da es sich um lineare Transformationen handelt, gilt:
+            \[
+                \Mean(Z) = \Mean(-0.5X + 2) = -0.5\Mean(X) + 2 = -0.5\mu_X + 2 = -0.5 \cdot 2 + 2 = 1
+            \]
+            und
+            \[
+                \Var(Z) = \Var(-0.5X + 2) = (-0.5)^2\Var(X) = 0.25 \cdot \sigma_X^2 = 0.25 \cdot 0.5 = 0.125
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $Z = 10X$
+        \begin{solution}
+            Da es sich um lineare Transformationen handelt, gilt:
+            \[
+                \Mean(Z) = \Mean(10X) = 10\Mean(X) = 10\mu_X = 10 \cdot 2 = 20
+            \]
+            und
+            \[
+                \Var(Z) = \Var(10X) = 10^2\Var(X) = 100 \cdot \sigma_X^2 = 100 \cdot 0.5 = 50
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        $Z = 2$
+        \begin{solution}
+            Da es sich um lineare Transformationen handelt, gilt:
+            \[
+                \Mean(Z) = \Mean(2) = 2
+            \]
+            und
+            \[
+                \Var(Z) = \Var(2) = 0
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

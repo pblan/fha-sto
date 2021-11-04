@@ -1,0 +1,126 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    $X$ repräsentiere die täglichen Verkäufe eines bestimmten Produktes und besitze die Wahrscheinlichkeitsverteilung:
+    \begin{center}
+        \begin{tabular}{|C|C|C|C|C|C|C|C|C|}
+            \hline
+            x_i        & \num{7000} & \num{7500} & \num{8000} & \num{8500} & \num{9000} & \num{9500} & \num{10000} \\
+            \hline
+            P(X = x_i) & 0.05       & 0.2        & 0.35       & 0.19       & 0.12       & 0.08       & 0.01        \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \begin{parts}
+        \part
+        Berechnen Sie
+        \begin{subparts}
+            \subpart
+            den Erwartungswert,
+            \begin{solution}
+                Es gilt:
+                \begin{alignat*}{1}
+                    \Mean(X) & = \sum^{6}_{i=0} x_i \cdot P(X = x_i)                                                          \\
+                             & = \num{7000} \cdot 0.05 + \num{7500} \cdot 0.2 + \num{8000} \cdot 0.35 + \num{8500} \cdot 0.19 \\
+                             & \phantom{= } + \num{9000} \cdot 0.12 + \num{9500} \cdot 0.08 + \num{10000} \cdot 0.01          \\
+                             & = 8205
+                \end{alignat*}
+                \qed
+            \end{solution}
+
+            \subpart
+            die Varianz
+            \begin{solution}
+                Es gilt:
+                \begin{alignat*}{1}
+                    \Var(X) & = \sum^{6}_{i=0} (x_i - \mu_X)^2 \cdot P(X = x_i)                                                       \\
+                            & = (\num{7000} - 8205)^2 \cdot 0.05 + (\num{7500} - 8205)^2 \cdot 0.2 + (\num{8000} - 8205)^2 \cdot 0.35 \\
+                            & \phantom{= } + (\num{8500} - 8205)^2 \cdot 0.19 + (\num{9000} - 8205)^2 \cdot 0.12                      \\
+                            & \phantom{= } + (\num{9500} - 8205)^2 \cdot 0.08 + (\num{10000} - 8205)^2 \cdot 0.01                     \\
+                            & = \num{445475}
+                \end{alignat*}
+                \qed
+            \end{solution}
+
+            \subpart
+            und den Median von $X$
+            \begin{solution}
+                Es gilt:
+                \[
+                    P(X < \tilde{x}) \leq \frac{1}{2} \quad \land \quad P(X \leq \tilde{x}) \geq \frac{1}{2}
+                \]
+
+                Offensichtlich gilt nach der gegebenen Tabelle:
+                \[
+                    \tilde{x} = 8000
+                \]
+                \qed
+            \end{solution}
+
+        \end{subparts}
+
+        \part
+        Berechnen Sie das
+        \begin{subparts}
+            \subpart
+            untere Quartil,
+            \begin{solution}
+                Es gilt:
+                \[
+                    P(X < x_{\nicefrac{1}{4}}) \leq \frac{1}{4} \quad \land \quad P(X \leq x_{\nicefrac{1}{4}}) \geq \frac{1}{4}
+                \]
+
+                Offensichtlich gilt nach der gegebenen Tabelle:
+                \[
+                    x_{\nicefrac{1}{4}} = 7500
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            obere Quartil
+            \begin{solution}
+                Es gilt:
+                \[
+                    P(X < x_{\nicefrac{3}{4}}) \leq \frac{3}{4} \quad \land \quad P(X \leq x_{\nicefrac{3}{4}}) \geq \frac{3}{4}
+                \]
+
+                Offensichtlich gilt nach der gegebenen Tabelle:
+                \[
+                    x_{\nicefrac{3}{4}} = 8500
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            sowie den Quartilsabstand
+            \begin{solution}
+                Es gilt:
+                \[
+                    x_{\nicefrac{3}{4}} - x_{\nicefrac{1}{4}} = 8500 - 7500 = 1000
+                \]
+                \qed
+            \end{solution}
+
+        \end{subparts}
+
+        \part
+        Berechnen Sie das $90\%$-Quantil.
+        \begin{solution}
+            Es gilt:
+            \[
+                P(X < x_{\nicefrac{9}{10}}) \leq \frac{9}{10} \quad \land \quad P(X \leq x_{\nicefrac{9}{10}}) \geq \frac{9}{10}
+            \]
+
+            Offensichtlich gilt nach der gegebenen Tabelle:
+            \[
+                x_{\nicefrac{9}{10}} = 9000
+            \]
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

@@ -1,0 +1,60 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+
+\begin{questions}
+    \question
+    Es sei $X$ stetig mit Dichtefunktion $f: (0;\infty) \to (0;\infty); f(x) = \gamma x e^{-x}$ mit $x > 0$.
+    \begin{parts}
+        \part
+        Bestimmen Sie $\gamma$ so, dass $f$ eine Dichtefunktion ist.
+        \begin{solution}
+            Damit $f$ eine Dichtefunktion ist, muss gelten:
+            \begin{alignat*}{2}
+                                                       & \int_0^\infty f(x) \diff x                                        &  & = 1                \\
+                \equiv \quad                           & \int_0^\infty \gamma x e^{-x} \diff x                             &  & = 1                \\
+                \equiv \quad                           & \gamma \int_0^\infty x e^{-x} \diff x                             &  & = 1                \\
+                \equiv \quad                           & \left[ -xe^{-x} \right]_0^\infty + \int_0^\infty e^{-x} \diff x   &  & = \frac{1}{\gamma} \\
+                \equiv \quad                           & \left[ -xe^{-x} \right]_0^\infty - \left[ e^{-x} \right]_0^\infty &  & = \frac{1}{\gamma} \\
+                \equiv \quad                           & -\lim_{x\to\infty} xe^{-x} - \left( 0 - 1 \right)                 &  & = \frac{1}{\gamma} \\
+                \stackrel{\footnotemark}{\equiv} \quad & 0  + 1                                                            &  & = \frac{1}{\gamma} \\
+                \equiv \quad                           & \gamma                                                            &  & = 1
+            \end{alignat*}
+            \qed
+        \end{solution}
+        \footnotetext{$e^x$ wächst asymptotisch schneller als $x$.}
+
+        \newpage
+        \part
+        Wie lautet die Verteilungsfunktion von $X$?
+        \begin{solution}
+            Es gilt (mit $x > 0$):
+            \[
+                P(X \leq x) = F(x)
+                = \int_{0}^{x} f(t) \diff t
+                = \int_{0}^{x} t e^{-t} \diff t
+                \stackrel{\footnotemark}{=}  - \left[ (1+t)e^{-t} \right]_{0}^{x}
+                = 1-(1+x)e^{-x}
+            \]
+            \qed
+        \end{solution}
+        \footnotetext{Berechnung analog zu Teilaufgabe (a)}
+
+        \part
+        Bestimmen Sie die Verteilung von $Y = \frac{1}{X}$
+        \begin{solution}
+            Es gilt:
+            \[
+                F_Y(y) = P(Y \leq y) = P \left(\frac{1}{X} \leq y\right) = P \left(X \geq \frac{1}{y}\right) = 1 - P \left(X < \frac{1}{y}\right) = 1 - F_X \left(\frac{1}{y}\right)
+            \]
+
+            Und damit:
+            \[
+                F_Y(y) = 1 - F_X\left(\frac{1}{y}\right) = 1 - \left( 1 -\left( 1+\frac{1}{y} \right)e^{-\frac{1}{y}} \right) = \left( 1+\frac{1}{y} \right)e^{-\frac{1}{y}}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}
