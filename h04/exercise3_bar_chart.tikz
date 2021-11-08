@@ -3,16 +3,13 @@
     \begin{axis}[
             xlabel=$x$,
             ylabel=$f(x)$,
-            grid=both,
-            axis x line = bottom,
-            axis y line = left,
-            ybar,
-            %bar width=2pt,
-            %symbolic x coords={0,1,2,3,4,$\ldots$},
+            ymajorgrids,
             xtick=data,
+            ycomb,
+            ytick distance=0.1,
             clip=false,
             enlarge x limits={abs=1cm}, % The distance between the center of the first bar and the left edge
         ]
-        \addplot table {exercise3.dat};
+        \addplot table [y=density function]{exercise3.dat};
     \end{axis}
 \end{tikzpicture}
