@@ -6,7 +6,9 @@
             ymajorgrids,
             xtick=data,
             ycomb,
+            thick,
             ytick distance=0.1,
+            mark options={mark=-,scale=2},
             clip=false,
             enlarge x limits={abs=1cm}, % The distance between the center of the first bar and the left edge
         ]
