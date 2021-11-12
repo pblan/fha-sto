@@ -1,0 +1,43 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+\begin{questions}
+    \question
+    Sie sind ein sehr aufmerksamer Leser.
+    Durchschnittlich finden Sie zwei Rechtschreibfehler pro Stunde, die Sie mit Lesen verbringen.
+    Bezeichne $X$ die Anzahl der gefundenen Rechtschreibfehler pro Stunde, die mit Lesen verbracht wird.
+    Wie groß ist die Wahrscheinlichkeit, dass Sie
+    \begin{parts}
+        \part
+        mindestens einen Rechtschreibfehler in einer Stunde entdecken?
+        \begin{solution}
+            Wir wissen, dass es sich um eine \emph{Poisson-Verteilung} handelt mit
+            \begin{itemize}
+                \item $\mu = 2$.
+            \end{itemize}
+
+            Damit gilt:
+            \[
+                \po(x;\mu) = \po(x;2) = f(x) = P(X = x) = \frac{\mu^x}{x!} \cdot e^{-\mu} = \frac{2^x}{x!} \cdot e^{-2}
+            \]
+
+            Und damit:
+            \[
+                P(X \geq 1) = 1 - P(X < 1) = 1 - P(X = 0) = 1 - \po(0;2) = 1-e^{-2}
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        mindestens zwei und weniger als fünf Rechtschreibfehler in einer Stunde entdecken?
+        \begin{solution}
+            Es gilt:
+            \[
+                P(2 \leq X < 5) = \sum^4_{k=2} P(X = k) = \sum^4_{k=2} \po(k;2) = 4e^{-2}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

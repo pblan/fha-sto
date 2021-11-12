@@ -1,0 +1,106 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+\begin{questions}
+    \question
+    Das Gewicht von neugeborenen Kindern sei normalverteilt mit $\mu = 3200\si{\g}$ und $\sigma = 800\si{\g}$.
+    \begin{parts}
+        \part
+        Wie groß ist die Wahrscheinlichkeit, dass ein Neugeborenes
+        \begin{subparts}
+            \subpart
+            mehr als $3000\si{\g}$,
+            \begin{solution}
+                Wir wissen, dass es sich um eine \emph{Normalverteilung} handelt mit
+                \begin{itemize}
+                    \item $\mu = 3200\si{\g}$,
+                    \item $\sigma = 800\si{\g}$.
+                \end{itemize}
+
+                Damit gilt:
+                \begin{alignat*}{1}
+                    P(X \geq k) = 1 - P(X < k) & \approx 1 - \Phi \left( \frac{k-\mu}{\sigma} \right)                                                  \\
+                                               & =                                  1 - \Phi \left( \frac{3000\si{\g}-3200\si{\g}}{800\si{\g}} \right) \\
+                                               & =                                  1 - \Phi \left( -\frac{1}{4} \right)                               \\
+                                               & =                                  \Phi \left( \frac{1}{4} \right)                                    \\
+                                               & =                                  0.5987
+                \end{alignat*}
+                \qed
+            \end{solution}
+
+            \subpart
+            höchstens als $2500\si{\g}$,
+            \begin{solution}
+                Es gilt:
+                \begin{alignat*}{1}
+                    P(X \leq k) & \approx \Phi \left( \frac{k-\mu}{\sigma} \right)                                                  \\
+                                & =                                  \Phi \left( \frac{2500\si{\g}-3200\si{\g}}{800\si{\g}} \right) \\
+                                & =                                  \Phi \left( - \frac{7}{8} \right)                              \\
+                                & =                                  1 - \Phi \left( \frac{7}{8} \right)                            \\
+                                & =                                  1 - 0.8092                                                     \\
+                                & =                                  0.1908
+                \end{alignat*}
+                \qed
+            \end{solution}
+
+            \newpage
+            \subpart
+            zwischen $4000\si{\g}$ und $5000\si{\g}$ wiegt?
+            \begin{solution}
+                Es gilt:
+                \begin{alignat*}{1}
+                    P(4000\si{\g} \leq X \leq 4000\si{\g}) & \approx \Phi \left( \frac{k_1-\mu}{\sigma} \right) -  \Phi \left( \frac{k_2-\mu}{\sigma} \right)                                   \\
+                                                           & = \Phi \left( \frac{5000\si{\g}-3200\si{\g}}{800\si{\g}} \right) -  \Phi \left( \frac{4000\si{\g}-3200\si{\g}}{800\si{\g}} \right) \\
+                                                           & = \Phi \left( \frac{9}{4} \right) -  \Phi \left( 1 \right)                                                                         \\
+                                                           & = 0.9878 -  0.8413                                                                                                                 \\
+                                                           & = 0.1465
+                \end{alignat*}
+                \qed
+            \end{solution}
+        \end{subparts}
+
+        \part
+        Wie schwer muss ein Neugeborenes sein, damit es zu den
+        \begin{subparts}
+            \subpart
+            $20\%$ leichtesten
+            \begin{solution}
+                Es gilt:
+                \begin{alignat*}{2}
+                             & P(X \leq c)                      &  & = 0.2                  \\
+                    \implies & \Phi(c)                          &  & = 0.2                  \\
+                    \implies & \Phi(c)                          &  & \approx 1 - \Phi(0.85) \\
+                    \implies & \Phi(c)                          &  & \approx \Phi(-0.85)    \\
+                    \implies & c                                &  & \approx -0.85          \\
+                    \implies & \frac{k-\mu}{\sigma}             &  & \approx -0.85          \\
+                    \implies & \frac{k-3200\si{\g}}{800\si{\g}} &  & \approx -0.85          \\
+                    \implies & k-3200\si{\g}                    &  & \approx -680\si{\g}    \\
+                    \implies & k                                &  & \approx 2520\si{\g}
+                \end{alignat*}
+                \qed
+            \end{solution}
+
+            \newpage
+            \subpart
+            $15\%$ schwersten
+            \begin{solution}
+                Es gilt:
+                \begin{alignat*}{2}
+                             & P(X \geq c)                      &  & = 0.15                \\
+                    \implies & 1 - \Phi(c)                      &  & = 0.15                \\
+                    \implies & \Phi(c)                          &  & \approx 1 - \Phi(1.4) \\
+                    \implies & \Phi(c)                          &  & \approx \Phi(-1.4)    \\
+                    \implies & c                                &  & \approx 1.04          \\
+                    \implies & \frac{k-\mu}{\sigma}             &  & \approx 1.04          \\
+                    \implies & \frac{k-3200\si{\g}}{800\si{\g}} &  & \approx 1.04          \\
+                    \implies & k-3200\si{\g}                    &  & \approx 832\si{\g}    \\
+                    \implies & k                                &  & \approx 4032\si{\g}
+                \end{alignat*}
+                \qed
+            \end{solution}
+        \end{subparts}
+        gehört?
+    \end{parts}
+\end{questions}
+\end{document}

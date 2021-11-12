@@ -1,0 +1,75 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+\begin{questions}
+    \question
+    Unter 50 Glühbirnen in einem Karton befinden sich 5 Defekte.
+    Bei einer Qualitätskontrolle werden 3 Birnen getestet.
+    Wie groß ist die Wahrscheinlichkeit, dass
+    \begin{parts}
+        \part
+        alle 3 defekt sind,
+        \begin{solution}
+            Wir wissen, dass es sich um eine \emph{hypergeometrische} Verteilung handelt mit
+            \begin{itemize}
+                \item $N = 50$,
+                \item $M = 5$,
+                \item $n = 3$.
+            \end{itemize}
+
+            Damit gilt:
+            \[
+                h(x;N,M,n) = h(x;50,5,3) = f(x) = P(X=x) = \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}} = \frac{\binom{5}{x} \binom{45}{3-x}}{\binom{50}{3}}
+            \]
+
+            Und damit:
+            \[
+                P(X = 3) = h(3;50,5,3) = f(3) = \frac{1}{1960} \approx 0.05102\%
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        genau 2 defekt sind,
+        \begin{solution}
+            Es gilt:
+            \[
+                P(X = 2) = h(2;50,5,3) = f(2) = \frac{9}{392} \approx 2.29592\%
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        zwischen einer und drei Birnen defekt sind,
+        \begin{solution}
+            Es gilt:
+            \[
+                P(1 \leq X \leq 3) = \sum^3_{k=1} P(X = k) = \sum^3_{k=1} h(k;50,5,3) = \frac{541}{1960} \approx 27.602\%
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        keine defekt ist.
+        \begin{solution}
+            Es gilt:
+            \[
+                P(X = 0) = h(0;50,5,3) = \frac{1419}{1960} \approx 27.398\%
+            \]
+            \qed
+        \end{solution}
+
+        \newpage
+        \part
+        Wie viele defekte Birnen sind bei dieser Stichprobe im Mittel zu erwarten?
+        \begin{solution}
+            Es gilt:
+            \[
+                \mu = n \cdot \frac{M}{N} = 3 \cdot \frac{5}{50} = \frac{3}{10}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

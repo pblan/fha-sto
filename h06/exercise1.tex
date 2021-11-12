@@ -1,0 +1,106 @@
+
+\documentclass{abgabe}
+
+\begin{document}
+\begin{questions}
+    \question
+    Die Wahrscheinlichkeit, dass die Zündung bei einem Auto falsch eingestellt ist, sei $p = 0.3$.
+    Es werden $n=5$ Autos ausgewählt.
+    Die betrachtete Zufallsvariable $X$ bezeichnet die Zahl der Autos mit falsch eingestellter Zündung.
+    \begin{parts}
+        \part
+        Bestimmen Sie für $X = 0,1,2,3,4,5$ die Werte
+        \begin{subparts}
+            \subpart
+            der Wahrscheinlichkeits- und
+            \begin{solution}
+                Wir wissen, dass es sich um eine \emph{Binomialverteilung} handelt mit
+                \begin{itemize}
+                    \item $n = 5$,
+                    \item $p = 0.3$.
+                \end{itemize}
+                Damit gilt für $ x \in \interval{0,5}_{\N_0}$:
+                \[
+                    b(x;n,p) = b(x;5,0.3) = f(x) = P(X=x) = \binom{n}{x} \cdot p^x \cdot q^{n-x} = \binom{5}{x} \cdot \left( \frac{3}{10} \right)^x \cdot \left( \frac{7}{10} \right)^{5-x}
+                \]
+
+                Und damit:
+
+                \begin{center}
+                    \begin{tabular}{C||C|C|C|C|C|C}
+                        x    & 0        & 1        & 2       & 3       & 4       & 5       \\
+                        \hline
+                        f(x) & 16.807\% & 36.015\% & 30.87\% & 13.23\% & 2.835\% & 0.243\%
+                    \end{tabular}
+                \end{center}
+                \qed
+            \end{solution}
+
+            \subpart
+            der Verteilungsfunktion.
+            \begin{solution}
+                Es gilt für $x \in \interval{0,5}_{\N_0}$:
+                \[
+                    B(x;n,p) = B(x;5,0.3) = F(x) = P(X \leq x) = \sum_{k \leq x} b(x;n,p) = \sum_{k \leq x} \binom{5}{x} \cdot \left( \frac{3}{10} \right)^x \cdot \left( \frac{7}{10} \right)^{5-x}
+                \]
+
+                Und damit:
+
+                \begin{center}
+                    \begin{tabular}{C||C|C|C|C|C|C}
+                        x    & 0        & 1        & 2        & 3        & 4        & 5     \\
+                        \hline
+                        F(x) & 16.807\% & 52.822\% & 83.692\% & 96.922\% & 99.757\% & 100\%
+                    \end{tabular}
+                \end{center}
+                \qed
+            \end{solution}
+        \end{subparts}
+
+        \newpage
+        \part
+        Berechnen Sie die Wahrscheinlichkeit, dass
+        \begin{subparts}
+            \subpart
+            bei 2 Autos die Zündung falsch eingestellt ist.
+            \begin{solution}
+                Offensichtlich gilt nach Teilaufgabe (a):
+                \[
+                    f(2) = 30.87\%
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            bei 2 oder weniger Autos die Zündung falsch eingestellt ist.
+            \begin{solution}
+                Offensichtlich gilt nach Teilaufgabe (a):
+                \[
+                    F(2) = 83.692\%
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            bei mehr als 3 Autos die Zündung falsch eingestellt ist.
+            \begin{solution}
+                Offensichtlich gilt:
+                \[
+                    P(X > 3) = 1 - P(X < 3) = 1 - P(X \leq 2) = 1 - F(2) = 1 - 83.692\% = 16.308\%
+                \]
+                \qed
+            \end{solution}
+        \end{subparts}
+
+        \part
+        Berechnen Sie den Erwartungswert und die Varianz.
+        \begin{solution}
+            Es gilt:
+            \[
+                \mu = np = 5 \cdot 0.3 = 1.5 \quad \land \quad \sigma^2 = npq = 5 \cdot 0.3 \cdot 0.7 = 1.05
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}
