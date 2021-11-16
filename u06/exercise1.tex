@@ -1,0 +1,67 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Aus einem Skatspiel mit 32 Karten wird eine Karte zufällig entnommen.
+    \begin{parts}
+        \part 
+        Sie spielen folgende Spielvariante: 
+        Jede Karte wird einzeln gezogen. 
+        Sie notieren, welche Karte es gewesen ist und legen die Karte zurück. 
+        Sie wiederholen dieses Vorgehen 10-mal. 
+        Wie wahrscheinlich ist es, dass genau zwei Buben dabei gewesen sind?
+        \begin{solution}
+            Es handelt sich offenbar um ein \emph{Bernoulli}-Experiment. 
+            Damit haben wir eine \emph{Binomialverteilung} gegeben mit
+            \begin{itemize}
+                \item $n = 10$,
+                \item $p = \nicefrac{4}{32} = \nicefrac{1}{8}$.
+            \end{itemize}
+            
+            Damit gilt für $x \in \interval{0,5}_{\N_0}$: 
+            \[ 
+                b(x;n,p) = b\left( x;10, \nicefrac{1}{8} \right) = f(x) = P(X = x) = \binom{n}{x} \cdot p^x \cdot q^{n-x} = \binom{10}{x} \cdot \left(\frac{1}{8}\right)^x \cdot \left(\frac{7}{8}\right)^{10-x}
+            \]
+            
+            Und damit: 
+            \[ 
+                b(2;10,\nicefrac{1}{8}) = \binom{10}{2} \cdot \left(\frac{1}{8}\right)^2 \cdot \left(\frac{7}{8}\right)^{8} \approx 24.16\%
+            \]
+            \qed
+        \end{solution}
+        
+        \newpage
+        \part 
+        Wie oft muss man eine Karte ziehen, damit die Wahrscheinlichkeit dafür, mindestens ein rotes Ass zu ziehen, größer als $0.5$ wird?
+        \begin{solution}
+            Für die Wahrscheinlichkeit dafür, dass mindestens ein rotes Ass gezogen wird, gilt: 
+            \[ 
+                P(X \geq 1) = 1 - P(X < 1) = 1 - P(X = 0)
+            \]
+            Damit gilt mit 
+            \begin{itemize}
+                \item $n = n$,
+                \item $p = \nicefrac{1}{32}$:
+            \end{itemize}
+            \[ 
+                b(x;n,p) = b(x,n,\nicefrac{1}{32}) = \binom{n}{x} \cdot p^x \cdot q^{n-x} = \binom{n}{x} \cdot \left(\frac{1}{32}\right)^x \cdot \left(\frac{31}{32}\right)^{n-x}
+            \]
+            
+            Mit $1 - P(X = 0) \geq 0$ gilt: 
+            \begin{alignat*}{2}
+                               & 1 - P(X = 0)                                                                              &  & \geq 0.5                                   \\ 
+                \implies \quad & 1 - \binom{n}{0} \cdot \left(\frac{1}{32}\right)^0 \cdot \left(\frac{31}{32}\right)^{n-0} &  & \geq 0.5                                   \\
+                \implies \quad & 1 - 1 \cdot 1 \cdot \left(\frac{31}{32}\right)^{n}                                        &  & \geq 0.5                                   \\
+                \implies \quad & \left(\frac{31}{32}\right)^{n}                                                            &  & \leq 0.5                                   \\
+                \implies \quad & n \cdot \log \frac{31}{32}                                                                &  & \leq \log \frac{1}{2}                      \\
+                \implies \quad & n                                                                                         &  & \geq \frac{\log 2}{\log \nicefrac{32}{31}} \\
+                \implies \quad & n                                                                                         &  & \geq 21.8323                               \\
+            \end{alignat*}
+            
+            Damit muss man mindestens 22-mal ziehen. \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}
