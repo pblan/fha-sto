@@ -11,7 +11,18 @@
         \part 
         Berechnen Sie die Wahrscheinlichkeit aller möglichen 2er Tupel, die bei dem Doppelmünzwurf entstehen.
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                \Omega = \{ (Z_1, Z_2) \mid Z_1, Z_2 \in \{ 0;1 \} \} \quad \text{mit} \quad \abs{\Omega} = 4
+            \]
+            sowie: 
+            \[ 
+                P(Z_1 = 0) = P(Z_1 = 1) = P(Z_2 = 0) = P(Z_2 = 1) = \frac{1}{2}
+            \]
+            und da die beiden Zufallsvariablen offensichtlich stochastisch unabhängig voneinander sind:
+            \[ 
+                P(Z_1;Z_2) = P(Z_1) \cdot P(Z_2) = \frac{1}{4}
+            \]
             \qed
         \end{solution}
     \end{parts}
@@ -24,35 +35,83 @@
         \part 
         Welche Werte haben die beiden Zufallsvariablen?
         \begin{solution}
-
+            Es gilt: 
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|}
+                    \hline 
+                    Z_1 & Z_2 & P(Z_1;Z_2)      & X = Z_1 - Z_2 & Y = Z_1 + Z_2 \\ 
+                    \hline 
+                    0   & 0   & \nicefrac{1}{4} & 0             & 0             \\
+                    0   & 1   & \nicefrac{1}{4} & -1            & 1             \\
+                    1   & 0   & \nicefrac{1}{4} & 1             & 1             \\
+                    1   & 1   & \nicefrac{1}{4} & 0             & 2             \\
+                    \hline 
+                \end{tabular}
+            \end{center}
             \qed
         \end{solution}
         
         \part 
         Bestimmen Sie die gemeinsame Verteilung von $X$ und $Y$ sowie die jeweiligen Randverteilungen (tabellarische Darstellung).
         \begin{solution}
-
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|C|}
+                    \hline 
+                    $\diagbox{X}{Y}$ & 0               & 1               & 2               & f_1(x)          \\
+                    \hline 
+                    -1               & 0               & \nicefrac{1}{4} & 0               & \nicefrac{1}{4} \\
+                    \hline 
+                    0                & \nicefrac{1}{4} & 0               & \nicefrac{1}{4} & \nicefrac{1}{2} \\
+                    \hline 
+                    1                & 0               & \nicefrac{1}{4} & 0               & \nicefrac{1}{4} \\
+                    \hline 
+                    f_2(y)           & \nicefrac{1}{4} & \nicefrac{1}{2} & \nicefrac{1}{4} & 1               \\
+                    \hline
+                \end{tabular}
+            \end{center}
             \qed
         \end{solution}
         
+        \newpage 
         \part 
         Bestimmen Sie die Erwartungswerte von $X$ und $Y$. 
         \begin{solution}
-
+            Es gilt offensichtlich: 
+            \[ 
+                E(Z_1) = E(Z_2) = \frac{1}{2}
+            \]
+            und damit 
+            \[ 
+                E(X) = E(Z_1 - Z_2) = E(Z_1) - E(Z_2) = \frac{1}{2} - \frac{1}{2} = 0
+            \]
+            \[
+                E(Y) = E(Z_1 + Z_2) = E(Z_1) + E(Z_2) = \frac{1}{2} + \frac{1}{2} = 1  
+            \]
             \qed
         \end{solution}
         
         \part 
         Berechnen Sie die Kovarianz von $X$ und $Y$.
         \begin{solution}
-
+            Es gilt: 
+            \begin{alignat*}{1}
+                \Cov(X,Y) & = E(XY) - E(X)E(Y)                                                        \\
+                          & = \sum_{i = 1}^3 \sum_{j = 1}^3 x_i \cdot y_j \cdot f(x_i;y_j) - E(X)E(Y) \\
+                          & = -\frac{1}{4} + \frac{1}{4} - 0 \cdot 1                                  \\
+                          & = 0
+            \end{alignat*}
             \qed
         \end{solution}
         
         \part 
         Sind $X$ und $Y$ stochastisch unabhängig?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                f(-1;0) = 0 \neq \frac{1}{16} = \frac{1}{4} \cdot \frac{1}{4} = f_1(-1) \cdot f_2(0)
+            \]
+            
+            Damit sind $X$ und $Y$ stochastisch abhängig.
             \qed
         \end{solution}
     \end{parts}

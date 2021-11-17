@@ -4,7 +4,7 @@
 
 \begin{questions}
     \question
-    Die gemeinsame Wahrscheinlichkeitsfunktion der zweidimensionalen Zufallsvariablen ($X$, $Y$) lautet wie in der folgenden Tabelle dargestellt:
+    Die gemeinsame Wahrscheinlichkeitsfunktion der zweidimensionalen Zufallsvariablen $(X ; Y)$ lautet wie in der folgenden Tabelle dargestellt:
     \begin{center}
         \begin{tabular}{|C|C|C|C|C|}
             \hline 
@@ -24,28 +24,89 @@
         \part 
         Bestimmen Sie die Wahrscheinlichkeit, dass $Y \leq 2$ und $X > 2$ ist.
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(X > 2 ; Y \leq 2) = \sum_{x_i > 2} \sum_{y_i \leq 2} f(x_i ; y_j) = 0.1 + 0.1 = 0.2
+            \]
             \qed
         \end{solution}
         
         \part 
         Geben Sie die Randwahrscheinlichkeiten an.
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                f_1(x) = 
+                \begin{cases}
+                    0.4 & \text{für} \ x = 1 \\
+                    0.3 & \text{für} \ x = 2 \\
+                    0.3 & \text{für} \ x = 3 \\
+                    0   & \text{sonst}       \\
+                \end{cases}
+                \quad 
+                \text{und}
+                \quad  
+                f_2(y) = 
+                \begin{cases}
+                    0.5  & \text{für} \ y = 1 \\
+                    0.25 & \text{für} \ y = 2 \\
+                    0.25 & \text{für} \ y = 3 \\
+                    0    & \text{sonst}       \\
+                \end{cases}
+            \]
+            
+            bzw.
+            
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|}
+                    \hline 
+                    $\diagbox{X}{Y}$ & 1   & 2    & 3    & f_1(x) \\
+                    \hline 
+                    1                & 0.3 & 0.05 & 0.05 & 0.4    \\
+                    \hline 
+                    2                & 0.1 & 0.1  & 0.1  & 0.3    \\
+                    \hline 
+                    3                & 0.1 & 0.1  & 0.1  & 0.3    \\
+                    \hline 
+                    f_2(y)           & 0.5 & 0.25 & 0.25 & 1      \\
+                    \hline
+                \end{tabular}
+            \end{center}
             \qed
         \end{solution}
         
         \part 
         Sind $X$ und $Y$ unabhängig?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                f(1;1) = 0.3 \neq 0.2 = 0.5 \cdot 0.4 = f_1(1) \cdot f_2(1)
+            \]
+            Damit sind $X$ und $Y$ stochastisch abhängig.
             \qed
         \end{solution}
         
+        \newpage
         \part 
         Wie sehen die Wahrscheinlichkeit für $Y$ aus, wenn $X = 1$ ist?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(Y \mid X = 1) = \frac{f(X = 1 ; Y)}{f_1(1)} = \frac{f(X = 1 ; Y)}{0.4} = 
+                \begin{cases}
+                    \nicefrac{0.3}{0.4}  & \text{für} \ Y = 1 \\
+                    \nicefrac{0.05}{0.4} & \text{für} \ Y = 2 \\
+                    \nicefrac{0.05}{0.4} & \text{für} \ Y = 3 \\
+                    \nicefrac{0}{0.4}    & \text{sonst}
+                \end{cases}
+                = 
+                \begin{cases}
+                    \nicefrac{3}{4} & \text{für} \ Y = 1 \\
+                    \nicefrac{1}{8} & \text{für} \ Y = 2 \\
+                    \nicefrac{1}{8} & \text{für} \ Y = 3 \\
+                    0               & \text{sonst}
+                \end{cases}
+            \]
             \qed
         \end{solution}
     \end{parts}

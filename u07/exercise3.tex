@@ -16,7 +16,16 @@
         \part 
         Bestimmen Sie die Konstante $k$.
         \begin{solution}
-
+            Es muss gelten: 
+            \begin{alignat*}{2}
+                               & \int_{x = -\infty}^{\infty} \int_{y = -\infty}^{\infty} f(x;y) \diff y \diff x &  & = 1           \\
+                \implies \quad & \int_{x = 0}^{5} \int_{y = 0}^{x} k(25-xy) \diff y \diff x                     &  & = 1           \\
+                \equiv \quad   & \int_{x = 0}^{5} \int_{y = 0}^{x} \left( 25-xy \right) \diff y \diff x         &  & = \frac{1}{k} \\
+                \equiv \quad   & \int_{x = 0}^{5} \left[ 25y-\frac{xy^2}{2} \right]_{y = 0}^{x} \diff x         &  & = \frac{1}{k} \\
+                \equiv \quad   & \int_{x = 0}^{5} \left( 25x-\frac{x^3}{2} \right) \diff x                      &  & = \frac{1}{k} \\
+                \equiv \quad   & \left[ \frac{25x^2}{2}-\frac{x^4}{8} \right]_{x = 0}^{5}                       &  & = \frac{1}{k} \\
+                \equiv \quad   & \frac{25^3}{2}-\frac{25^4}{8}                                                  &  & = \frac{1}{k} \\
+            \end{alignat*}
             \qed
         \end{solution}
         
