@@ -14,14 +14,20 @@
         \]
         beschrieben werden, wenn nach jedem Versuch die Trommel erneut gedreht wird?
         \begin{solution}
-
+            Offensichtlich gilt: 
+            \[ 
+                X \sim B(x;6,\nicefrac{1}{6}) = \binom{n}{x} \cdot p^x \cdot q^{n-x} = \binom{6}{x} \cdot \left( \frac{1}{6} \right)^x \cdot \left( \frac{5}{6} \right)^{6-x}
+            \]
             \qed
         \end{solution}
         
         \part 
         Wie wahrscheinlich ist es, mehr als 5 Runden zu überleben?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(X > 5) = P(X = 6) = B(6;6,\nicefrac{1}{6}) = \binom{6}{6} \cdot \left( \frac{1}{6} \right)^6 \cdot \left( \frac{5}{6} \right)^{0} = \left( \frac{1}{6} \right)^6 = \frac{1}{46656} \approx 0.0021\%
+            \]
             \qed
         \end{solution}
     \end{parts}

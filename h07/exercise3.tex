@@ -4,7 +4,7 @@
 
 \begin{questions}
     \question
-    Die Lebensdauer (in Stunden) von Energiesparlampen eines bestimmten Fabrikats kann durch eine mit dem Parameter $\lambda > 0$ expoentialverteilte Zufallsvariable $X$ beschrieben werden. 
+    Die Lebensdauer (in Stunden) von Energiesparlampen eines bestimmten Fabrikats kann durch eine mit dem Parameter $\lambda > 0$ exponentialverteilte Zufallsvariable $X$ beschrieben werden. 
     Die zugehörige Verteilungsfunktion $F : R \to [0; 1]$ ist damit gegeben durch:
     \[ 
         F(x) = 
@@ -20,30 +20,51 @@
             \subpart 
             höchstens 300 Stunden,
             \begin{solution}
-
+                Offensichtlich gilt: 
+                \[ 
+                    P(X \leq 300) = F(300) = 1 - e^{-\nicefrac{300}{800}} = 1 - e^{-\nicefrac{3}{8}}
+                \]
                 \qed
             \end{solution}
             
             \subpart 
             mehr als 120 Stunden,
             \begin{solution}
-
+                Offensichtlich gilt: 
+                \[ 
+                    P(X \geq 120) = 1 - F(120) = 1 - \left( 1 - e^{-\nicefrac{120}{800}} \right) = e^{-\nicefrac{3}{20}}
+                \]
                 \qed
             \end{solution}
             
             \subpart 
             mindestens 240 und höchstens 360 Stunden
             \begin{solution}
-
+                Offensichtlich gilt: 
+                \[ 
+                    P(240 \leq X \leq 360) = F(360) - F(240) = 1 - e^{-\nicefrac{360}{800}} - \left( 1 - e^{-\nicefrac{240}{800}} \right) = e^{-\nicefrac{3}{10}} - e^{-\nicefrac{9}{20}}
+                \]
                 \qed
             \end{solution}
         \end{subparts}
         beträgt.
         
+        \newpage 
         \part 
         Für welchen Wert des Parameters $\lambda$ ergibt sich eine Lebensdauerverteilung, bei der mit Wahrscheinlichkeit $0.99$ die Lebensdauer einer derartigen Energiesparlampe mindestens 100 Stunden beträgt?
         \begin{solution}
-
+            Es gilt:
+            \[ 
+                0.99 = P(X \geq 100) = 1 - P(X < 100) = 1 - F(100) \iff F(100) = 0.01
+            \]
+            \begin{alignat*}{2}
+                               & F(100)              &  & = 0.01                  \\
+                \equiv \quad   & 1 - e^{-100\lambda} &  & = 0.01                  \\
+                \equiv \quad   & e^{-100\lambda}     &  & = 0.100                 \\
+                \equiv \quad   & -100\lambda         &  & = \ln 0.100             \\
+                \equiv \quad   & \lambda             &  & = \frac{\ln 0.99}{-100} \\
+                \implies \quad & \lambda             &  & \approx 0.0001005
+            \end{alignat*}
             \qed
         \end{solution}
     \end{parts}

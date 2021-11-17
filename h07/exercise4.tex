@@ -11,14 +11,43 @@
         \part 
         Welche Verteilung hat die Zufallsvariable $X = \{ \text{Anzahl der defekten Knöpfe} \}$?
         \begin{solution}
-
+            Es gilt:
+            \[ 
+                X \sim B(x;n,p) = B(x;4900,0.1) 
+            \]
             \qed
         \end{solution}
         
         \part 
         Wie groß ist die (approximative) Wahrscheinlichkeit, dass sich darunter mindestens \num{4450} Knöpfe \emph{ohne} Defekt befinden?
         \begin{solution}
-
+            Offensichtlich wäre die Berechnung hier sehr mühselig.
+            Wir versuchen zu approximieren:
+            \begin{itemize}
+                \item Poisson-Verteilung:
+                      \[ 
+                          np = 490 \not\leq 10 \ \lightning \quad \text{und} \quad n = 4900 \geq 150 = 1500p \ \checkmark
+                      \]
+                \item Normalverteilung:
+                      \[ 
+                          np(1-p) = 490 \cdot 0.9 = 441 > 9 \ \checkmark
+                      \]
+            \end{itemize}
+            
+            Damit gilt: 
+            \[ 
+                B(x;4900,0.1) \approx N\left( \mu = np; \sigma = \sqrt{np(1-p)} \right) = N(490;21)
+            \]
+            
+            Wir berechnen: 
+            \begin{alignat*}{1}
+                P(X \leq 450) & = \Phi\left( \frac{450 + 0.5 -\mu}{\sigma} \right) \\
+                              & = \Phi\left( \frac{450 + 0.5 -490}{21} \right)     \\
+                              & = 1 - \Phi\left( \frac{39.5}{21} \right)           \\
+                              & \approx 1 - \Phi(1.88)                             \\
+                              & = 1 - 0.9699                                       \\
+                              & = 3.01\%
+            \end{alignat*}
             \qed
         \end{solution}
     \end{parts}

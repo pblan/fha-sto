@@ -16,15 +16,49 @@
         ist.
         Bestimmen Sie die Ausschussquote $p$, d.h. die Wahrscheinlichkeit dafür, dass eine beliebige Kugel sich als Ausschuss erweist.
         \begin{solution}
-
+            Offensichtlich gilt: 
+            \[ 
+                D \sim N(\mu, \sigma^2) = N\left(\frac{d_1 + d_2}{2}, \left( \frac{d_2 - d_1}{4}\right)^2 \right)
+            \]
+            und damit für die Wahrscheinlichkeit, dass die Kugel genügt: 
+            \begin{alignat*}{1}
+                P(d_1 \leq D \leq d_2) & = \Phi \left( \frac{d_2 - \mu}{\sigma} \right) - \Phi \left( \frac{d_1 - \mu}{\sigma} \right)                                                           \\
+                                       & = \Phi \left( \frac{d_2 - \frac{d_1 + d_2}{2}}{\frac{d_2 - d_1}{4}} \right) - \Phi \left( \frac{d_1 - \frac{d_1 + d_2}{2}}{\frac{d_2 - d_1}{4}} \right) \\
+                                       & = \Phi \left( 4 \cdot \frac{d_2 - \frac{d_1 + d_2}{2}}{d_2 - d_1} \right) - \Phi \left( 4 \cdot \frac{d_1 - \frac{d_1 + d_2}{2}}{d_2 - d_1} \right)     \\
+                                       & = \Phi \left( 4 \cdot \frac{2d_2 - d_1 - d_2}{2(d_2 - d_1)} \right) - \Phi \left( 4 \cdot \frac{d_1 - d_2}{2(d_2 - d_1)} \right)                        \\
+                                       & = \Phi \left( 2 \cdot \frac{d_2 - d_1}{d_2 - d_1} \right) - \Phi \left( 2 \cdot \frac{d_1 - d_2}{d_2 - d_1} \right)                                     \\
+                                       & = \Phi \left( 2 \right) - \Phi \left( 2 \cdot \frac{-(d_2 - d_1)}{d_2 - d_1} \right)                                                                    \\
+                                       & = \Phi \left( 2 \right) - \Phi \left( -2 \right)                                                                                                        \\
+                                       & = \Phi \left( 2 \right) - (1 - \Phi \left( 2 \right))                                                                                                   \\
+                                       & = 2 \cdot \Phi \left( 2 \right) - 1                                                                                                                     \\
+                                       & = 2 \cdot 0.9772  - 1                                                                                                                                   \\
+                                       & = 1.9544  - 1                                                                                                                                           \\
+                                       & = 95.44\%                                                                                                                            
+            \end{alignat*}
+            
+            Damit ist also die Ausschussquote $p = 1 - P(d_1 \leq D \leq d_2) = 4.56\%$.
             \qed
         \end{solution}
         
+        \newpage
         \part 
         Es ist bekannt, dass der Durchmesser $D$ normalverteilt mit $\mu = \nicefrac{d_1+d_2}{2}$ ist und dass der Ausschuss 10\% der gesamten Partie ausmacht. 
         Bestimmen Sie $\sigma$.
         \begin{solution}
-
+            Es gilt: 
+            \begin{alignat*}{2}
+                               & P(d_1 \leq D \leq d_2) &  & = \Phi \left( \frac{d_2 - \mu}{\sigma} \right) - \Phi \left( \frac{d_1 - \mu}{\sigma} \right)                             \\
+                \equiv \quad   & 0.9                    &  & = \Phi \left( \frac{d_2 - \frac{d_1+d_2}{2}}{\sigma} \right) - \Phi \left( \frac{d_1 - \frac{d_1+d_2}{2}}{\sigma} \right) \\
+                \equiv \quad   & 0.9                    &  & = \Phi \left( \frac{d_2 - d_1}{2\sigma} \right) - \Phi \left( \frac{d_1 - d_2}{2\sigma} \right)                           \\
+                \equiv \quad   & 0.9                    &  & = \Phi \left( \frac{d_2 - d_1}{2\sigma} \right) - \Phi \left( - \frac{d_2 - d_1}{2\sigma} \right)                         \\
+                \equiv \quad   & 0.9                    &  & = \Phi \left( \frac{d_2 - d_1}{2\sigma} \right) - \left( 1 - \Phi \left( \frac{d_2 - d_1}{2\sigma} \right) \right)        \\
+                \equiv \quad   & 1.9                    &  & = 2\cdot \Phi \left( \frac{d_2 - d_1}{2\sigma} \right)                                                                    \\
+                \equiv \quad   & 0.95                   &  & = \Phi \left( \frac{d_2 - d_1}{2\sigma} \right)                                                                           \\
+                \implies \quad & \Phi (1.65)            &  & \approx \Phi \left( \frac{d_2 - d_1}{2\sigma} \right)                                                                     \\
+                \equiv \quad   & 1.65                   &  & \approx \frac{d_2 - d_1}{2\sigma}                                                                                         \\
+                \equiv \quad   & 2\sigma                &  & \approx \frac{d_2 - d_1}{1.65}                                                                                            \\ 
+                \equiv \quad   & \sigma                 &  & \approx \frac{d_2 - d_1}{3.3}
+            \end{alignat*}
             \qed
         \end{solution}
     \end{parts}
