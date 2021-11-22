@@ -24,15 +24,12 @@
             \begin{alignat*}{1}
                 P(d_1 \leq D \leq d_2) & = \Phi \left( \frac{d_2 - \mu}{\sigma} \right) - \Phi \left( \frac{d_1 - \mu}{\sigma} \right)                                                           \\
                                        & = \Phi \left( \frac{d_2 - \frac{d_1 + d_2}{2}}{\frac{d_2 - d_1}{4}} \right) - \Phi \left( \frac{d_1 - \frac{d_1 + d_2}{2}}{\frac{d_2 - d_1}{4}} \right) \\
-                                       & = \Phi \left( 4 \cdot \frac{d_2 - \frac{d_1 + d_2}{2}}{d_2 - d_1} \right) - \Phi \left( 4 \cdot \frac{d_1 - \frac{d_1 + d_2}{2}}{d_2 - d_1} \right)     \\
-                                       & = \Phi \left( 4 \cdot \frac{2d_2 - d_1 - d_2}{2(d_2 - d_1)} \right) - \Phi \left( 4 \cdot \frac{d_1 - d_2}{2(d_2 - d_1)} \right)                        \\
                                        & = \Phi \left( 2 \cdot \frac{d_2 - d_1}{d_2 - d_1} \right) - \Phi \left( 2 \cdot \frac{d_1 - d_2}{d_2 - d_1} \right)                                     \\
                                        & = \Phi \left( 2 \right) - \Phi \left( 2 \cdot \frac{-(d_2 - d_1)}{d_2 - d_1} \right)                                                                    \\
                                        & = \Phi \left( 2 \right) - \Phi \left( -2 \right)                                                                                                        \\
                                        & = \Phi \left( 2 \right) - (1 - \Phi \left( 2 \right))                                                                                                   \\
                                        & = 2 \cdot \Phi \left( 2 \right) - 1                                                                                                                     \\
                                        & = 2 \cdot 0.9772  - 1                                                                                                                                   \\
-                                       & = 1.9544  - 1                                                                                                                                           \\
                                        & = 95.44\%                                                                                                                            
             \end{alignat*}
             

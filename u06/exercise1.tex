@@ -43,24 +43,25 @@
             Damit gilt mit 
             \begin{itemize}
                 \item $n = n$,
-                \item $p = \nicefrac{1}{32}$:
+                \item $p = \nicefrac{1}{16}$:
             \end{itemize}
             \[ 
-                b(x;n,p) = b(x,n,\nicefrac{1}{32}) = \binom{n}{x} \cdot p^x \cdot q^{n-x} = \binom{n}{x} \cdot \left(\frac{1}{32}\right)^x \cdot \left(\frac{31}{32}\right)^{n-x}
+                b(x;n,p) = b(x,n,\nicefrac{1}{16}) = \binom{n}{x} \cdot p^x \cdot q^{n-x} = \binom{n}{x} \cdot \left(\frac{1}{16}\right)^x \cdot \left(\frac{15}{16}\right)^{n-x}
             \]
             
             Mit $1 - P(X = 0) \geq 0$ gilt: 
             \begin{alignat*}{2}
                                & 1 - P(X = 0)                                                                              &  & \geq 0.5                                   \\ 
-                \implies \quad & 1 - \binom{n}{0} \cdot \left(\frac{1}{32}\right)^0 \cdot \left(\frac{31}{32}\right)^{n-0} &  & \geq 0.5                                   \\
-                \implies \quad & 1 - 1 \cdot 1 \cdot \left(\frac{31}{32}\right)^{n}                                        &  & \geq 0.5                                   \\
-                \implies \quad & \left(\frac{31}{32}\right)^{n}                                                            &  & \leq 0.5                                   \\
-                \implies \quad & n \cdot \log \frac{31}{32}                                                                &  & \leq \log \frac{1}{2}                      \\
-                \implies \quad & n                                                                                         &  & \geq \frac{\log 2}{\log \nicefrac{32}{31}} \\
-                \implies \quad & n                                                                                         &  & \geq 21.8323                               \\
+                \implies \quad & 1 - \binom{n}{0} \cdot \left(\frac{1}{16}\right)^0 \cdot \left(\frac{15}{16}\right)^{n-0} &  & \geq 0.5                                   \\
+                \implies \quad & 1 - 1 \cdot 1 \cdot \left(\frac{15}{16}\right)^{n}                                        &  & \geq 0.5                                   \\
+                \implies \quad & \left(\frac{15}{16}\right)^{n}                                                            &  & \leq 0.5                                   \\
+                \implies \quad & n \cdot \ln \frac{15}{16}                                                                &  & \leq \ln \frac{1}{2}                      \\
+                \implies \quad & n                                                                                         &  & \geq \frac{\ln \nicefrac{1}{2}}{\ln \nicefrac{16}{15}} \\
+                \implies \quad & n                                                                                         &  & \geq \frac{\ln 1 - \ln 2}{\ln 16 - \ln 15} \\
+                \implies \quad & n                                                                                         &  & \geq 10.74                               \\
             \end{alignat*}
             
-            Damit muss man mindestens 22-mal ziehen. \qed
+            Damit muss man mindestens 11-mal ziehen. \qed
         \end{solution}
     \end{parts}
 \end{questions}

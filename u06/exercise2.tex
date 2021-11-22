@@ -11,7 +11,22 @@
     Anderenfalls wird sie zurückgewiesen.
     Wie groß ist bei diesem Prüfverfahren die Wahrscheinlichkeit ungerechtfertigter Reklamationen, indem eine Packung zurückgewiesen wird, obwohl sie gerade noch den Lieferbedingungen entspricht?
     \begin{solution}
+        Offensichtlich gilt: 
+        \[ 
+            X = \{ \text{Anzahl der defekten Dichtungen} \} \sim \hdist(x;N,M,n) = \hdist(x;100,10,10)
+        \] 
 
+        Und damit: 
+        \[ 
+            P(X = x) = \frac{\binom{M}{x} \cdot \binom{N-M}{n-x}}{\binom{N}{n}} = \frac{\binom{10}{x} \cdot \binom{90}{10-x}}{\binom{100}{10}}
+        \] 
+
+        Die Packung wird genau dann fälschlicherweise zurückgewiesen, wenn mindestens ein Stück der Stichprobe fehlerhaft ist.
+        Damit gilt: 
+        \[ 
+        P(X \geq 1) = 1 - P(X < 1) = 1 - P(X = 0) = 1 - \frac{\binom{10}{0} \cdot \binom{90}{10}}{\binom{100}{10}} \approx 66.95\%
+        \]
+        \qed
     \end{solution}
 \end{questions}
 \end{document}

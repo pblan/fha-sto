@@ -16,8 +16,12 @@
         \begin{solution}
             Offensichtlich gilt: 
             \[ 
-                X \sim B(x;6,\nicefrac{1}{6}) = \binom{n}{x} \cdot p^x \cdot q^{n-x} = \binom{6}{x} \cdot \left( \frac{1}{6} \right)^x \cdot \left( \frac{5}{6} \right)^{6-x}
+                X \sim G(p) = G(\nicefrac{1}{6})
             \]
+            mit 
+            \[ 
+                f(x) = (1-p)^xp
+            \] 
             \qed
         \end{solution}
         
@@ -26,7 +30,7 @@
         \begin{solution}
             Es gilt: 
             \[ 
-                P(X > 5) = P(X = 6) = B(6;6,\nicefrac{1}{6}) = \binom{6}{6} \cdot \left( \frac{1}{6} \right)^6 \cdot \left( \frac{5}{6} \right)^{0} = \left( \frac{1}{6} \right)^6 = \frac{1}{46656} \approx 0.0021\%
+                P(X > 5) = 1 - P(X \leq 5) = 1 - \sum_{k=0}^5 f(k) = 1 - \frac{1}{6} \sum_{k=0}^5 \left( \frac{5}{6} \right)^k = \frac{15625}{46656} \approx 33.49\%
             \]
             \qed
         \end{solution}

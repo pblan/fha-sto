@@ -2,6 +2,8 @@
 \documentclass{abgabe}
 \begin{document}
 
+\def\🚗{\scalerel*{\includegraphics{figures/1f697.eps}}{\textrm{\textbigcircle}}}
+
 \begin{questions}
     \question
     Ein Bahnübergang wird in der Zeit zwischen 16.00 Uhr und 18.00 Uhr durchschnittlich von 150 Fahrzeugen pro Stunde überquert. 
@@ -10,25 +12,51 @@
         \part 
         kein Fahrzeug 
         \begin{solution}
-
+            Es gilt offensichtlich: 
+            \[ 
+                \frac{150 \ \🚗}{1 \si{\hour}} = \frac{150 \ \🚗}{3600 \si{\s}} = \frac{\nicefrac{15}{4} \ \🚗}{90 \si{\s}} 
+            \] 
+            Damit erhalten wir unseren Erwartungswert $\mu \ [ \🚗 ]$ mit $\mu = \frac{15}{4}$.
+            Offenbar gilt: 
+            \[ 
+                X = \{ \text{Anzahl der Autos in 90\si{\s}} \} \sim \po(x;\mu) = \po(x;\nicefrac{15}{4})
+            \] 
+            mit 
+            \[ 
+                P(X = x) = \frac{\mu^x}{x!} \cdot e^{-\mu} = \frac{\left( \nicefrac{15}{4} \right)^x}{x!} \cdot e^{-\nicefrac{15}{4}}
+            \] 
+            
+            Und damit:
+            \[ 
+            P(X = 0) = \frac{\left( \nicefrac{15}{4} \right)^0}{0!} \cdot e^{-\nicefrac{15}{4}} \approx 2,35\%
+            \] 
         \end{solution}
         
         \part 
         genau ein Fahrzeug 
         \begin{solution}
-
+            Es gilt:
+            \[ 
+            P(X = 1) = \frac{\left( \nicefrac{15}{4} \right)^1}{1!} \cdot e^{-\nicefrac{15}{4}} \approx 8.82\%
+            \] 
         \end{solution}
         
         \part 
         genau zwei Fahrzeuge
         \begin{solution}
-
+            Es gilt:
+            \[ 
+            P(X = 2) = \frac{\left( \nicefrac{15}{4} \right)^2}{2!} \cdot e^{-\nicefrac{15}{4}} \approx 16.54\%
+            \] 
         \end{solution}
         
         \part 
         mehr als zwei Fahrzeuge
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                P(X > 2) = 1 - P(X \leq 2) = 1 - (P(X=0) + P(X=2) + P(X=2)) \approx 72.29\% 
+            \] 
         \end{solution}
     \end{parts}
     eintreffen.
