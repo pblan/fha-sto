@@ -8,29 +8,50 @@
     \[ 
         f_{X,Y} (x,y) = 
         \begin{cases}
-            ky \cdot e^{-\lambda x} & \text{falls} \ x \leq 0 \\
-            0 & \text{sonst}
+            ky \cdot e^{-\lambda x} & \text{falls} \ 0 \leq y \leq 1; x \geq 0; \lambda > 0 \\
+            0                       & \text{sonst}
         \end{cases}
-    \] 
+    \]
     \begin{parts}
         \part 
         Für welche $k$-Werte ist $f$ eine Verteilungsdichte?
         \begin{solution}
-
+            Es gilt: 
+            \begin{alignat*}{2}
+                             & \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X,Y} (x,y) \diff y \diff x &  & = 1           \\ 
+                \equiv \quad & \int_{0}^{\infty} \int_{0}^{1} ky \cdot e^{-\lambda x} \diff y \diff x        &  & = 1           \\ 
+                \equiv \quad & \int_{0}^{\infty} e^{-\lambda x} \int_{0}^{1} y  \diff y \diff x              &  & = \frac{1}{k} \\ 
+                \equiv \quad & \int_{0}^{\infty} e^{-\lambda x} \left[ \frac{y^2}{2} \right]_{0}^{1} \diff x &  & = \frac{1}{k} \\ 
+                \equiv \quad & \int_{0}^{\infty} e^{-\lambda x} \diff x                                      &  & = \frac{2}{k} \\ 
+                \equiv \quad & \left[ \frac{-e^{-\lambda x}}{\lambda} \right]_{0}^{\infty}                   &  & = \frac{2}{k} \\ 
+                \equiv \quad & \frac{1}{\lambda}                                                             &  & = \frac{2}{k} \\ 
+                \equiv \quad & k                                                                             &  & = 2\lambda
+            \end{alignat*}
             \qed
         \end{solution}
         
         \part 
         Berechnen Sie die Randverteilungen von $X$ und $Y$.
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                f_1(x) = \int^\infty_{-\infty} f(x,y) \diff y = \int^1_{0} 2\lambda y \cdot e^{-\lambda x} \diff y = \left[ y^2\lambda \cdot e^{-\lambda x} \right]^1_{0} = \lambda \cdot e^{-\lambda x}
+            \]
+            \[ 
+                f_2(y) = \int^\infty_{-\infty} f(x,y) \diff x = \int^\infty_{0} 2\lambda y \cdot e^{-\lambda x} \diff x = \left[ -2y \cdot e^{-\lambda x} \right]^\infty_{0} = 2y
+            \]
             \qed
         \end{solution}
         
         \part 
         Untersuchen Sie $X$ und $Y$ auf Unabhängigkeit.
         \begin{solution}
-
+            Offensichtlich gilt: 
+            \[ 
+                f(x,y) = f_1(x) \cdot f_2(y)
+            \]
+            
+            Damit sind die Zufallsvariablen $X$ und $Y$ stochastisch unabhängig.
             \qed
         \end{solution}
     \end{parts}

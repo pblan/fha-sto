@@ -6,7 +6,7 @@
     \question
     Bei einem Produktionsvorgang werden Zylinder in den ausgefrästen Kreis eines Metallsockels eingepasst. 
     Die beiden Teile werden rein zufällig aus den bisher produzierten Zylindern bzw. ausgefrästen Metallplatten ausgewählt. 
-    Der Durchmesser des Zylinders ist (in \si{\mm}) nach $N(24,9; (0,03)2)$-verteilt, der Durchmesser des in den Metallsockel eingefrästen Kreises ist nach $N(25; (0.04)2)$-verteilt. 
+    Der Durchmesser des Zylinders ist (in \si{\mm}) nach $N(24.9; (0.03)^2)$-verteilt, der Durchmesser des in den Metallsockel eingefrästen Kreises ist nach $N(25; (0.04)^2)$-verteilt. 
     Der Zylinder kann noch eingepasst werden, falls die lichte Weite der Durchmessers (= Durchmesser des gefrästen Kreises - Durchmesser des Zylinders) nicht mehr als $0.2\si{\mm}$ beträgt.
     \begin{parts}
         \part 
@@ -15,30 +15,58 @@
             \subpart
             den Erwartungswert
             \begin{solution}
-
+                Es gilt: 
+                \[ 
+                    X = \{ \text{Durchmesser des Zylinders [\si{\mm}]} \} \sim N(\mu_X, \sigma_X^2) = N(24.9, (0.03)^2)
+                \]
+                \[ 
+                    Y = \{ \text{Durchmesser des eingefrästen Kreises [\si{\mm}]} \} \sim N(\mu_Y, \sigma_Y^2) = N(25, (0.04)^2)
+                \]
+                und wir definieren: 
+                \[ 
+                    Z = Y - X
+                \]
+                Damit gilt:
+                \[ 
+                    \Mean(Z) = \Mean(Y) - \Mean(X) = \mu_Y - \mu_X = 0.1
+                \]
                 \qed
             \end{solution}
-        
+            
             \subpart
             die Varianz 
             \begin{solution}
-
+                Da $X$ und $Y$ stochastisch unabhängig sind, gilt: 
+                \[ 
+                    \Var(Z) = \Var(Y) + \Var(X) - 2\Cov(X,Y) = \Var(Y) + \Var(X) = (0.05)^2
+                \]
                 \qed
             \end{solution}
             
             \subpart
             die Verteilung
             \begin{solution}
-
+                \[ 
+                    Z \sim N(\mu_Z, \sigma_Z^2) = N(0.1, (0.05)^2)
+                \]
                 \qed
             \end{solution}
         \end{subparts}
         der Zufallsvariablen \enquote{lichte Weite des Durchmessers}.
         
+        \newpage
         \part 
         In wie viel Prozent aller Fälle lässt sich der Zylinder nicht in die Metallplatte einpassen?
         \begin{solution}
-
+            Sei 
+            \[ 
+                u = \frac{x - \mu_Z}{\sigma_Z} = \frac{0.2 - 0.1}{0.05} = 2
+            \]
+            
+            Dann gilt damit:
+            \[ 
+                P(X > 0.2) = 1 - P(X \leq 0.2) = 1 - \Phi(u) = 1 - \Phi(2) = 1 - 0.97725 = 0.02275
+            \]
             \qed
         \end{solution}
     \end{parts}

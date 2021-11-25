@@ -8,8 +8,8 @@
     $X_i$ gebe die Augenzahl des $i$-ten Würfels ($i = 1,2$) an. 
     Für 
     \[ 
-    X = X_1 + X_2 \quad \text{und} \quad Y = X_1 \cdot X_2
-    \] 
+        X = X_1 + X_2 \quad \text{und} \quad Y = X_1 \cdot X_2
+    \]
     sollen folgende Kenngrößen berechnet werden:
     \begin{parts}
         \part 
@@ -17,43 +17,63 @@
         \begin{solution}
             Offensichtlich gilt: 
             \[ 
-                f_1(X) = 
-                \begin{cases}
-                    \nicefrac{1}{36} & \text{für} \ X = 2 \\
-                    \nicefrac{1}{18} & \text{für} \ X = 3 \\
-                    \nicefrac{1}{12} & \text{für} \ X = 4 \\
-                    \nicefrac{1}{9} & \text{für} \ X = 5 \\
-                    \nicefrac{5}{36} & \text{für} \ X = 6 \\
-                    \nicefrac{1}{6} & \text{für} \ X = 7 \\
-                    \nicefrac{5}{36} & \text{für} \ X = 8 \\
-                    \nicefrac{1}{9} & \text{für} \ X = 9 \\
-                    \nicefrac{1}{12} & \text{für} \ X = 10 \\
-                    \nicefrac{1}{18} & \text{für} \ X = 11 \\
-                    \nicefrac{1}{36} & \text{für} \ X = 12 \\
-                    0 & \text{sonst}
-                \end{cases}
-            \] 
+                \mu = \Mean(X_1) = \Mean(X_2) = \frac{1}{6} \cdot \sum_{i=1}^6 i = \frac{7}{2} = 3.5 
+            \]
+            \[ 
+                \sigma^2 = \Var(X_1) = \Var(X_2) = E((X_1 - \mu)^2) = \frac{1}{6} \cdot \sum_{i=1}^6 (i - 3.5)^2 = \frac{35}{12} \approx 2.9167
+            \]
+            und damit:
+            \[ 
+                \mu_X = E(X) = E(X_1) + E(X_2) = 7 \quad \land \quad \mu_Y = E(Y) = E(X_1) \cdot E(X_2) = \frac{49}{4} = 12.25
+            \]
             \qed
         \end{solution}
         
         \part 
         Varianz        
         \begin{solution}
-
+            Offensichtlich gilt: 
+            \[ 
+                X_1, X_2 \ \text{stochastisch unabhängig} \implies \Cov(X_1, X_2) = 0 
+            \]
+            Und damit: 
+            \[ 
+                \Var(X) = \Var(X_1) + \Var(X_2) + 2\Cov(X_1,X_2) = \frac{35}{6} \approx 5.833 
+            \]
+            \[ 
+                \Var(Y) = \Mean(X_1)^2 \Var(X_2) + \Mean(X_2)^2 \Var(X_1) + \Var(X_1) \Var(X_2) = \frac{11515}{144} \approx 79.965
+            \]
+            \qed
+        \end{solution}
+        
+        \newpage 
+        \part 
+        Kovarianz $\Cov(X,Y)$
+        \begin{solution}
+            Es gilt: 
+            \begin{alignat*}{1}
+                \Cov(X,Y) & = \Mean(XY) - \Mean(X) \Mean(Y)                                         \\ 
+                          & = \Mean((X_1 + X_2)X_1X_2) - \Mean(X) \Mean(Y)                          \\ 
+                          & = \Mean(X_1^2X_2 + X_1X_2^2) - \Mean(X) \Mean(Y)                        \\ 
+                          & = \Mean(X_1^2) \Mean(X_2) + \Mean(X_1) \Mean(X_2^2) - \Mean(X) \Mean(Y) \\ 
+                          & = \mu \left( \Mean(X_1^2) + \Mean(X_2^2) \right) - \Mean(X) \Mean(Y)    \\ 
+                          & = \mu \left( 2\Mean(X_1^2) \right) - \Mean(X) \Mean(Y)                  \\ 
+                          & = \mu \left( 2\sum_{i=1}^6 i^2 \cdot f_1(i) \right) - \Mean(X) \Mean(Y) \\ 
+                          & = \frac{\mu}{3} \sum_{i=1}^6 i^2 - \Mean(X) \Mean(Y)                    \\ 
+                          & = \frac{7}{6} \cdot 91 - 7 \cdot \frac{49}{4}                           \\ 
+                          & = \frac{245}{12} \approx 20.4167
+            \end{alignat*}
+            
             \qed
         \end{solution}
         
         \part 
-        Kovarianz $\Cov(X,Y)$        
+        Korrelationskoeffizient $\rho_{XY}$
         \begin{solution}
-
-            \qed
-        \end{solution}
-        
-        \part 
-        Korrelationskoeffizient $\rho(X,Y)$
-        \begin{solution}
-
+            Es gilt: 
+            \[ 
+                \rho_{XY} = \frac{\Cov(X,Y)}{\sigma_{X} \cdot \sigma_{Y}} = \frac{\frac{245}{12}}{\sqrt{\frac{35}{6}} \cdot \sqrt{\frac{11515}{144}}} = \frac{\sqrt{1974}}{47} \approx 0.9453
+            \]
             \qed
         \end{solution}
     \end{parts}
