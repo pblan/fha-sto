@@ -12,21 +12,60 @@
         \part 
         die zweidimensionale Wahrscheinlichkeitsfunktion $P(X_1 = i, X_2 = j)$ für $i,j \in \{1; 2; 5\}$.
         \begin{solution}
-
+            Offensichtlich gilt: 
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|}
+                    \hline 
+                    TO DO & 1   & 2    & 5    & f_1(X_1) \\ % \diagbox{X_1}{X_2}
+                    \hline 
+                    1                & \nicefrac{1}{15} & \nicefrac{1}{5} & \nicefrac{1}{15} & \nicefrac{1}{3} \\
+                    \hline 
+                    2                & \nicefrac{1}{5} & \nicefrac{1}{5} & \nicefrac{1}{10} & \nicefrac{1}{2} \\
+                    \hline 
+                    5                & \nicefrac{1}{15} & \nicefrac{1}{10} & 0 & \nicefrac{1}{6} \\
+                    \hline 
+                    f_2(X_2)                 & \nicefrac{1}{3}    & \nicefrac{1}{2}     & \nicefrac{1}{6}     & 1 \\
+                    \hline
+                \end{tabular}
+            \end{center}
             \qed
         \end{solution}
         
         \part 
         den Erwartungswert $\Mean(X_i)$ und die Varianz $\Var(X_i)$ ($i = 1,2$).
         \begin{solution}
+            Für $X_1$ gilt offensichtlich: 
+            \[ 
+            \mu_{X_1} = \Mean(X_1) = \sum_{i} i \cdot f_1(i) = \ldots = \frac{13}{6} \approx 2.1667
+            \] 
+            \[ 
+            \sigma^2_{X_1} = \Var(X_1) = E((X_1 - \mu_{X_1}^2)) = \sum_{i} \left( i \cdot f_1(i) - \mu_{X_1} \right)^2 = \ldots = \frac{13}{2} = 6.5
+            \] 
 
+            In der Wahrscheinlichkeitsfunktion ist zu sehen, dass die Randverteilungen für beide Zufallsvariablen gleich sind. 
+            Damit gilt offensichtlich:
+            \[ 
+                \mu_{X_2} = \Mean(X_2) = \mu_{X_1} = \frac{13}{6} \approx 2.1667 \quad \land \quad \sigma^2_{X_2} = \Var(X_2) = \sigma^2_{X_1} = \frac{13}{2} = 6.5
+            \] 
             \qed
         \end{solution}
         
+        \newpage
         \part 
-        die Kovarianz $\Cov(X_1,X_2)$ sowie den Korrelationskoeffizient $\rho(X_1,X_2)$.
+        die Kovarianz $\Cov(X_1,X_2)$ sowie den Korrelationskoeffizient $\rho_{X_1,X_2}$.
         \begin{solution}
+            Es gilt mit $i,j \in \{1,2,5\}$: 
+            \begin{alignat*}{1}
+            \Cov(X_1, X_2) & = \Mean(X_1X_2) - \Mean(X_1)\Mean(X_2) = \sum_i \sum_j i \cdot j \cdot f(i,j) - \Mean(X_1)\Mean(X_2) \\ 
+            & = \left( \frac{1}{15} + \frac{2}{5} + \frac{1}{3} + \frac{2}{5} + \frac{4}{5} + 1 + \frac{1}{3} + 1 + 0 \right) - \frac{13}{6} \cdot \frac{13}{6} \\ 
+            & = \frac{13}{3} - \frac{169}{36}  = -\frac{13}{36} \approx -0.3611
+            \end{alignat*}
 
+            und 
+
+            \[ 
+                \rho_{X_1X_2} = \frac{\Cov(X,Y)}{\sigma_{X_1} \cdot \sigma_{X_2}} = \frac{-\frac{13}{36}}{\sqrt{\frac{13}{2}} \cdot \sqrt{\frac{13}{2}}} = -\frac{1}{18} \approx -0.0556
+            \] 
             \qed
         \end{solution}
     \end{parts}

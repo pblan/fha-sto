@@ -8,14 +8,31 @@
     $X_i$ gebe die Augenzahl des $i$-ten Würfels ($i = 1,2$) an. 
     Für 
     \[ 
-    X = X_1 + X_2 \quad \text{und} \quad X = X_1 \cdot X_2
+    X = X_1 + X_2 \quad \text{und} \quad Y = X_1 \cdot X_2
     \] 
-    sollen folgende Kenngrößenberechnet werden:
+    sollen folgende Kenngrößen berechnet werden:
     \begin{parts}
         \part 
         Erwartungswert 
         \begin{solution}
-
+            Offensichtlich gilt: 
+            \[ 
+                f_1(X) = 
+                \begin{cases}
+                    \nicefrac{1}{36} & \text{für} \ X = 2 \\
+                    \nicefrac{1}{18} & \text{für} \ X = 3 \\
+                    \nicefrac{1}{12} & \text{für} \ X = 4 \\
+                    \nicefrac{1}{9} & \text{für} \ X = 5 \\
+                    \nicefrac{5}{36} & \text{für} \ X = 6 \\
+                    \nicefrac{1}{6} & \text{für} \ X = 7 \\
+                    \nicefrac{5}{36} & \text{für} \ X = 8 \\
+                    \nicefrac{1}{9} & \text{für} \ X = 9 \\
+                    \nicefrac{1}{12} & \text{für} \ X = 10 \\
+                    \nicefrac{1}{18} & \text{für} \ X = 11 \\
+                    \nicefrac{1}{36} & \text{für} \ X = 12 \\
+                    0 & \text{sonst}
+                \end{cases}
+            \] 
             \qed
         \end{solution}
         
