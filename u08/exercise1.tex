@@ -11,14 +11,40 @@
         \part 
         unter Anwendung der Ungleichung von Tschebyscheff?
         \begin{solution}
+            Wir wissen:
+            \begin{itemize}
+                \item $X = \{ \text{Messwerte einer Messung} \}$
+                \item $\conj{X}_{(n)} = \{ \text{arithmetisches Mittel bei $n$ Messungen} \} = \frac{1}{n} \sum_{i = 1}^n X_i$
+                \item $\mu = \ ?$
+                \item $\sigma = 0.1$
+                \item $\epsilon = 0.02$
+                \item $P\left( \abs{\conj{X}_{(n)} - \mu} < 0.02 \right) \geq 95\%$
+            \end{itemize}
 
+            Nach Tschebyscheff gilt: 
+            \[ 
+                P \left( \abs{X - \mu} \geq \epsilon \right) \leq \frac{\sigma^2}{\epsilon^2} \quad \text{bzw.} \quad P \left( \abs{\conj{X}_{(n)} - \mu} \geq \epsilon \right) \leq \frac{\sigma^2}{n\epsilon^2}
+            \] 
+
+            Damit gilt: 
+            \begin{alignat*}{2}
+                & P \left( \abs{\conj{X}_{(n)} - \mu} \geq \epsilon \right) && \leq \frac{\sigma^2}{n\epsilon^2}  \\
+                \equiv \quad & 1 - P \left( \abs{\conj{X}_{(n)} - \mu} < \epsilon \right) && \leq \frac{\sigma^2}{n\epsilon^2}  \\
+                \equiv \quad & P \left( \abs{\conj{X}_{(n)} - \mu} < \epsilon \right) && \geq 1 - \frac{\sigma^2}{n\epsilon^2} \\
+                \implies \quad & 1 - \frac{0.1^2}{n \cdot 0.02^2} && \geq 0.95 \\
+                \equiv \quad & \frac{0.1^2}{n \cdot 0.02^2} && \leq 0.05 \\
+                \equiv \quad & n && \geq 500
+            \end{alignat*}
             \qed
         \end{solution}
         
         \part 
         unter Berücksichtigung, dass das arithmetische Mittel von $n$ unabhängigen Zufallsvariablen (für großes $n$) näherungsweise normalverteilt ist?
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                \conj{X}_{(n)} \sim N(\mu_{\conj{X}_{(n)}}, \sigma^2_{\conj{X}_{(n)}})
+            \] 
             \qed
         \end{solution}
     \end{parts}
