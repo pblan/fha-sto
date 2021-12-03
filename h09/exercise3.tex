@@ -4,22 +4,42 @@
 
 \begin{questions}
     \question
-    Das Abwassersystem einer Gemeinde, an das 1.332 Haushalte angeschlossen sind, ist für eine maximale Last von 13500 Litern pro Stunde ausgelegt.
+    Das Abwassersystem einer Gemeinde, an das 1332 Haushalte angeschlossen sind, ist für eine maximale Last von \num{13500} Litern pro Stunde ausgelegt.
 
-    Nehmen Sie an, dass die einzelnen Abwassermengen (pro Stunde) von $n$ angeschlossenen Haushalten beschrieben werden können durch stochastisch unabhängige Zufallsvariablen $X_1, \ldots , X_n$, wobei $X_i \forall i \in \{1, \ldots ,n\}$ normalverteilt ist mit Erwartungswert $\mu = 10$ (Liter/ Stunde) und Varianz $\sigma^2 = 4$ ((Liter/ Stunde)2).
+    Nehmen Sie an, dass die einzelnen Abwassermengen (pro Stunde) von $n$ angeschlossenen Haushalten beschrieben werden können durch stochastisch unabhängige Zufallsvariablen $X_1, \ldots , X_n$, wobei $X_i$ für alle $i \in \{1, \ldots ,n\}$ normalverteilt ist mit Erwartungswert $\mu = 10$ (Liter/Stunde) und Varianz $\sigma^2 = 4$ ($\text{(Liter/Stunde)}^2$).
     Berechnen Sie
     \begin{parts}
         \part
         den Erwartungswert und die Varianz für die 1332 angeschlossenen Haushalte.
         \begin{solution}
-
+            Offensichtlich gilt mit:
+            \[
+                X = X_1 + \ldots + X_{1332}
+            \]
+            direkt auch:
+            \[
+                \mu_X = 1332 \cdot \mu = \num{13320} \si{\L\per\hour} \quad \land \quad \sigma_X^2 = 1332 \cdot \sigma^2 = \num{5328} \si{\square\L\per\square\hour}
+            \]
             \qed
         \end{solution}
 
         \part
         die Wahrscheinlichkeit einer Überlastung des Abwassersystems (für 1332 angeschlossene Haushalte).
         \begin{solution}
+            Offensichtlich gilt auch:
+            \[
+                X \sim N(\mu,\sigma^2) = N(13320, \num{5328})
+            \]
 
+            Sei
+            \[
+                u = \frac{x - \mu}{\sigma} = \frac{\num{13500} - 13320}{\sqrt{\num{7096896}}} = \frac{13500 - 13320}{12\sqrt{37}} = \frac{15\sqrt{37}}{37}
+            \]
+
+            Dann gilt:
+            \[
+                P(X > u) = 1 - P(X \leq u) = 1 - \Phi\left(\frac{15\sqrt{37}}{37}\right) \approx 1 - \Phi\left(2.47\right) = 1 - 0.9932 = 0.68\%
+            \]
             \qed
         \end{solution}
     \end{parts}

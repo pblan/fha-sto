@@ -10,15 +10,49 @@
         \part
         Berechnen Sie den Erwartungswert und die Varianz des Füllgewichtes eines Beutels.
         \begin{solution}
+            Offensichtlich gilt:
+            \[
+                \Mean(X) = \frac{a + b}{2} = \frac{0.75 - 0.25}{2} = \frac{1}{4}
+            \]
+            \[
+                \Var(X) \stackrel{\footnotemark}{=} \frac{1}{12} (b-a)^2 = \frac{1}{12}
+            \]
 
+            Und für $Y = X + 10$:
+            \[
+                \mu_Y = \Mean(Y) = \Mean(X) + 10 = \frac{41}{4} \quad \land \quad \sigma_Y^2 = \Var(Y) = \Var(X) =  \frac{1}{12}
+            \]
             \qed
         \end{solution}
-
+        \footnotetext{Siehe: \href{https://de.wikipedia.org/wiki/Stetige_Gleichverteilung}{Wikipedia}}
         \part
         Die abgefüllten Beutel sollen mit einem Kleintransporter befördert werden.
-        Berechnen Sie näherungsweise die Wahrscheinlichkeit dafür, dass die zulässige Nutzlast von 1020kg bei Zuladung von 100 Beuteln überschritten wird.
+        Berechnen Sie nähe- rungsweise die Wahrscheinlichkeit dafür, dass die zulässige Nutzlast von 1020kg bei Zuladung von 100 Beuteln überschritten wird.
         \begin{solution}
+            Sei
+            \[
+                S_n = Y_1 + \ldots + Y_{100}
+            \]
+            dann gilt nach dem Zentralen Grenzwertsatz:
+            \[
+                \Mean(S_n) = n\mu_Y = 100 \cdot \mu_Y = 1025 \quad \land \quad \Var(S_n) = n\sigma_Y^2 = 100 \cdot \sigma_Y^2 = \frac{25}{3}
+            \]
 
+            Sei dann die standardisierte Zufallsvariable $Z_n$ gegeben mit
+            \[
+                Z_n = \frac{S_n - \Mean(S_n)}{\sigma_{S_n}} = \frac{S_n - n\mu_Y}{\sigma_Y\sqrt{n}} = \sqrt{3}\cdot \frac{S_n - 1025}{5}
+            \]
+            dann besagt der Zentrale Grenzwertsatz, dass die Verteilungsfunktion von $Z_n$ für $n \to \infty$ punktweise gegen die der Standardnormalverteilung $N(0,1)$ konvergiert.
+
+            Wir wählen
+            \[
+                u = \sqrt{3} \cdot \frac{1020 - 1025}{5} = -\sqrt{3} \approx -1.73
+            \]
+
+            Damit gilt:
+            \[
+                P(Z_n \geq u) = 1 - P(Z_n < u) \approx 1 - \Phi(-1.73) = 1 - (1 - \Phi(1.73)) = \Phi(1.73) = 95.82\%
+            \]
             \qed
         \end{solution}
     \end{parts}

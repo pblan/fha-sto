@@ -10,10 +10,59 @@
         \part
         Welchen Einsatz sollte Anton zahlen, damit das Spiel fair ist?
         \begin{solution}
-
+            Wir nutzen erst einmal eine Nebenrechnung:
+            
+            Seien $X_1$ und $X_2$ Zufallsvariablen mit 
+            \[ 
+                X_1 := \{ \text{Aufschrift der ersten Kugel} \}
+            \]
+            \[ 
+                X_2 := \{ \text{Aufschrift der zweiten Kugel} \}
+            \]
+            Dann gilt:
+            
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|}
+                    \hline
+                    $\diagbox{$X_1$}{$X_2$}$ & 1               & 2                & 6                & f_2(X_2)        \\ 
+                    \hline
+                    1                        & \nicefrac{1}{6} & \nicefrac{1}{6}  & \nicefrac{1}{6}  & \nicefrac{1}{2} \\
+                    \hline
+                    2                        & \nicefrac{1}{6} & 0                & \nicefrac{1}{12} & \nicefrac{1}{4} \\
+                    \hline
+                    6                        & \nicefrac{1}{6} & \nicefrac{1}{12} & 0                & \nicefrac{1}{4} \\
+                    \hline
+                    f_1(X_1)                 & \nicefrac{1}{2} & \nicefrac{1}{4}  & \nicefrac{1}{4}  & 1               \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            
+            Mit dieser Nebenrechnung gilt dann: 
+            \[ 
+                X = \{ \text{Gewinn in Euro ohne Einsatz} \}
+            \]
+            
+            mit: 
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|}
+                    \hline
+                    x    & 0               & 1               & 4               & 5               \\ 
+                    \hline 
+                    f(x) & \nicefrac{1}{6} & \nicefrac{1}{3} & \nicefrac{1}{6} & \nicefrac{1}{3} \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            
+            und damit: 
+            \[ 
+                \mu_X = \Mean(X) = 1 \cdot \frac{1}{3} + 4 \cdot \frac{1}{6} + 5 \cdot \frac{1}{3} = \frac{8}{3}
+            \]
+            
+            Das Spiel ist also fair bei einem Einsatz von $\nicefrac{8}{3}$ Euro.
             \qed
         \end{solution}
     \end{parts}
+    \newpage
     Anton muss im Folgenden pro Spiel 3€ Einsatz zahlen.
     \begin{parts}
         \setcounter{partno}{1}
@@ -21,7 +70,21 @@
         Welchen durchschnittlichen Reingewinn erwartet Anton jetzt pro Spiel? 
         Berechnen Sie auch die Varianz und die Standardabweichung des Reingewinns
         \begin{solution}
-
+            Es gilt: 
+            \[ 
+                Y := \{ \text{Reingewinn in Euro mit Einsatz} \} \quad \iff \quad Y = X - 3
+            \]
+            
+            Und damit: 
+            \[ 
+                \mu_Y = \Mean(Y) = \Mean(X) - 3 = -\frac{1}{3}
+            \]
+            \[
+                \sigma_Y^2 = \Var(Y) = \Var(X) = \Mean((X - \mu_X)^2) = \sum_{i=1}^4 (x_i - \mu_X)^2 \cdot f(x_i) = \ldots = \frac{38}{9} \approx 4.22
+            \]
+            \[
+                \sigma_Y = \sqrt{\sigma_Y^2} = \sqrt{\frac{38}{9}} = \frac{\sqrt{38}}{3} \approx 2.0548    
+            \]
             \qed
         \end{solution}
         
@@ -29,14 +92,29 @@
         Anton spielt das Spiel insgesamt 90 Mal.
         Berechnen Sie für den Gesamtreingewinn den Erwartungswert und die Varianz.
         \begin{solution}
-
+            Sei 
+            \[ 
+                Z = Y_1 + \ldots + Y_{90}
+            \]
+            Dann gilt: 
+            \[ 
+                \mu_Z = \Mean(Z) = 90 \cdot E(Y) = -30
+            \]
+            \[
+                \sigma_Z^2 = \Var(Z) = 90 \cdot \Var(Y) = 90 \cdot \frac{38}{9} = 380
+            \]
             \qed
         \end{solution}
         
         \part
         Schätzen Sie mit der Ungleichung von Tschebyscheff die Wahrscheinlichkeit dafür ab, dass der \enquote{Gesamtreingewinn} um mindestens 30€ vom Erwartungswert abweicht.
         \begin{solution}
-
+            Es gilt offensichtlich mit Tschebyscheff: 
+            \begin{alignat*}{2}
+                             & P\left( \abs{Z - \mu_Z} \geq \epsilon \right) &  & \leq \frac{\Var(Z)}{\epsilon^2}                      \\ 
+                \equiv \quad & P\left( \abs{Z + 30} \geq 30 \right)          &  & \leq \frac{380}{30^2}                                \\ 
+                \equiv \quad & P\left( \abs{Z + 30} \geq 30 \right)          &  & \leq \frac{380}{900} = \frac{19}{45} \approx 42.22\%
+            \end{alignat*}
             \qed
         \end{solution}
     \end{parts}

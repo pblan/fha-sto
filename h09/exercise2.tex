@@ -6,6 +6,17 @@
     \question
     Im letzten Wintersemester nahmen 120 Studierende an der Stochastik-Klausur teil.
     Im folgenden ist Punkteverteilung einer Stochastik-Klausur-Aufgabe angegeben:
+    \begin{center}
+        \begin{tabular}{|c|C|C|C|C|C|C|}
+            \hline
+            Punkte $X$   & 6 & 5                  & 4                  & 3                  & 2                  & 1                  \\
+            \hline
+            Anzahl       & 0 & 10                 & 30                 & 40                 & 20                 & 20                 \\
+            \hline
+            $P(X = x_i)$ & 0 & \nicefrac{10}{120} & \nicefrac{30}{120} & \nicefrac{40}{120} & \nicefrac{20}{120} & \nicefrac{20}{120} \\
+            \hline
+        \end{tabular}
+    \end{center}
     \begin{parts}
         \part
         Berechnen Sie
@@ -13,14 +24,23 @@
             \subpart
             den Erwartungswert.
             \begin{solution}
-
+                Es gilt offensichtlich:
+                \[
+                    \mu = \Mean(X) = \sum_{i=1}^6 x_i \cdot P(X = x_i) = \ldots = \frac{35}{12} \approx 2.9167
+                \]
                 \qed
             \end{solution}
 
             \subpart
             die Varianz und die Standardabweichung.
             \begin{solution}
-
+                Es gilt offensichtlich:
+                \[
+                    \sigma^2 = \Var(X) = \sum_{i=1}^6 (x_i - \mu)^2 \cdot P(X = x_i) = \ldots = \frac{203}{144} \approx 1.4097
+                \]
+                \[
+                    \sigma = \sqrt{\sigma^2} = \sqrt{\frac{203}{144}} = \frac{\sqrt{203}}{12} \approx 1.187
+                \]
                 \qed
             \end{solution}
         \end{subparts}
@@ -29,7 +49,14 @@
         Mit welcher Wahrscheinlichkeit liegt der Punkteschnitt im Bereich $\interval{\mu-2, \mu + 2}$?
         Nutzen Sie zur Abschätzung die Tschebyscheff-Ungleichung.
         \begin{solution}
-
+            Es gilt offensichtlich mit Tschebyscheff:
+            \begin{alignat*}{2}
+                             & P\left( \abs{X - \mu} \geq \epsilon \right)     &  & \leq \frac{\Var(X)}{\epsilon^2}         \\
+                \equiv \quad & 1 - P\left( \abs{X - \mu} < \epsilon \right)    &  & \leq \frac{\Var(X)}{\epsilon^2}         \\
+                \equiv \quad & P\left( \abs{X - \mu} < \epsilon \right)        &  & \geq 1 - \frac{\Var(X)}{\epsilon^2}     \\
+                \equiv \quad & P\left( \abs{X - \nicefrac{35}{12}} < 2 \right) &  & \geq 1 - \frac{203}{144 \cdot 2^2}      \\
+                \equiv \quad & P\left( \abs{X - \nicefrac{35}{12}} < 2 \right) &  & \geq 1 - \frac{203}{576} \approx 0.6476
+            \end{alignat*}
             \qed
         \end{solution}
     \end{parts}
