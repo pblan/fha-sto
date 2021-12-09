@@ -1,0 +1,128 @@
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    In den 30 Museen der Stadt Artima gab es im letzen Monat jeweils $X$ Neuerwerbungen pro Museum. 
+    Dabei sei folgende Urliste entstanden:
+    \begin{center}
+        \begin{tabular}{cccccccccc}
+            2 & 4 & 3 & 5 & 5 & 2 & 3 & 1 & 5 & 6  \\ 
+            4 & 7 & 8 & 3 & 2 & 8 & 3 & 6 & 4 & 6  \\ 
+            5 & 7 & 3 & 3 & 2 & 5 & 4 & 4 & 3 & 11 \\
+        \end{tabular}
+    \end{center}
+    \begin{parts}
+        \part
+        Erstellen Sie eine Tabelle mit der absoluten und relativen Häufigkeit bzw. Summenhäufigkeit der Neuerwerbungen $X$ pro Museum.
+        \begin{solution}
+            Es gilt: 
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|}
+                    \hline 
+                    x_i & n_i & h_i              & H_i               \\ 
+                    \hline 
+                    1   & 1   & \nicefrac{1}{30} & \nicefrac{1}{30}  \\
+                    2   & 4   & \nicefrac{2}{15} & \nicefrac{1}{6}   \\
+                    3   & 7   & \nicefrac{7}{30} & \nicefrac{2}{5}   \\
+                    4   & 5   & \nicefrac{1}{6}  & \nicefrac{17}{30} \\
+                    5   & 5   & \nicefrac{1}{6}  & \nicefrac{11}{15} \\
+                    6   & 3   & \nicefrac{1}{10} & \nicefrac{5}{6}   \\
+                    7   & 2   & \nicefrac{1}{15} & \nicefrac{9}{10}  \\
+                    8   & 2   & \nicefrac{1}{15} & \nicefrac{29}{30} \\
+                    11  & 1   & \nicefrac{1}{30} & 1                 \\ 
+                    \hline 
+                \end{tabular}
+            \end{center}
+            \qed
+        \end{solution}
+        
+        \newpage
+        \part
+        Zeichnen Sie im Anschluss
+        \begin{subparts}
+            \subpart 
+            das zugehörige Stabdiagramm     
+            \begin{solution}
+                \begin{center}
+                    \includegraphics[width=.7\linewidth]{exercise1_bar_chart}
+                \end{center}
+            \end{solution}
+            
+            \newpage
+            \subpart 
+            die empirische Verteilungsfunktion.   
+            \begin{solution}
+                \begin{center}
+                    \includegraphics[width=.7\linewidth]{exercise1_cfd}
+                \end{center}
+            \end{solution}
+        \end{subparts}
+        
+        \part
+        Berechnen Sie
+        \begin{subparts}
+            \subpart 
+            das arithmetische Mittel
+            \begin{solution}
+                Es gilt: 
+                \[ 
+                    \conj{x} = \frac{1}{n} \cdot \sum_i x_i = \frac{1}{30} \cdot 134 = \frac{67}{15} \approx 4.467
+                \]
+                \qed
+            \end{solution}
+            
+            \subpart 
+            den Median 
+            \begin{solution}
+                Es gilt: 
+                \[ 
+                    \tilde{x} = x_{\nicefrac{1}{2}} = 4
+                \]
+                \qed
+            \end{solution}
+            
+            \newpage
+            \subpart 
+            das 10\%-Quantil
+            \begin{solution}
+                Es gilt: 
+                \[ 
+                    x_{\nicefrac{1}{10}} = 2
+                \]
+                \qed
+            \end{solution}
+            
+            \subpart 
+            obere Quartil
+            \begin{solution}
+                Es gilt: 
+                \[ 
+                    x_{\nicefrac{3}{4}} = 6
+                \]
+                \qed
+            \end{solution}
+        \end{subparts}
+        
+        \part
+        Berechnen Sie die empirische Varianz und die empirische Standardabweichung.
+        \begin{solution}
+            Es gilt: 
+            \begin{alignat*}{1}
+                s^2 & = \frac{1}{n-1} \cdot \sum_{i=1}^{n} (x_i - \conj{x})^2                                             \\ 
+                    & = \frac{1}{n-1} \cdot \left( \sum_{i=1}^{n} x_i^2 -n \cdot \conj{x}^2 \right)                       \\ 
+                    & = \frac{1}{29} \cdot \left( \sum_{i=1}^{30} x_i^2 - 30 \cdot \left( \frac{67}{15} \right)^2 \right) \\ 
+                    & = \frac{1}{29} \cdot \left( \sum_{i=1}^{30} x_i^2 - \frac{8978}{15} \right)                         \\ 
+                    & = \frac{1}{29} \cdot \sum_{i=1}^{30} x_i^2 - \frac{8978}{435}                                       \\ 
+                    & = \frac{1}{29} \cdot 740 - \frac{8978}{435}                                                         \\ 
+                    & = \frac{2122}{435} \approx 4.878
+            \end{alignat*}
+            Und damit auch: 
+            \[ 
+                s = \sqrt{s^2} = \sqrt{\frac{2122}{435}} \approx 2.209
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

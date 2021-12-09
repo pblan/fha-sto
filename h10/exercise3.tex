@@ -1,0 +1,101 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    In einer (kleinen) Bankfiliale werden die vergebenen Kredite untersucht:
+    \begin{center}
+        \begin{tabular}{|C|C|}
+            \hline
+            \text{Kredithöhe (in Tausend €)} & \text{Anzahl der Kredite} \\
+            \hline
+            \left[ 0 ; 200 \right)           & 40                        \\
+            \left[ 200 ; 300 \right)         & 10                        \\
+            \left[ 300 ; 500 \right)         & 5                         \\
+            \left[ 500 ; 1000 \right)        & 2                         \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \begin{parts}
+        \part
+        Erstellen Sie ein Histogramm.
+        \begin{solution}
+            Es gilt:
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|}
+                    \hline
+                    I_i                       & n_i & h_i               & H_i               & \nicefrac{h_i}{\abs{I_i}}           \\
+                    \hline
+                    \left[ 0 ; 200 \right)    & 40  & \nicefrac{40}{57} & \nicefrac{40}{57} & \nicefrac{1}{285} \approx 0.00351   \\
+                    \left[ 200 ; 300 \right)  & 10  & \nicefrac{10}{57} & \nicefrac{50}{57} & \nicefrac{1}{570}  \approx 0.00175  \\
+                    \left[ 300 ; 500 \right)  & 5   & \nicefrac{5}{57}  & \nicefrac{55}{57} & \nicefrac{1}{2280}  \approx 0.00044 \\
+                    \left[ 500 ; 1000 \right) & 2   & \nicefrac{2}{57}  & 1                 & \nicefrac{1}{14250} \approx 0.00007 \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+
+            \begin{center}
+                % Siehe https://tex.stackexchange.com/questions/152243/bar-chart-from-csv-file-with-adjustable-bar-width?rq=1
+                \begin{tikzpicture}
+                    \begin{axis}
+                        [
+                            grid=both,
+                            xlabel=$x$,
+                            ylabel=$\nicefrac{h_i}{\abs{I_i}}$,
+                            ybar interval,%this is the type of barplot
+                            xtick=data,
+                            xticklabel interval boundaries,%set the x label to be the boundaries
+                            x tick label style=
+                                {rotate=90,anchor=east}
+                        ]
+                        \addplot table [x=width, y=height, col sep=comma] {exercise3.dat}; %extract witdth and assing it to x and height and assing it to y the separator is comma take the result.csv in the same folder of your .tex when you will not use filecontents.
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+
+            \qed
+        \end{solution}
+
+        \newpage
+        \part
+        Zeichnen Sie die empirische Verteilungsfunktion.
+        \begin{solution}
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                            grid=both,
+                        ]
+                        \addplot table [x=x, y=H(x), col sep=comma] {exercise3_cum.dat};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            \qed
+        \end{solution}
+
+        \part
+        Bestimmen Sie den Median und das obere Quartil.
+        \begin{solution}
+            Offensichtlich ist die Einfallsklasse für den Median gegeben mit
+            \[
+                I_1 = \left[ 0 ; 200 \right) = \left[ a_1 ; b_1 \right)
+            \]
+            und die für das obere Quantil mit
+            \[
+                I_2 = \left[ 200 ; 300 \right) = \left[ a_2 ; b_2 \right)
+            \]
+
+            Es gilt damit:
+            \[
+                \tilde{x} = a_1 + \frac{\nicefrac{1}{2} - H_0}{h_1} \cdot (b_1 - a_1) = 0 + \frac{\nicefrac{1}{2}}{\nicefrac{40}{57}} \cdot (200 - 0) = \frac{285}{2} = 142.5
+            \]
+            und
+            \[
+                x_{\nicefrac{3}{4}} = a_2 + \frac{\nicefrac{3}{4} - H_1}{h_2} \cdot (b_2 - a_2) = 200 + \frac{\nicefrac{3}{4} - \nicefrac{40}{57}}{\nicefrac{10}{57}} \cdot (300 - 200) = \frac{455}{2} = 227.5
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

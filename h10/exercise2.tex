@@ -1,0 +1,122 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Die nachfolgende Tabelle gibt eine Übersicht über die Anzahl der verkauften Bücher zu unterschiedlichen Preisen in einer Buchhandlung im Laufe eines Tages:
+    \begin{center}
+        \begin{tabular}{|C|C|}
+            \hline
+            \text{Buchpreis (in €)} & \text{Anzahl der verkauften Bücher} \\
+            \hline
+            \left[ 0 ; 10 \right)   & 5                                   \\
+            \left[ 10 ; 30 \right)  & 15                                  \\
+            \left[ 30 ; 50 \right)  & 20                                  \\
+            \left[ 50 ; 80 \right)  & 12                                  \\
+            \left[ 80 ; 120 \right) & 8                                   \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \begin{parts}
+        \part
+        Berechnen Sie die jeweiligen absoluten und relativen Klassenhäufigkeiten
+        \begin{solution}
+            Es gilt:
+            \begin{center}
+                \begin{tabular}{|C|C|C|C|C|}
+                    \hline
+                    I_i                     & n_i & h_i              & H_i               & \nicefrac{h_i}{\abs{I_i}}        \\
+                    \hline
+                    \left[ 0 ; 10 \right)   & 1   & \nicefrac{1}{12} & \nicefrac{1}{12}  & \nicefrac{1}{120} \approx 0.0083 \\
+                    \left[ 10 ; 30 \right)  & 4   & \nicefrac{1}{4}  & \nicefrac{1}{3}   & \nicefrac{1}{80}  = 0.0125       \\
+                    \left[ 30 ; 50 \right)  & 7   & \nicefrac{1}{3}  & \nicefrac{2}{3}   & \nicefrac{1}{60}  \approx 0.0167 \\
+                    \left[ 50 ; 80 \right)  & 5   & \nicefrac{1}{5}  & \nicefrac{13}{15} & \nicefrac{1}{150} \approx 0.0067 \\
+                    \left[ 80 ; 120 \right) & 5   & \nicefrac{2}{15} & 1                 & \nicefrac{1}{300} \approx 0.0033 \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            \qed
+        \end{solution}
+
+        \part
+        Zeichnen Sie das zugehörige Histogramm.
+        \begin{solution}
+            \begin{center}
+                % Siehe https://tex.stackexchange.com/questions/152243/bar-chart-from-csv-file-with-adjustable-bar-width?rq=1
+                \begin{tikzpicture}
+                    \begin{axis}
+                        [
+                            grid=both,
+                            xlabel=$x$,
+                            ylabel=$\nicefrac{h_i}{\abs{I_i}}$,
+                            ybar interval,%this is the type of barplot
+                            xtick=data,
+                            xticklabel interval boundaries,%set the x label to be the boundaries
+                            x tick label style=
+                                {rotate=90,anchor=east}
+                        ]
+                        \addplot table [x=width, y=height, col sep=comma] {exercise2.dat}; %extract witdth and assing it to x and height and assing it to y the separator is comma take the result.csv in the same folder of your .tex when you will not use filecontents.
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            \qed
+        \end{solution}
+
+        \newpage
+        \part
+        Bestimmen Sie
+        \begin{subparts}
+            \subpart
+            das arithmetische Mittel,
+            \begin{solution}
+                Es gilt:
+                \[
+                    \conj{x} \approx \frac{1}{n} \cdot \sum_{i=1}^{k} n_i \cdot \alpha_i = \sum_{i=1}^{k} h_i \cdot \alpha_i = \frac{5}{12} + 5 + \frac{40}{3} + 15 + \frac{40}{3} = \frac{565}{12} \approx 47.083
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            den Median sowie
+            \begin{solution}
+                Offensichtlich ist die Einfallsklasse gegeben mit
+                \[
+                    I_3 = \left[ 30 ; 50 \right) = \left[ a_3 ; b_3 \right)
+                \]
+
+                Es gilt damit:
+                \[
+                    \tilde{x} = a_3 + \frac{\nicefrac{1}{2} - H_2}{h_3} \cdot (b_3 - a_3) = 30 + \frac{\nicefrac{1}{2} - \nicefrac{1}{3}}{\nicefrac{1}{3}}  \cdot (50 - 30) = 40
+                \]
+                \qed
+            \end{solution}
+
+            \subpart
+            das obere und untere Quartil.
+            \begin{solution}
+                Offensichtlich ist die Einfallsklasse für das untere Quantil gegeben mit
+                \[
+                    I_2 = \left[ 10 ; 30 \right) = \left[ a_2 ; b_2 \right)
+                \]
+                und die für das obere Quartil mit
+                \[
+                    I_4 = \left[ 50 ; 80 \right) = \left[ a_4 ; b_4 \right)
+                \]
+
+                Es gilt damit:
+                \[
+                    x_{\nicefrac{1}{4}} = a_2 + \frac{\nicefrac{1}{4} - H_1}{h_2} \cdot (b_2 - a_2) = 10 + \frac{\nicefrac{1}{4} - \nicefrac{1}{12}}{\nicefrac{1}{4}} \cdot (30 - 10) = 20
+                \]
+                und
+                \[
+                    x_{\nicefrac{3}{4}} = a_4 + \frac{\nicefrac{3}{4} - H_3}{h_4} \cdot (b_4 - a_4) = 50 + \frac{\nicefrac{3}{4} - \nicefrac{2}{3}}{\nicefrac{1}{5}} \cdot (80 - 50) = \frac{130}{2} = 62.5
+                \]
+                \qed
+            \end{solution}
+        \end{subparts}
+
+    \end{parts}
+\end{questions}
+\end{document}
