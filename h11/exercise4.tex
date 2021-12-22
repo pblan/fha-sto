@@ -1,0 +1,90 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Die Zufallsvariablen $X_1, \ldots, X_n$ seien unabhängig und jeweils $N(0;\theta)$-verteilt, dabei ist $\theta > 0$ unbekannt.
+    Die Dichte von $X$ ist also gegeben durch
+    \[
+        f(x, \theta) = \frac{1}{\sqrt{2\pi\theta}} \cdot e^{-\nicefrac{x^2}{2\theta}}, \quad x \in \R
+    \]
+    \begin{parts}
+        \part
+        Bestimmen Sie den Maximum-Likelihood-Schätzer für den Parameter $\theta$.
+        \begin{solution}
+            Es gilt:
+            \[
+                L(\theta) = \prod_{i=1}^{n} f(x_i, \theta) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi\theta}} \cdot e^{-\nicefrac{x_i^2}{2\theta}} = \frac{1}{\left(\sqrt{2\pi\theta}\right)^n} \cdot e^{-\nicefrac{\sum_{i=1}^{n} x_i^2}{2\theta} }
+            \]
+
+            Damit erhalten wir $L^*(\theta)$ mit:
+            \[
+                L^*(\theta) = \ln L(\theta) = \frac{-n}{2} \cdot \ln(2\pi\theta) - \frac{\sum_{i=1}^{n} x_i^2}{2\theta}
+            \]
+
+            \[
+                \implies \quad \frac{\partial L^*}{\partial \theta} = \frac{-n}{2\theta} + \frac{\sum_{i=1}^{n} x_i^2}{2\theta^2} \quad \implies \quad \frac{\partial L^*}{\partial \theta} = 0 \quad \iff \quad \theta = \frac{1}{n} \sum_{i=1}^{n} x_i^2
+            \]
+
+            Natürlich müssen wir überprüfen, ob es sich um ein Maximum handelt.
+            Es gilt offensichtlich:
+            \[
+                \frac{\partial^2 L^*(\theta)}{\partial \theta^2} = \frac{n}{2\theta^2} - \frac{\sum_{i=1}^{n} x_i^2}{\theta^3} = \frac{-n^3}{2 \sum_{i=1}^{n} x_i^2} < 0 \quad \checkmark
+            \]
+
+            Damit haben wir einen Schätzer und es gilt:
+            \[
+                \theta = \frac{1}{n} \sum_{i=1}^{n} x_i^2
+            \]
+            \qed
+        \end{solution}
+
+        \newpage
+        \part
+        Welcher der beiden Schätzer
+        \begin{subparts}
+            \subpart
+            $S_n = \frac{1}{n} \cdot \sum_{i=1}^{n} X_i^2$
+            \begin{solution}
+                Wir wissen, dass $S_n$ genau dann erwartungstreu ist, wenn $\Mean(S_n) = \theta$.
+
+                Es gilt offensichtlich:
+                \begin{alignat*}{1}
+                    \Mean(S_n) & = \Mean \left( \frac{1}{n} \cdot \sum_{i=1}^{n} X_i^2 \right) \\
+                               & = \frac{1}{n} \cdot \sum_{i=1}^{n} \Mean ( X_i^2 )            \\
+                               & = \Mean ( X^2 )                                               \\
+                               & = \Var(X) + \Mean(X)^2                                        \\
+                               & = \theta + 0                                                  \\
+                               & = \theta
+                \end{alignat*}
+
+                Damit ist $S_n$ ein erwartungstreuer Schätzer für $\theta$.
+                \qed
+            \end{solution}
+
+            \subpart
+            $T_n = \frac{1}{n-1} \cdot \sum_{i=1}^{n} X_i^2$
+            \begin{solution}
+                Wir wissen, dass $T_n$ genau dann asymptotisch erwartungstreu ist, wenn $\lim_{n\to\infty}\Mean(T_n) = \theta$.
+
+                Es gilt offensichtlich:
+                \begin{alignat*}{1}
+                    \lim_{n\to\infty}\Mean(T_n) & = \lim_{n\to\infty} \Mean\left( \frac{1}{n-1} \cdot \sum_{i=1}^{n} X_i^2 \right) \\
+                                                & = \lim_{n\to\infty} \frac{1}{n-1} \cdot \sum_{i=1}^{n}  \Mean (X_i^2 )           \\
+                                                & = \lim_{n\to\infty} \frac{n}{n-1} \cdot \Mean ( X^2 )                            \\
+                                                & = \lim_{n\to\infty} \frac{n}{n-1} \cdot \lim_{n\to\infty} \Mean ( X^2 )          \\
+                                                & = 1 \cdot \lim_{n\to\infty} \Mean ( X^2 )                                        \\
+                                                & = \lim_{n\to\infty} \Var(X) + E(X)^2                                             \\
+                                                & = \lim_{n\to\infty} \theta                                                       \\
+                                                & = \theta
+                \end{alignat*}
+
+                Damit ist $T_n$ ein asymptotisch erwartungstreuer Schätzer für $\theta$.
+                \qed
+            \end{solution}
+        \end{subparts}
+        ist erwartungstreu, welcher ist asymptotisch erwartungstreu (d.h. Betrachtung des Grenzwert vom Erwartungswert der Schätzfunktion)?
+    \end{parts}
+\end{questions}
+\end{document}

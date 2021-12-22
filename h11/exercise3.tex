@@ -1,0 +1,79 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Peter nimmt an zehn aufeinanderfolgenden Tagen an einem Glückspiel mit einer Gewinnwahrscheinlichkeit $p \in (0, 1)$ teil.
+    Dabei spielt er das Spiel jeden Tag so oft, bis er einmal gewinnt.
+    Danach hört er für diesen Tag auf.
+    Nach dieser Strategie verfährt er an jedem der zehn Tage.
+    Nachfolgend sind die Anzahlen der Spiele angegeben, die Peter an den einzelnen Tagen spielt:
+
+    \[
+        13, 7, 10, 2, 11, 17, 15, 9, 19, 11
+    \]
+    \begin{parts}
+        \part
+        Bestimmen Sie aufgrund einer Stichprobe vom Umfang $n$ eine Maximum-Likelihood-Schätzung für die (unbekannte) Wahrscheinlichkeit $p$.
+        \begin{solution}
+            Wir erkennen, dass die Wahrscheinlichkeitsfunktion $f(x)$ gegeben ist mit \footnotemark
+            \[
+                f(x) =
+                \begin{cases}
+                    p(1-p)^{x-1} & \text{für} \ x \in \N \setminus {0} \\
+                    0            & \text{sonst}
+                \end{cases}
+            \]
+
+            Damit gilt:
+            \[
+                L(p) = \prod_{i=1}^{n} f(x_i) = \prod_{i=1}^{n} p(1-p)^{x_i-1} = \left( \frac{p}{1-p} \right)^n \cdot (1-p)^{\sum_{i=1}^{n} x_i}
+            \]
+
+            Damit erhalten wir $L^*(p)$ mit:
+            \[
+                L^*(p) = \ln L(p) = n \cdot \ln \frac{p}{1-p} + \ln (1-p) \cdot \sum_{i=1}^{n} x_i
+            \]
+
+            \[
+                \implies \quad \frac{\partial L^*}{\partial p} = \frac{n}{p} + \frac{n}{1-p} - \frac{1}{1-p} \cdot \sum_{i=1}^{n} x_i = \frac{n}{p} + \frac{n - \sum_{i=1}^{n} x_i}{1-p}
+            \]
+
+            \[
+                \implies \quad \frac{\partial L^*}{\partial p} = 0 \quad \iff \quad p = \frac{n}{\sum_{i=1}^{n} x_i}
+            \]
+
+
+            Natürlich müssen wir überprüfen, ob es sich um ein Maximum handelt.
+            Es gilt offensichtlich:
+            \[
+                \frac{\partial^2 L^*(p)}{\partial p^2} = \frac{-n}{p^2} + \frac{n - \sum_{i=1}^{n} x_i}{(1-p)^2} = \frac{\left( \sum_{i=1}^{n} x_i \right)^3}{n^2 - n\sum_{i=1}^{n} x_i} <^{\footnotemark} 0 \quad \checkmark
+            \]
+
+            Damit haben wir einen Schätzer und es gilt:
+            \[
+                p = \frac{n}{\sum_{i=1}^{n} x_i}
+            \]
+            \qed
+        \end{solution}
+        \footnotetext[1]{Es handelt sich um eine verschobene geometrische Verteilung.}
+        \footnotetext[2]{
+            Die Summe über alle $x_i$ ist offensichtlich stets positiv.
+            O.B.d.A. können wir davon ausgehen, dass in jeder ausreichend großen Stichprobe mindestens einmal mehr als einmal gespielt werden muss um zu gewinnen.
+        }
+
+        \newpage
+        \part
+        Berechnen Sie den zugehörigen Maximum-Likelihood-Schätzwert, der sich für die oben angegebenen Anzahlen ergibt.
+        \begin{solution}
+            Es gilt:
+            \[
+                p = \frac{n}{\sum_{i=1}^{n} x_i} = \frac{10}{114} = \frac{5}{57}
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+
+\end{questions}
+\end{document}

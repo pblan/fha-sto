@@ -1,0 +1,80 @@
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Die von einer Maschine für einen bestimmten Arbeitsvorgang benötigte Zeit sei eine Zufallsvariable $X$, für deren Dichtefunktion in Abhängigkeit von einem $\theta \in [0, 2]$ die Gestalt
+    \[ 
+        f(x;\theta) = 
+        \begin{cases}
+            \theta + 2(1-\theta)\cdot x & \text{für} \ x \in [0,1] \\ 
+            0                           & \text{sonst}
+        \end{cases}
+    \]
+    unterstellt wird.
+    Zu $X$ liege eine einfache Stichprobe $X_1, \ldots , X_n$ (die $X_i$ sind unabhängig) vor.
+    \begin{parts}
+        \part
+        Zeigen Sie, dass die Schätzfunktionen
+        \begin{subparts}
+            \subpart $\hat{\Theta}_1 = 4 - \frac{6}{n} \sum_{i=1}^{n} X_i$
+            \begin{solution}
+                Wir wissen, dass $\hat{\Theta}_1$ genau dann erwartungstreu ist, wenn $\Mean(\hat{\Theta}_1) = \theta$ gilt.
+                
+                Offensichtlich ist: 
+                \begin{alignat*}{1}
+                    \Mean\left( \hat{\Theta}_1 \right) & = \Mean\left( 4 - \frac{6}{n} \sum_{i=1}^{n} X_i \right)                                                              \\ 
+                                                       & = 4 - \frac{6}{n} \cdot \Mean\left( \sum_{i=1}^{n} X_i \right)                                                        \\ 
+                                                       & = 4 - \frac{6}{n} \cdot \sum_{i=1}^{n}  \Mean (X_i)                                                                   \\ 
+                                                       & = 4 - 6 \Mean\left( X \right)                                                                                         \\ 
+                                                       & = 4 - 6 \int_{-\infty}^{\infty} xf(x) \diff x                                                                         \\ 
+                                                       & = 4 - 6 \left(  \int_{0}^{1} x\cdot \left( \theta + 2(1-\theta)\cdot x \right) \diff x \right)                        \\ 
+                                                       & = 4 - 6 \left( \theta \int_{0}^{1} x \diff x + 2 \int_{0}^{1} x^2 \diff x - 2\theta  \int_{0}^{1} x^2 \diff x \right) \\ 
+                                                       & = 4 - 6 \cdot \frac{4 - \theta}{6}                                                                                    \\ 
+                                                       & = \theta
+                \end{alignat*}
+                \qed
+            \end{solution}
+            
+            \newpage
+            \subpart $\hat{\Theta}_2 = 3 - \frac{6}{n} \sum_{i=1}^{n} X_i^2$
+            \begin{solution}
+                Wir wissen, dass $\hat{\Theta}_2$ genau dann erwartungstreu ist, wenn $\Mean(\hat{\Theta}_2) = \theta$ gilt.
+                
+                Offensichtlich ist: 
+                \begin{alignat*}{1}
+                    \Mean\left( \hat{\Theta}_2 \right) & = \Mean\left( 3 - \frac{6}{n} \sum_{i=1}^{n} X_i^2   \right)                \\ 
+                                                       & = 3 - \frac{6}{n} \Mean\left( \sum_{i=1}^{n} X_i^2   \right)                \\
+                                                       & = 3 - 6 \Mean ( X^2 )                                                       \\
+                                                       & = 3 - 6 \int_{-\infty}^{\infty} x^2f(x) \diff x                             \\
+                                                       & = 3 - 6 \int_{0}^{1} x^2 \left( \theta + 2(1-\theta)\cdot x \right) \diff x \\
+                                                       & = \ldots                                                                    \\
+                                                       & = 3 - 6 \cdot \frac{3- \theta}{6}                                           \\
+                                                       & = \theta
+                \end{alignat*}
+                \qed
+            \end{solution}
+        \end{subparts}
+        erwartungstreu für $\theta$ sind.
+        
+        \part 
+        Überprüfen Sie zusätzlich, ob $\hat{\Theta}_1$ konsistent für $\theta$ ist. 
+        \begin{solution}
+            Wir wissen, dass $\hat{\Theta}_1$ genau dann konsistent ist, wenn $\lim_{n\to\infty}\Var(\hat{\Theta}_1) = 0$ gilt.
+            
+            Offensichtlich gilt: 
+            \begin{alignat*}{1}
+                \lim_{n\to\infty}\Var(\hat{\Theta}_1) & = \lim_{n\to\infty}\Var(\hat{\Theta}_1)                                                    \\ 
+                                                      & = \lim_{n\to\infty}\Var\left(4 - \frac{6}{n} \sum_{i=1}^{n} X_i\right)                     \\ 
+                                                      & = \lim_{n\to\infty}\left( \frac{6}{n} \right)^2 \cdot \Var\left( \sum_{i=1}^{n} X_i\right) \\ 
+                                                      & = 36 \cdot \lim_{n\to\infty}\frac{1}{n^2} \cdot \sum_{i=1}^{n} \Var (X_i)                  \\ 
+                                                      & = 36 \cdot \lim_{n\to\infty}\frac{1}{n^2} \cdot  n \cdot  \Var (X)                         \\ 
+                                                      & = 36 \cdot \lim_{n\to\infty}\frac{1}{n} \cdot  \Var (X)                                    \\ 
+                                                      & = 36 \cdot 0                                                                               \\ 
+                                                      & = 0
+            \end{alignat*}
+            
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

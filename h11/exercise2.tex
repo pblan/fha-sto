@@ -1,0 +1,56 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Aus Erfahrung sei bekannt, dass die Brenndauer einer Glühbirne einer bestimmten Sorte durch eine stetig verteilte Zufallsvariable $X$ mit der Dichte
+    \[
+        f(x) =
+        \begin{cases}
+            2\theta \cdot x \cdot e^{-\theta x^2} & \text{für} \ x > 0 \\
+            0                                     & \text{sonst}
+        \end{cases}
+    \]
+    beschrieben werden kann.
+    Schätzen Sie das für diese Sorte passende $\theta$ aufgrund der folgenden 15 Brenndauern (in 1000 Stunden) mittels der Maximum-Likelihood-Methode:
+
+    \begin{center}
+        \begin{tabular}{CCCCC}
+            1.5 & 1   & 2   & 1   & 1.5 \\
+            1   & 2   & 0.5 & 2.5 & 1.5 \\
+            1.5 & 1.5 & 1.5 & 2   & 1.5
+        \end{tabular}
+    \end{center}
+
+    \begin{solution}
+        Es gilt:
+        \[
+            L(\theta) = \prod_{i=1}^{n} f(x_i) = \prod_{i=1}^{n} 2\theta \cdot x_i \cdot e^{-\theta x_i^2} = (2 \theta)^n \cdot e^{-\theta \cdot \sum_{i=1}^{n} x_i^2}  \cdot \prod_{i=1}^{n} x_i
+        \]
+
+        Damit erhalten wir $L^*(\theta)$ mit:
+        \[
+            L^*(\theta) = \ln L(\theta) = n \cdot \ln 2\theta + \left( -\theta \cdot \sum_{i=1}^{n} x_i^2 \right) \cdot \cancel{\ln e} + \ln \prod_{i=1}^{n} x_i = n (\ln 2 + \ln \theta) - \theta \cdot \sum_{i=1}^{n} x_i^2 + \ln \prod_{i=1}^{n} x_i
+        \]
+
+        \[
+            \implies \quad \frac{\partial L^*}{\partial \theta} = \frac{n}{\theta} - \sum_{i=1}^{n} x_i^2 \quad \implies \quad \frac{\partial L^*}{\partial \theta} = 0 \quad \iff \quad \theta = \frac{n}{\sum_{i=1}^{n} x_i^2}
+        \]
+
+        Damit ist $\theta = \frac{n}{\sum_{i=1}^{n} x_i^2}$ ein potentieller Schätzer für $\theta$.
+
+        Natürlich müssen wir überprüfen, ob es sich um ein Maximum handelt.
+        Es gilt offensichtlich:
+        \[
+            \frac{\partial^2 L^*(\theta)}{\partial \theta^2} = \frac{-n}{\theta^2} < 0 \quad \checkmark
+        \]
+
+        Damit haben wir einen Schätzer und es gilt:
+        \[
+            \theta = \frac{n}{\sum_{i=1}^{n} x_i^2} = \frac{15 \cdot 4}{149} = \frac{60}{149} \approx 0.403
+        \]
+        \qed
+    \end{solution}
+\end{questions}
+\end{document}
