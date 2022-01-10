@@ -1,0 +1,123 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Das Umweltreferat einer Großstadt will Aufschluss darüber gewinnen, wie viele Asbestfasern pro Kubikmeter Luft im Freien in ca. einem Meter Abstand von asbestzementhaltigen Gebäudeteilen zu erwarten sind.
+    Bei $n = 14$ diesbezüglichen Messungen traten die Werte
+    \begin{center}
+        \begin{tabular}{ccccccc}
+            980  & 1340 & 610  & 750 & 880  & 1250 & 2410 \\
+            1100 & 470  & 1040 & 910 & 1860 & 730  & 820
+        \end{tabular}
+    \end{center}
+    auf, die als Ergebnisse unabhängiger normalverteilter Stichprobenvariablen angesehen werden.
+    \begin{parts}
+        \part
+        Führen Sie für den Erwartungswert $\mu$ der Anzahl $X$ der unter den obigen Bedingungen vorhandenen Asbestfasern eine Intervallschätzung zum Konfidenzniveau $0.95$ durch.
+        \begin{solution}
+            Wir haben offensichtlich das Vertrauensniveau gegeben mit
+            \[
+                \gamma = 1 - \alpha = 0.95 \implies \alpha = 0.05
+            \]
+
+            Wir wissen, dass gilt:
+            \[
+                X \sim \mathcal{N}(\mu, \sigma^2)
+            \]
+
+            Ein geeigneter Schätzer für $\mu$ ist bekanntermaßen
+            \[
+                \conj{x} = \frac{1}{n} \cdot \sum_{i=1}^{n} x_i
+            \]
+
+            Ein geeigneter Schätzer für $\sigma$ ist bekanntermaßen
+            \[
+                s = \sqrt{\frac{1}{n-1} \cdot \sum_{i=1}^{n} (x_i - \conj{x})^2}
+            \]
+
+
+
+            Für unsere Verteilung gilt dann:
+            \[
+                \conj{x} = \frac{1}{14} \cdot 15150 = \frac{7575}{7}
+            \]
+            und
+            \[
+                s = \sqrt{\frac{1}{13} \cdot \frac{24126450}{7}} = \frac{5\sqrt{87820278}}{91}
+            \]
+
+            Die Zufallsvariable $T$ mit
+            \[
+                T = \sqrt{n} \cdot \frac{\conj{x} - \mu}{s}
+            \]
+            ist dann $t$-verteilt mit $n-1$ Freiheitsgraden.
+
+            Es muss gelten:
+            \[
+                P(-c \leq T \leq c) = \gamma = 1 - \alpha
+            \]
+
+            Dann gilt:
+            \begin{alignat*}{3}
+                             & -c                                                                             & \leq T                                       & \leq c                                                                              \\
+                \equiv \quad & -t_{n-1} \left( 1-\frac{\alpha}{2} \right)                                     & \leq T                                       & \leq t_{n-1} \left( 1-\frac{\alpha}{2} \right)                                      \\
+                \equiv \quad & -t_{n-1} \left( 1-\frac{\alpha}{2} \right)                                     & \leq \sqrt{n} \cdot \frac{\conj{x} - \mu}{s} & \leq t_{n-1} \left( 1-\frac{\alpha}{2} \right)                                      \\
+                \equiv \quad & -t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}} - \conj{x} & \leq  - \mu                                  & \leq t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}}  - \conj{x} \\
+                \equiv \quad & \conj{x} + t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}}  & \geq  \mu                                    & \geq \conj{x} - t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}}  \\
+                \equiv \quad & \conj{x} - t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}}  & \leq  \mu                                    & \leq \conj{x} + t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}}
+            \end{alignat*}
+
+            Damit gilt:
+            \begin{alignat*}{2}
+                             & P(\conj{x} - t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}} \leq  \mu \leq \conj{x} + t_{n-1} \left( -\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}})                                    & = \gamma = 1 - \alpha \\
+                \equiv \quad & P(\frac{7575}{7} - t_{13} \left( 0.975 \right) \cdot \frac{5\sqrt{87820278}}{91 \cdot \sqrt{14}} \leq  \mu \leq \frac{7575}{7} + t_{13} \left( 0.975 \right) \cdot \frac{5\sqrt{87820278}}{91 \cdot \sqrt{14}}) & = 0.95                \\
+                \equiv \quad & P(\frac{7575}{7} - 2.160 \cdot \frac{5\sqrt{87820278}}{91 \cdot \sqrt{14}} \leq  \mu \leq \frac{7575}{7} + 2.160 \cdot \frac{5\sqrt{87820278}}{91 \cdot \sqrt{14}})                                             & = 0.95                \\
+                \equiv \quad & P(784.897 \leq  \mu \leq 1379.389)                                                                                                                                                                              & = 0.95                \\
+            \end{alignat*}
+
+            Damit erhalten wir unser Konfidenzintervall $I_{14}$ mit
+            \[
+                I_{14} = [784.897, 1379.389]
+            \]
+            \qed
+        \end{solution}
+
+        \part
+        Wie müsste das Konfidenzniveau gewählt sein, damit die Länge des entstehenden Schätzintervalls gleich 500 ist?
+        \begin{solution}
+            Offensichtlich gilt für die Intervallbreite $I_B$:
+            \[
+                I_B := c_o - c_u = \conj{x} + t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}} - \left( \conj{x} - t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}} \right) = 2 t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}}
+            \]
+
+            Es ergibt sich dann:
+            \begin{alignat*}{2}
+                               & I_B                                                                  &  & = 500                                                   \\
+                \equiv \quad   & 2 t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}} &  & = 500                                                   \\
+                \equiv \quad   & t_{n-1} \left( 1-\frac{\alpha}{2} \right) \cdot \frac{s}{\sqrt{n}}   &  & = 250                                                   \\
+                \equiv \quad   & t_{n-1} \left( 1-\frac{\alpha}{2} \right)                            &  & = 250 \cdot \frac{\sqrt{n}}{s}                          \\
+                \equiv \quad   & t_{13} \left( 1-\frac{\alpha}{2} \right)                             &  & = 250 \cdot \frac{\sqrt{14} \cdot 91}{5\sqrt{87820278}} \\
+                \implies \quad & t_{13} \left( 1-\frac{\alpha}{2} \right)                             &  & \approx 1.8167                                          \\
+            \end{alignat*}
+
+            Der nächste Wert in der gegebenen Tabelle der Vorlesung für $t_{13} \left( 1-\frac{\alpha}{2} \right)$ wäre
+            \[
+                t_{13}(0.95) = 1.771
+            \]
+
+            Stellen wir nun um, erhalten wir:
+            \[
+                1 - \frac{\alpha}{2} = 0.95 \implies \alpha = 0.1
+            \]
+
+            Damit erhalten wir ungefähr ein Konfidenzniveau von
+            \[
+                \gamma = 1 -\alpha = 1 - 0.1 = 0.9
+            \]
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}

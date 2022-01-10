@@ -1,0 +1,67 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Das Gewicht $X$, das ein Apfel einer bestimmten Sorte hat, sei normalverteilt.
+    Die Untersuchung einer Stichprobe vom Umfang $n = 10$ ergab einen Mittelwert $\conj{x} = 98 \si{g}$ und eine empirische Standardabweichung $s = 0.75 \si{g}$.
+    Geben Sie den Bereich an, in dem die Varianz mit 95\%-iger Sicherheit liegt.
+    \begin{solution}
+        Wir wissen, dass gilt:
+        \[
+            X \sim \mathcal{N}(\mu, 0.75^2)
+        \]
+
+        Wir haben offensichtlich das Vertrauensniveau gegeben mit
+        \[
+            \gamma = 1 - \alpha = 0.95 \implies \alpha = 0.05
+        \]
+
+        Ein geeigneter Schätzer für $\Var(X) = \sigma^2$ ist bekanntermaßen
+        \[
+            s^2 = \frac{1}{n-1} \cdot \sum_{i=1}^{n} (x_i - \conj{x})^2
+        \]
+
+        Für unsere Verteilung gilt dann:
+        \[
+            s^2 = 0.75^2 = 0.5625
+        \]
+
+        Die Zufallsvariable $Z$ mit
+        \[
+            Z = (n-1) \cdot \frac{s^2}{\sigma^2} = \frac{1}{\sigma^2} \cdot \sum_{i=1}^{n} (x_i - \conj{x})^2 = \sum_{i=1}^{n} \left(\frac{x_i - \conj{x}}{\sigma}\right)^2
+        \]
+        ist dann $\chi^2$-verteilt mit $n-1$ Freiheitsgraden.
+
+        Es muss gelten:
+        \[
+            P(c_1 \leq Z \leq c_2) = \gamma = 1 - \alpha
+        \]
+
+        Dann gilt:
+        \begin{alignat*}{3}
+                         & c_1                                                                      & \leq Z                                & \leq c_2                                                                     \\
+            \equiv \quad & \chi^2_{n-1} \left( \frac{\alpha}{2} \right)                             & \leq Z                                & \leq \chi^2_{n-1} \left(1 - \frac{\alpha}{2} \right)                         \\
+            \equiv \quad & \chi^2_{n-1} \left( \frac{\alpha}{2} \right)                             & \leq (n-1) \cdot \frac{s^2}{\sigma^2} & \leq \chi^2_{n-1} \left(1 - \frac{\alpha}{2} \right)                         \\
+            \equiv \quad & \frac{\chi^2_{n-1} \left( \frac{\alpha}{2} \right)}{(n-1) \cdot s^2}     & \leq \frac{1}{\sigma^2}               & \leq \frac{\chi^2_{n-1} \left(1 - \frac{\alpha}{2} \right)}{(n-1) \cdot s^2} \\
+            \equiv \quad & (n-1) \cdot \frac{s^2}{\chi^2_{n-1} \left( \frac{\alpha}{2} \right)}     & \geq \sigma^2                         & \geq (n-1) \cdot \frac{s^2}{\chi^2_{n-1} \left(1 - \frac{\alpha}{2} \right)} \\
+            \equiv \quad & (n-1) \cdot \frac{s^2}{\chi^2_{n-1} \left( 1 - \frac{\alpha}{2} \right)} & \leq \sigma^2                         & \leq (n-1) \cdot \frac{s^2}{\chi^2_{n-1} \left(\frac{\alpha}{2} \right)}
+        \end{alignat*}
+
+        Damit gilt:
+        \begin{alignat*}{2}
+                         & P((n-1) \cdot \frac{s^2}{\chi^2_{n-1} \left( 1 - \frac{\alpha}{2} \right)} \leq  \sigma^2 \leq (n-1) \cdot \frac{s^2}{\chi^2_{n-1} \left(\frac{\alpha}{2} \right)}) & = \gamma = 1 - \alpha \\
+            \equiv \quad & P(9 \cdot \frac{0.5625}{\chi^2_{9} \left( 0.975 \right)}                   \leq \sigma^2  \leq 9 \cdot \frac{0.5625}{\chi^2_9 \left(0.025 \right)})                 & = 0.95                \\
+            \equiv \quad & P(9 \cdot \frac{0.5625}{19.02}                                             \leq \sigma^2  \leq 9 \cdot \frac{0.5625}{2.70})                                         & = 0.95                \\
+            \equiv \quad & P(0.2662                                                                   \leq \sigma^2  \leq 1.875)                                                               & = 0.95                \\
+        \end{alignat*}
+
+        Damit erhalten wir unser Konfidenzintervall $I_{10}$ mit
+        \[
+            I_{10} = [0.2662, 1.875]
+        \]
+        \qed
+    \end{solution}
+\end{questions}
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    12 Versuchsflächen wurden mit einer neuen Weizensorte bestellt.
+    Diese Flächen erbrachten folgende Hektarerträge (in Doppelzentner):
+    
+    \begin{center}
+        \begin{tabular}{cccccccccccc}
+            35.6 & 33.7 & 37.8 & 31.2 & 37.2 & 43.1 & 35.8 & 36.6 & 37.1 & 34.9 & 35.6 & 34.0
+        \end{tabular}
+    \end{center}
+    
+    Aus Erfahrung weiß man, dass die Hektarerträge als eine Realisierung unabhängiger $\mathcal{N}(\mu, (\sqrt{3})^2)$ - verteilter Zufallsvariablen angesehen werden können. 
+    
+    Geben Sie für den Erwartungswert $\mu$ ein konkretes Konfidenzintervall zum Niveau $0.95$ an.
+    
+    \begin{solution}
+        Wir haben offensichtlich das Vertrauensniveau gegeben mit 
+        \[
+            \gamma = 1 - \alpha = 0.95 \implies \alpha = 0.05    
+        \]
+        
+        Wir wissen, dass gilt:
+        \[ 
+            X := \text{Hektarerträge (in Doppelzentner)} \sim \mathcal{N}(\mu, (\sqrt{3})^2)
+        \]
+        
+        Ein geeigneter Schätzer für $\mu$ ist bekanntermaßen 
+        \[
+            \conj{x} = \frac{1}{n} \cdot \sum_{i=1}^{n} x_i    
+        \]
+        
+        Für unsere Verteilung sind die relevanten Kennzahlen übrigens: 
+        \[ 
+            \conj{x} = \frac{1}{12} \cdot 432.6 = 36.05
+        \]
+        und 
+        \[ 
+            \sigma^2 = 3 \implies \sigma = \sqrt{3}
+        \]
+        
+        Die normierte Zufallsvariable $U$ mit 
+        \[ 
+            U = \sqrt{n} \cdot \frac{\conj{x} - \mu}{\sigma}
+        \]
+        ist dann standarnormalverteilt mit $\mathcal{N}(0, 1)$.
+        
+        Es muss gelten: 
+        \[
+            P(-c \leq U \leq c) = \gamma = 1 - \alpha
+        \]
+        
+        Dann gilt: 
+        \begin{alignat*}{3}
+                         & -c                                                                    & \leq U                                            & \leq c                                                                     \\ 
+            \equiv \quad & -u_{\nicefrac{(1 + \gamma)}{2}}                                       & \leq U                                            & \leq u_{\nicefrac{(1 + \gamma)}{2}}                                        \\ 
+            \equiv \quad & -u_{1 - \nicefrac{\alpha}{2}}                                         & \leq U                                            & \leq u_{1 - \nicefrac{\alpha}{2}}                                          \\ 
+            \equiv \quad & -u_{1 - \nicefrac{\alpha}{2}}                                         & \leq \sqrt{n} \cdot \frac{\conj{x} - \mu}{\sigma} & \leq u_{1 - \nicefrac{\alpha}{2}}                                          \\ 
+            \equiv \quad & \conj{x} - u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}} & \leq \mu                                          & \leq \conj{x} + u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}}
+        \end{alignat*}
+        Damit gilt: 
+        \begin{alignat*}{2}
+                         & P(\conj{x} - u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}} \leq \mu \leq \conj{x} + u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}}) &  & = \gamma = 1 - \alpha \\ 
+            \equiv \quad & P(36.05 - u_{0.975} \cdot \frac{\sqrt{3}}{\sqrt{12}} \leq \mu \leq 36.05 + u_{0.975} \cdot \frac{\sqrt{3}}{\sqrt{12}})                                       &  & = 0.95                \\ 
+            \equiv \quad & P(36.05 - u_{0.975} \cdot \frac{1}{2} \leq \mu \leq 36.05 + u_{0.975} \cdot \frac{1}{2})                                                                     &  & = 0.95                \\ 
+            \equiv \quad & P(36.05 - 1.960 \cdot \frac{1}{2} \leq \mu \leq 36.05 + 1.960 \cdot \frac{1}{2})                                                                             &  & = 0.95                \\ 
+            \equiv \quad & P(35.07 \leq \mu \leq 37.03)                                                                                                                                 &  & = 0.95  
+        \end{alignat*}
+        
+        Damit erhalten wir unser Konfidenzintervall $I_{12}$ mit 
+        \[ 
+            I_{12} = [35.07, 37.03]
+        \]
+        \qed
+    \end{solution}
+    
+\end{questions}
+\end{document}

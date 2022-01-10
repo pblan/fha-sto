@@ -1,0 +1,70 @@
+
+\documentclass{abgabe}
+\begin{document}
+
+\begin{questions}
+    \question
+    Die durchschnittliche Länge von Metallstiften soll geschätzt werden.
+    Eine Stichprobe vom Umfang 36 liefert eine mittlere Länge von $\conj{x} = 38.5 \si{mm}$.
+    Aus früheren Untersuchungen sei bekannt, dass die Länge der Metallstifte normalverteilt ist und die produzierende Maschine mit einer Standardabweichung von $\sigma = 1.8 \si{mm}$ arbeitet.
+
+    \begin{parts}
+        \part
+        Geben Sie ein Konfidenzintervall zum Niveau $0.95$ für die erwartete Metallstiftlänge an.
+        \begin{solution}
+            Wir wissen, dass gilt:
+            \[
+                X := \text{Länge von Metallstiften (in \si{mm})} \sim \mathcal{N}(\mu, 1.8^2)
+            \]
+
+            Wir haben offensichtlich das Vertrauensniveau gegeben mit
+            \[
+                \gamma = 1 - \alpha = 0.95 \implies \alpha = 0.05
+            \]
+
+            Die relevanten Kennzahlen sind bereits gegeben.
+
+            Die normierte Zufallsvariable $U$ mit
+            \[
+                U = \sqrt{n} \cdot \frac{\conj{x} - \mu}{\sigma}
+            \]
+            ist dann standarnormalverteilt mit $\mathcal{N}(0, 1)$.
+
+            Damit gilt dann:
+            \begin{alignat*}{2}
+                             & P(\conj{x} - u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}} \leq \mu \leq \conj{x} + u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}}) &  & = \gamma = 1 - \alpha \\
+                \equiv \quad & P(38.5 - u_{0.975} \cdot \frac{1.8}{\sqrt{36}} \leq \mu \leq 38.5 + u_{0.975} \cdot \frac{1.8}{\sqrt{36}})                                                   &  & = 0.95                \\
+                \equiv \quad & P(38.5 - u_{0.975} \cdot \frac{3}{10} \leq \mu \leq 38.5 + u_{0.975} \cdot \frac{3}{10})                                                                     &  & = 0.95                \\
+                \equiv \quad & P(38.5 - 1.960 \cdot \frac{3}{10} \leq \mu \leq 38.5 + 1.960 \cdot \frac{3}{10})                                                                             &  & = 0.95                \\
+                \equiv \quad & P(37.912 \leq \mu \leq 39.088)                                                                                                                               &  & = 0.95
+            \end{alignat*}
+
+            Damit erhalten wir unser Konfidenzintervall $I_{36}$ mit
+            \[
+                I_{36} = [37.912, 39.088]
+            \]
+            \qed
+        \end{solution}
+
+        \newpage
+        \part
+        Welchen Umfang muss eine Stichprobe haben, damit das Konfidenzintervall zum Niveau $0.95$ für die mittlere Stiftlänge halb so breit ist, wie das unter (a) berechnete?
+        \begin{solution}
+            Offensichtlich gilt für die Intervallbreite $I_B$:
+            \[
+                I_B := c_o - c_u = \conj{x} + u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}} - \left( \conj{x} - u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}} \right) = 2 u_{1 - \nicefrac{\alpha}{2}} \cdot \frac{\sigma}{\sqrt{n}}
+            \]
+
+            Dann gilt offensichtlich:
+            \[
+                I_B \sim \frac{1}{\sqrt{n}}
+            \]
+
+            Um die Breite des Konfidenzintervalls zu halbieren, muss $n$ also 4-mal so groß werden.
+
+            Wir erhalten $n = 36 \cdot 4 = 144$.
+            \qed
+        \end{solution}
+    \end{parts}
+\end{questions}
+\end{document}
